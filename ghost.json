@@ -86,23 +86,24 @@
 		"info_link": "http://paranormalmontana.blogspot.com/2009/10/mainuniversity-hall-and-rankin-hall-um.html",
 		"occupied": true
 	},
-	//todo: Move north on Map
 	{
 		"ghost_name": "",
-		"place_name": "",
+		"place_name": "Hotel Lincoln",
 		"ghost_imgs": "",
-		"ghost_type": "",
+		"ghost_type": "Apparition",
 		"loc": {
-			"lon": 46.8730226,
-			"lat": -113.99375270000002
+			"lon": 46.95589008658049,
+			"lat": -112.68163132663176
 		},
-		"loc_type": "Historical Bar",
-		"loc_img_link": "",
-		"loc_desc": "This historic saloon was built in 1883, and is said to be haunted by a trio of cowboys, who have been known to engage staff and diners in conversation.",
-		"address": "337 North Higgins Avenue Missoula, MT United States",
-		"info_link": "",	
+		"loc_type": "Hotels and Inns",
+		"loc_img_link": "https://media-cdn.tripadvisor.com/media/photo-s/06/50/a4/7d/hotel-lincoln.jpg",
+		"img_cite": "https://www.tripadvisor.com/LocationPhotoDirectLink-g45251-d2257212-i105948285-Hotel_Lincoln-Lincoln_Montana.html",
+		"loc_desc": "Built in 1928 this hotel is haunted by up to three apparitions. Guest have seen a woman in a Victorian gown, a gold miner known by the staff as Jack, and a group of children who haunt the upstairs corridor.",
+		"address": "101 Sleepy Hollows Lane Lincoln, MT United States",
+		"info_link": "https://www.tripadvisor.com/ShowUserReviews-g45251-d2257212-r302650843-Hotel_Lincoln-Lincoln_Montana.html",	
 		"occupied": true
 	},
+	//todo: Move north on Map
 	{
 		"ghost_name": "",
 		"place_name": "",
