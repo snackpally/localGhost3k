@@ -1,6 +1,6 @@
 [
 	{
-		"ghost_name": "",
+		"ghost_name": "",//Delete
 		"place_name": "House Of Screams - Zakos House",
 		"ghost_imgs": "",
 		"ghost_type": "",
@@ -23,7 +23,7 @@
 		"ghost_imgs": "",
 		"ghost_type": "Apparition",
 		"loc": {
-			"lon": 46.8703797,
+			"lon": 46.8703797,//todo change lon to lng
 			"lat": -113.9954141
 		},
 		"loc_type": "Historical Buildings",
@@ -49,7 +49,7 @@
 		"img_cite": "",
 		"loc_desc": "This historic saloon was built in 1883, and is said to be haunted by a trio of cowboys, who have been known to engage staff and diners in conversation.",
 		"address": "337 North Higgins Avenue Missoula, MT United States",
-		"info_link": "https://seeksghosts.blogspot.com/2015/01/haunted-oxford-saloon.html",
+		"info_link": "https://seeksghosts.blogspot.com/2015/01/haunted-oxford-saloon.html",//link to history of place not ghost story
 		"occupied": true
 	},
 	{
