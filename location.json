@@ -1,6 +1,7 @@
 // Location object
 
 {
+	"_id" : "ObjectId("")",
 	"ghost_name": "", 
 	"place_name": "House Of Screams - Zakos House",
 	"ghost_imgs": "",
