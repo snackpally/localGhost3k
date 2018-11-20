@@ -1,7 +1,0 @@
-// comment object
-// I'm not sure I understand how to embed a user and location. Read more.
-{
-  "userId": ObjectId("54759eb3c090d83494e2d804"),
-  "name": "Zack Viente",
-  "comment": [{}]
-}
