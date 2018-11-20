@@ -1,0 +1,14 @@
+// Saved tour object
+
+{
+	"user_id" : "ObjectId("54759eb3c090d83494e2d804")",
+	"saved_loc" : [
+		{
+			"waypoint" : "locId",
+			"waypoint2" : "locId",
+			"waypoint3" : "locId",
+			"waypoint4" : "locId",
+			"waypoint5" : "locId"
+		}
+	]
+}

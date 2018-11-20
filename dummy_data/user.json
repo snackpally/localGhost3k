@@ -1,0 +1,24 @@
+//User Object
+[
+  {
+    "_id": ObjectId("54759eb3c090d83494e2d804"), //example id
+    "first_name": "Zack",
+    "last_name": "Viente",
+    "password": "1234",
+    //dropdown menu with choices
+    "reset_question": [
+      "What is your favorite color",
+      "What was the make of your first car",
+      "What is your favorite animal"
+    ],
+    //this would be set by user input
+    "reset_answer": "Tiger",
+    "user_loc": {
+      "city": "Missoula",
+      "state": "Montana"
+    },
+    "tour_data": [
+      //an array of ghost objects
+    ]
+  }
+]
