@@ -4,21 +4,23 @@
     "_id": ObjectId("54759eb3c090d83494e2d804"), //example id
     "first_name": "Zack",
     "last_name": "Viente",
-    "password": "1234",
+    "password": "1234", //not
     //dropdown menu with choices
     "reset_question": [
+      //not
       "What is your favorite color",
       "What was the make of your first car",
       "What is your favorite animal"
     ],
     //this would be set by user input
-    "reset_answer": "Tiger",
+    "reset_answer": "Tiger", //not
     "user_loc": {
       "city": "Missoula",
       "state": "Montana"
     },
     "tour_data": [
       //an array of ghost objects
-    ]
+    ],
+    "favorites": [Location]
   }
 ]

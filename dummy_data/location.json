@@ -1,16 +1,15 @@
 // Location object
 
 {
-	"_id" : "ObjectId("")",
 	"ghost_name": "", 
 	"place_name": "House Of Screams - Zakos House",
-	"ghost_imgs": "",
-	"ghost_type": "",
+	"ghost_imgs": [Strings],
+	"ghost_type": "",//could be own collection 
 	"loc": {
 		"lon": 46.864724,
 		"lat": -114.001308
 	},
-	"loc_type": "Historical Buildings",
+	"loc_type": "Historical Buildings",//could be own collection for search feature
 	"loc_img_link": "https://bloximages.chicago2.vip.townnews.com/missoula.com/content/tncms/assets/v3/editorial/a/1c/a1c153c0-aea0-11e7-b787-9f560c7a2ffc/59de45fc2496f.image.jpg",
 	"img_cite": "Kurt Wilson",
 	"loc_desc": "Residents of this house in the 1930s reportedly heard extremely loud shrieks from somewhere inside the house. 
