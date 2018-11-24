@@ -1,11 +1,11 @@
 [
 	{
-		"ghost_name": "",//Delete
+		"ghost_name" : "",
 		"place_name": "House Of Screams - Zakos House",
 		"ghost_imgs": "",
 		"ghost_type": "",
 		"loc": {
-			"lon": 46.864724, 
+			"lng": 46.864724, 
 			"lat": -114.001308
 		},
 		"loc_type": "Historical Buildings",
@@ -18,12 +18,12 @@
 		"occupied": true
 	},
 	{
-		"ghost_name": "",
+		"ghost_name" : "",
 		"place_name": "Missoula Mercantile",
 		"ghost_imgs": "",
 		"ghost_type": "Apparition",
 		"loc": {
-			"lon": 46.8703797,//todo change lon to lng
+			"lng": 46.8703797,
 			"lat": -113.9954141
 		},
 		"loc_type": "Historical Buildings",
@@ -36,12 +36,12 @@
 		"occupied": true
 	},
 	{
-		"ghost_name": "",
+		"ghost_name" : "",
 		"place_name": "Oxford Saloon",
 		"ghost_imgs": "",
 		"ghost_type": "Apparition",
 		"loc": {
-			"lon": 46.8730226,
+			"lng": 46.8730226,
 			"lat": -113.99375270000002
 		},
 		"loc_type": "Historical Bar",
@@ -53,12 +53,12 @@
 		"occupied": true
 	},
 	{
-		"ghost_name": "",
+		"ghost_name" : "",
 		"place_name": "Missoula Children's Theatre",
 		"ghost_imgs": "",
 		"ghost_type": "Poltergeist",
 		"loc": {
-			"lon": 46.8703379,
+			"lng": 46.8703379,
 			"lat": -113.98948871296693
 		},
 		"loc_type": "Theaters",
@@ -70,12 +70,12 @@
 		"occupied": true
 	},
 	{
-		"ghost_name": "",
+		"ghost_name" : "",
 		"place_name": "University Of Montana",
 		"ghost_imgs": "",
 		"ghost_type": "",
 		"loc": {
-			"lon": 46.8605765,
+			"lng": 46.8605765,
 			"lat": -113.98212799999999
 		},
 		"loc_type": "Colleges and Universities",
@@ -87,12 +87,12 @@
 		"occupied": true
 	},
 	{
-		"ghost_name": "",
+		"ghost_name" : "",
 		"place_name": "Hotel Lincoln",
 		"ghost_imgs": "",
 		"ghost_type": "Apparition",
 		"loc": {
-			"lon": 46.95589008658049,
+			"lng": 46.95589008658049,
 			"lat": -112.68163132663176
 		},
 		"loc_type": "Hotels and Inns",
