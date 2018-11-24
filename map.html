@@ -7,8 +7,8 @@
   <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
    integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
    crossorigin=""></script>
-   <!-- <script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
-   <script src="lib/leaflet/Google.js"></script> -->
+   <script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
+   <script src="lib/leaflet/Google.js"></script>
 
    <script src="us_states.geojson" type="text/javascript"></script>
     </head>
@@ -27,15 +27,15 @@ var topo = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?acc
   accessToken: 'pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqb2dwNWZiZjBoanAzdm1uMGl4aHV3MnEifQ.Xiw-4Exg4p6kiqkJXow27g'
 }).addTo(mymap);
 
-var GeoportailFrance_ignMaps = L.tileLayer('https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=GEOGRAPHICALGRIDSYSTEMS.MAPS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
-	attribution: '<a target="_blank" href="https://www.geoportail.gouv.fr/">Geoportail France</a>',
-	bounds: [[-75, -180], [81, 180]],
-	minZoom: 2,
-	maxZoom: 18,
-	apikey: 'choisirgeoportail',
-	format: 'image/jpeg',
-	style: 'normal'
-});
+// var GeoportailFrance_ignMaps = L.tileLayer('https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=GEOGRAPHICALGRIDSYSTEMS.MAPS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
+// 	attribution: '<a target="_blank" href="https://www.geoportail.gouv.fr/">Geoportail France</a>',
+// 	bounds: [[-75, -180], [81, 180]],
+// 	minZoom: 2,
+// 	maxZoom: 18,
+// 	apikey: 'choisirgeoportail',
+// 	format: 'image/jpeg',
+// 	style: 'normal'
+// });
 
 //tried to add roadmap layer from google
 
@@ -45,11 +45,31 @@ var GeoportailFrance_ignMaps = L.tileLayer('https://wxs.ign.fr/{apikey}/geoporta
 
 // map.fitBounds(polyline.getBounds());
 //
-
+//MARKERS
 //adding markers to the maps
 
 var marker = L.marker([46.8797, -110.3626]).addTo(mymap);
 
+
+//multiple markers with icon--https://maptimeboston.github.io/leaflet-intro/
+// $.getJSON("ghost.geojson",function(data){
+//     var ghostIcon = L.icon({
+//     iconUrl: 'http://icons.iconarchive.com/icons/csscreme/halloween/128/ghost-icon.png',
+//     iconSize: [50,40]
+//   });
+//   L.geoJson(data  ,{
+//     pointToLayer: function(feature,latlng){
+// 	  return L.marker(latlng,{icon: whostIcon});
+//     }
+//   }  ).addTo(mymap);
+// });
+//
+// //making markers interactive
+// pointToLayer: function(feature,latlng){
+//     var marker = L.marker(latlng,{icon: ghostIcon});
+//   marker.bindPopup(feature.properties.Location + '<br/>' + feature.properties.OPEN_DT);
+//   return marker;
+// }
 
 //adding info to the popUp side bar
 
@@ -70,8 +90,9 @@ var marker = L.marker([46.8797, -110.3626]).addTo(mymap);
 geojson = L.geoJSON(states, {
   style: function(feature) {
     switch (feature.properties.STATE_NAME) {
-      case 'Montana' : return {fillOpacity: 0, color: 'black'};
-      // case !'Montana': return {fillOpacity: 30, color: 'black'};
+      case 'Montana' : return {fillOpacity: 0, color: 'black'}; break;
+       case (!= 'Montana'): return {fillOpacity: 30, color: 'black'}; break;
+};
     }
   }
 }).addTo(mymap);
