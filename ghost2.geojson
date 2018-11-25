@@ -1,0 +1,38 @@
+var ghost2 =
+     {
+       "type": "FeatureCollection",
+       "features": [{
+           "type": "Feature",
+           "geometry": {
+               "type": "Point",
+               "coordinates": [-113.995, 46.8703797
+         			 ]
+           },
+           "properties": {
+             "ghost_name": "",
+             "place_name": "Missoula Mercantile",
+             "ghost_imgs": "",
+             "ghost_type": "Apparition",
+              "prop0": "value0"
+           }
+       }, {
+           "type": "Feature",
+           "geometry": {
+               "type": "Point",
+               "coordinates":
+                   [-113.9821,46.8605
+             			 ]
+
+
+           },
+           "properties": {
+             "ghost_name": "",
+             "place_name": "University Of Montana",
+             "ghost_imgs": "",
+             "ghost_type": "",
+               "prop0": "value0",
+               "prop1": 0.0
+           }
+         }
+       ]
+     }

@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
-  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-  crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
-   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
-   crossorigin=""></script>
+  <link href="leaflet/leaflet.css" type="text/css" rel="stylesheet">
+  <!-- <link href="cssgoeshere" type="text/css" rel="stylesheet"> -->
+</head>
+
    <!-- <script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script> -->
     <!-- <script src="lib/leaflet/Google.js"></script> -->
 
-    <script src="jquery-2.1.1.min.js"></script>
-    <script src="ghost.geojson" type="text/jscript"></script>
-    <script src="us_states.geojson" type="text/javascript"></script>
     <!-- <script src="/lib/jquery.min.js"></script>
 <script src="/lib/jquery.plugin.js"></script>  -->
-    </head>
     <body>
     <div id="map"></div>
     <div id="sideInfoPopUp"></div>
+
     <style> #map { height: 800px; width: auto} </style>
+
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="leaflet/leaflet.js"></script>
+
+    <script src="ghost2.geojson"></script>
+    <script src="us_states.geojson"></script>
+     <!-- <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>  -->
 <script>
 
 var mymap = L.map('map').setView([46.8797, -110.3626], 7);
@@ -71,35 +73,50 @@ function styling (feature) {
 
 
 //multiple markers with icon--https://maptimeboston.github.io/leaflet-intro/
+  //L.geoJson(ghost2,{
 
-//   $.getJSON('../localGhost3k/ghost.geojson',function(ghost){
-//     var ghostIcon= new L.icon({
-//     iconUrl: 'ghost-icon.png',
-//     iconSize: [50,40]
-//   });
-//   L.geoJson(ghost ,{
-//     pointToLayer: function(ghost,latlng){
-// 	  return L.marker(latlng,{icon: ghostIcon});
-//     }
-//   }).addTo(mymap);
+  //})
+//    getJSON('ghost2.geojson',function(ghost2){
+// var ghostIcon= new L.icon({
+//   iconUrl: 'ghost-icon.png',
+//   iconSize: [16,16]
 // });
+var ghost = new L.icon({
+    iconUrl: "ghost-icon.png",
+    iconSize: [40,40]
+  });
+
+function ghostInfo (feature,
+  layer) {
+    console.log("I'm reading");
+      layer.bindPopup("<h1>I'm the scariest ghost on the planet</h1>");
+    layer.setIcon(ghost);
+  };
+L.geoJson(ghost2 ,{
+      onEachFeature: ghostInfo
+    }).addTo(mymap);
+    // pointToLayer: function(feature,latlng){
+	  // return L.marker(latlng,{icon: ghostIcon});
+    // }
+  //}).addTo(mymap);
+ //});
 // geojson2 = L.geoJSON(ghost, {
 //   style: styling
 // }).addTo(mymap);
 // var my_json;
 // $.getJSON('ghost.geojson', function(ghost) {
-  my_json = L.geoJson(ghost, {
-    pointToLayer: function(feature, latlng) {
-      var ghostIcon = new L.Icon({
-        options: {
-          iconSize: [16,16],
-          iconAnchor: [13,27],
-          iconUrl: 'ghost-icon.png'
-        }
-        }).addTo(mymap);
-      }
-
-  });
+  // my_json = L.geoJson(ghost2, {
+  //   pointToLayer: function(feature, latlng) {
+  //     var ghostIcon = new L.Icon({
+  //       options: {
+  //         iconSize: [16,16],
+  //         iconAnchor: [13,27],
+  //         iconUrl: 'ghost-icon.png'
+  //       }
+  //       }).addTo(mymap);
+  //     }
+  //
+  // });
 
 //       return L.marker(latlng, {icon: ghostIcon});
 //     },
