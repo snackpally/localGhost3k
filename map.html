@@ -24,9 +24,9 @@
      <!-- <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>  -->
 <script>
 
-var mymap = L.map('map').setView([46.8797, -110.3626], 7);
+var mymap = L.map('map').setView([46.8797, -110.3626], 7); //currently loads to level 18
 
-var topo = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+var topo =  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
   maxZoom: 18,
   id: 'mapbox.streets',
@@ -72,15 +72,7 @@ function styling (feature) {
 // var marker = L.marker([46.8797, -110.3626]).addTo(mymap);
 
 
-//multiple markers with icon--https://maptimeboston.github.io/leaflet-intro/
-  //L.geoJson(ghost2,{
-
-  //})
-//    getJSON('ghost2.geojson',function(ghost2){
-// var ghostIcon= new L.icon({
-//   iconUrl: 'ghost-icon.png',
-//   iconSize: [16,16]
-// });
+//multiple markers with icon--https://maptimeboston.github.io/leaflet-intro/and video https://www.youtube.com/watch?v=fDfkjx-VhLI  icon size shrinks with zoom in
 var ghost = new L.icon({
     iconUrl: "ghost-icon.png",
     iconSize: [40,40]
