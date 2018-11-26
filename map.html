@@ -21,10 +21,11 @@
 
     <script src="ghost2.geojson"></script>
     <script src="us_states.geojson"></script>
+    <script src="canada-province.geojson"></script>
      <!-- <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>  -->
 <script>
 
-var mymap = L.map('map').setView([46.8797, -110.3626], 7); //currently loads to level 18
+var mymap = L.map('map').setView([46.8797, -110.3626], 7.2); //currently loads to level 18
 
 var topo =  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -55,7 +56,7 @@ var topo =  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
 //Local geoJson file loaded in--This code reads in the data and I get borders separated montana but only US
 
 
-geojson = L.geoJSON(states, {
+L.geoJSON(states, {
   style: styling
 }).addTo(mymap);
 
@@ -66,6 +67,14 @@ function styling (feature) {
     return {fillOpacity: .5, color: 'black' }
   }
 }
+L.geoJSON(canada, {
+  style: stylingCa
+}).addTo(mymap);
+
+function stylingCa (feature) {
+    return {fillOpacity: .5, color: 'black' }
+  }
+
 //MARKERS
 //adding markers to the maps
 
