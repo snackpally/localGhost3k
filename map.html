@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuKPHJxYxFfGhfoR1sJQTPoTIVjpN4xyg" async defer></script>
-  <link href="leaflet/leaflet.css" type="text/css" rel="stylesheet">
+  <link href="leaflet/leaflet.css" type="text/css" rel="stylesheet" crossorigin=""/>
 
 </head>
 
@@ -10,13 +10,13 @@
     <div id="map"></div>
     <div id="sideInfoPopUp"></div>
 
-    <style> #map  {height: 800px; width: auto}
-    /* #sideInfoPopUp {float: right; height: 800px;
-    width: 300px} */
+    <style> #map  {height: 800px; width: 900px}
+    #sideInfoPopUp {float: right; height: 800px;
+    width: 500px}
     </style>
 
     <script src="jquery-2.1.1.min.js"></script>
-    <script src="leaflet/leaflet.js"></script>
+    <script src="leaflet/leaflet.js" crossorigin=""></script>
     <script src='https://unpkg.com/leaflet.gridlayer.googlemutant@latest/Leaflet.GoogleMutant.js'></script>
     <script src="ghost2.geojson"></script>
     <script src="us_states.geojson"></script>
@@ -43,12 +43,12 @@ map.setView([46.8797, -110.3626], 7);
 
 //Google maps added valid values are 'roadmap', 'satellite', 'terrain' and 'hybrid'
 
-var roads = new L.GridLayer.GoogleMutant({
-    type: 'roadmap',
-    styles: [{featureType: 'poi.business', stylers: [{visibility: 'off'}]},
-    // {elementType: 'poi.parks', stylers: [{visibility: 'on'}]}
-  ]
-}).addTo(map);
+// var roads = new L.GridLayer.GoogleMutant({
+//     type: 'roadmap',
+//     styles: [{featureType: 'poi.business', stylers: [{visibility: 'off'}]},
+//     // {elementType: 'poi.parks', stylers: [{visibility: 'on'}]}
+//   ]
+// }).addTo(map);
 
 // var panoramaOptions = {
 //     position: [46.8797, -110.3626],
