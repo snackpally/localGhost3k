@@ -10,7 +10,10 @@
     <div id="map"></div>
     <div id="sideInfoPopUp"></div>
 
-    <style> #map { height: 800px; width: auto} </style>
+    <style> #map  {height: 800px; width: auto}
+    /* #sideInfoPopUp {float: right; height: 800px;
+    width: 300px} */
+    </style>
 
     <script src="jquery-2.1.1.min.js"></script>
     <script src="leaflet/leaflet.js"></script>
@@ -21,17 +24,17 @@
 
 <script>
 
-var map = L.map('map', { //this sets the map so it can zoom out past montana, but can't go in past zoom 18 which it can't read at anyway.
+var map = L.map('map', { //this sets the map so it can't zoom out past montana, but can't go in past zoom 18 (even though it says 30) which it can't read at anyway.
   minZoom: 7,
   maxZoom: 30
 });
-map.setView([46.8797, -110.3626], 7.2);
+map.setView([46.8797, -110.3626], 7);
 
 // map.fitBounds(polyline.getBounds());
 
 // A different streetmap view from Map box rather than Google
 
-//var topo =  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={AIzaSyBuKPHJxYxFfGhfoR1sJQTPoTIVjpN4xyg}', {
+// var topo =  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={AIzaSyBuKPHJxYxFfGhfoR1sJQTPoTIVjpN4xyg}', {
 //   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 //   maxZoom: 18,
 //   id: 'mapbox.streets',
@@ -41,8 +44,21 @@ map.setView([46.8797, -110.3626], 7.2);
 //Google maps added valid values are 'roadmap', 'satellite', 'terrain' and 'hybrid'
 
 var roads = new L.GridLayer.GoogleMutant({
-    type: 'roadmap'
+    type: 'roadmap',
+    styles: [{featureType: 'poi.business', stylers: [{visibility: 'off'}]},
+    // {elementType: 'poi.parks', stylers: [{visibility: 'on'}]}
+  ]
 }).addTo(map);
+
+// var panoramaOptions = {
+//     position: [46.8797, -110.3626],
+//     pov: {
+//       heading: 34,
+//       pitch: 10
+//     }
+//   };
+// var panorama = new  google.maps.StreetViewPanorama(document.getElementById('sideInfoPopUp'),panoramaOptions);
+//   map.setStreetView(panorama);
 
 
 //Local geoJson files loaded in--This code reads in the data and I get borders separated montana US(states) and Canada(canada) added as well, two separate geojsons.
@@ -59,9 +75,9 @@ L.geoJSON(canada, {
 
 function styling (feature) {
   if (feature.properties.STATE_NAME === 'Montana') {
-    return {fillOpacity: 0, color: 'black' }
+    return {fillOpacity: 0, color: 'orange' }
   } else {
-    return {fillOpacity: .5, color: 'black' }
+    return {fillOpacity: .5, color: 'orange' , fillColor: 'blue'}
   }
 }
 
@@ -75,8 +91,8 @@ function styling (feature) {
 //multiple markers with ghost icon (for now) icon--https://maptimeboston.github.io/leaflet-intro/and video https://www.youtube.com/watch?v=fDfkjx-VhLI  icon size shrinks with zoom in
 
 var ghost = new L.icon({
-    iconUrl: "ghost-icon.png",
-    iconSize: [40,40]
+    iconUrl: "ghost-icon.png", //can add any png here!
+    iconSize: [60,60]
   });
 
 function ghostInfo (feature,
@@ -105,8 +121,9 @@ L.geoJson(ghost2 ,{
 //     layer.on({
 //         click: function populate() {
 //           document.getElementById("sideInfoPopUp"),
-//           innerHTML = <h4>feature.properties.place_name</h4> + "<br>" + feature.properties.loc_img_link + "<br>" + feature.properties.loc_desc + "<br>" + feature.properties.info_link + <button id="addStories" placeholder="Add my Story"></button>
-//         }
+//           innerHTML =  "<h4>"feature.properties.place_name"</h4>" + "<br>" + feature.properties.loc_img_link + "<br>" + feature.properties.loc_desc + "<br>" + feature.properties.info_link + <button id="addStories" placeholder="Add my Story"></button>
+//
+//       }
 //     });
 // }
  //map.fitBounds(polygon.getBounds());
