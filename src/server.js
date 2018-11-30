@@ -8,5 +8,5 @@ app.use(cors());
 
 
 app.listen(3001, function(){
-	'Server is running on 3001'
+	console.log('Server is running on 3001');
 })
