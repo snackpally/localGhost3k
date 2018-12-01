@@ -1,8 +1,14 @@
+//routes/location.route.js
+
 const express = require('express');
 const router = express.Router();
 
-const location_controler = require('../controllers/location.controller');
+const location_controller = require('../controllers/location.controller');
 
-router.get('/test' , location_controler.test);
+router.get('/test' , location_controller.test);
+
+router.post('/create', location_controller.location_create);
+
+router.get('/:id', location_controller.location_details);
 
 module.exports = router;
