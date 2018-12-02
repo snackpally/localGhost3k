@@ -4,7 +4,7 @@ let Schema = mongoose.Schema;
 let locationSchema = new Schema ({
 	'ghost_name' : String,
 	'place_name' : String,
-	'ghost_imgs' : [String],
+	'ghost_imgs' : [],
 	'ghost_type' : String,
 	'loc' : {
 		'lon' : Number,
