@@ -7,6 +7,6 @@ router.get('/test' , location_controller.test);
 
 router.post('/create', location_controller.location_create);
 
-router.get('/:id', location_controller.location_details);
+router.get('/detail/:id', location_controller.location_details);
 
 module.exports = router;
