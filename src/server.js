@@ -7,6 +7,7 @@ var session = require("express-session");
 const cors = require('cors'); 
 
 //import routes for project
+const user = require('../routes/user.route');
 const location = require('../routes/location.route');
 const comment = require('../routes/comment.route');
 //set up express server
@@ -40,12 +41,13 @@ app.use(session({
 }));
 
 //Passport init
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 //Routes
 app.use("/location", location);
 app.use("/comment", comment);
+app.use("/user", user); 
 
 app.listen(3001, function(){
 	console.log('Server is running on 3001');

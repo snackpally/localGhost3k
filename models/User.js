@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Location = require('./Location');
-const bcrypt = require('bcryptjs');
 let Schema = mongoose.Schema;
 
 //schema for user 
