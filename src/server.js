@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
+var cookieParser = require("cookie-parser");
+var session = require("express-session");
+//do we need cors?
 const cors = require('cors'); 
 
 //import routes for project
@@ -24,10 +27,23 @@ let db = mongoose.connection;
 	db.once('open', () => console.log('Connected to the database'));
 	db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
+//BodyParser Middleware
 app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
+//Express Session
+app.use(session({
+	secret: 'secret',
+	saveUninitialized: true,
+	resave: true
+}));
+
+//Passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Routes
 app.use("/location", location);
 app.use("/comment", comment);
 

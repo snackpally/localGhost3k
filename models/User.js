@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
-let Schema = mongoose.Schema;
 const Location = require('./Location');
+const bcrypt = require('bcryptjs');
+let Schema = mongoose.Schema;
 
+//schema for user 
 let userSchema = new Schema({
-  first_name: String,
+	username: String,
+	password: String,
+	email: String,
+	first_name: String,
   last_name: String,
   user_loc: {
     city: String,
