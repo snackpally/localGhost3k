@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
-var cookieParser = require("cookie-parser");
-var session = require("express-session");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 //do we need cors?
 const cors = require('cors'); 
 
