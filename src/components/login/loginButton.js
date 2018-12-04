@@ -5,7 +5,7 @@ import axios from 'axios';
 class SignUp extends React.Component {
 	
 	handleSubmit() {
-		axios.post('http://localhost:3001/user/register').then(function (res) {
+		axios.post('/user/register').then(function (res) {
 			console.log(res);
 		})
 		.catch(function (err) {
