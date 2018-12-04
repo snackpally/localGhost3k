@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios'; 
-import { Button } from 'reactstrap';
-import $ from 'jquery'; 
+
 
 class SignUp extends React.Component {
 	
@@ -16,7 +15,9 @@ class SignUp extends React.Component {
 
 	render() {
 		return (
-
+			<button className = "btn btn-primary" onClick = {this.handleSubmit}>Sign Up</button>
 		);
 	}
 }
+
+export default SignUp;

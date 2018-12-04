@@ -12,6 +12,7 @@ const location = require('../routes/location.route');
 const comment = require('../routes/comment.route');
 //set up express server
 const app = express();
+app.use(cors('*'));
 
 //set mongoose to connect with mlab remote database
 let dev_db_url = 'mongodb://zviente:zack1123@ds038888.mlab.com:38888/localghost3k';
