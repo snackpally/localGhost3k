@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 //register user controller
 
-exports.new_user = function(req, res) {
+exports.new_user = function(req, res, next) {
 	let password = req.body.password;
 	let password2 = req.body.password2;
 
@@ -17,7 +17,7 @@ exports.new_user = function(req, res) {
 		});
 
 		User.createUser(newUser, function(err, user) {
-			if(err) throw err;
+			if(err) return next(err);
 			res.send(user).end()
 		});
 	} else { 
