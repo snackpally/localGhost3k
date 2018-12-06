@@ -8,13 +8,13 @@ let userSchema = new Schema({
   password: { type: String, required: true },
   email: { type: String, required: true },
   first_name: { type: String, required: true },
-  last_name: String,
+  last_name: { type: String, required: true },
   user_loc: {
     city: String,
     state: String
   },
-  tour_data: [{ type: mongoose.Schema.Types.ObjectId, ref: Location }],
-  favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: Location }]
+  tour_data: [{ type: Schema.Types.ObjectId, ref: Location }],
+  favorites: [{ type: Schema.Types.ObjectId, ref: Location }]
 });
 
 module.exports = mongoose.model("User", userSchema);

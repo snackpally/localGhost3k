@@ -4,9 +4,9 @@ const User = require("./User");
 const Location = require("./Location");
 
 let tourSchema = new Schema({
-  user_id: { type: mongoose.Schema.Types.ObjectId, ref: User },
+  user_id: { type: Schema.Types.ObjectId, ref: User },
   tour_name: String,
-  saved_loc: [{ type: mongoose.Schema.Types.ObjectId, ref: Location }]
+  saved_loc: [{ type: Schema.Types.ObjectId, ref: Location }]
 });
 
 module.exports = ("Tour", tourSchema);

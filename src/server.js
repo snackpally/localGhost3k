@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const passport = require("passport");
 //do we need cors?
 const cors = require("cors");
 
@@ -44,8 +45,8 @@ app.use(
 );
 
 //Passport init
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Routes
 app.use("/location", location);

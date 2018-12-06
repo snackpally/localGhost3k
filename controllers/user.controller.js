@@ -1,4 +1,5 @@
 //todo refactor es6 classes
+
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 
@@ -10,11 +11,11 @@ exports.new_user = function(req, res, next) {
 
   if (password == password2) {
     let newUser = new User({
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
+      username: req.body.username,
+      password: req.body.password,
       email: req.body.email,
-      username: req.body.userName,
-      password: req.body.password
+      first_name: req.body.first_name,
+      last_name: req.body.last_name
     });
 
     exports.createUser(newUser, function(err, user) {

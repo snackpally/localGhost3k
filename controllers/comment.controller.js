@@ -5,7 +5,9 @@ exports.test = function(req, res) {
 };
 
 exports.comment_newComment = function(req, res, next) {
-  let newComment = new Comment(req.body);
+  let newComment = new Comment({
+    comment: req.body.comment
+  });
   newComment.save(function(err) {
     if (err) {
       return next(err);
@@ -14,3 +16,5 @@ exports.comment_newComment = function(req, res, next) {
     console.log(res.json(newComment));
   });
 };
+
+exports.getCommentsById = function(req, res, next) {};
