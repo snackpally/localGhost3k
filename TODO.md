@@ -1,4 +1,4 @@
-TO DO STILL
+#TO DO STILL
 
 [] GET route to pull all comments by ghost location name? or \_id?
 
@@ -13,3 +13,5 @@ TO DO STILL
 [] POST route for Locations
 
 [] POST route to save Location to user tour array
+
+[] do comments own locations or do locations own comments...
