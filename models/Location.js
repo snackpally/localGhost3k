@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
+const Comment = require("./Comment");
 let Schema = mongoose.Schema;
 
 let locationSchema = new Schema({
   ghost_name: { type: String, required: true },
   place_name: String,
-  // ghost_imgs: [],
+  ghost_imgs: [String],
   ghost_type: String,
   loc: {
     type: {
@@ -28,7 +29,11 @@ let locationSchema = new Schema({
     country: String
   },
   info_link: String,
-  occupied: Boolean
+  comment: {
+    type: Schema.Types.ObjectId,
+    ref: Comment
+  }
+  occupied: { type: Boolean, required: true }
 });
 
 module.exports = mongoose.model("Location", locationSchema);

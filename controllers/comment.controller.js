@@ -17,4 +17,6 @@ exports.comment_newComment = function(req, res, next) {
   });
 };
 
-exports.getCommentsById = function(req, res, next) {};
+// exports.getCommentsById = function(req, res, next) {
+//   let query = {};
+// };
