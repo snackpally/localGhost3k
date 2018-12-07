@@ -7,8 +7,15 @@ let locationSchema = new Schema({
   // ghost_imgs: [],
   ghost_type: String,
   loc: {
-    lon: Number,
-    lat: Number
+    type: {
+      type: String,
+      enum: ["Point"],
+      required: true
+    },
+    coordinates: {
+      type: [Number],
+      required: true
+    }
   },
   loc_type: String,
   loc_img_link: String,
