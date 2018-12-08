@@ -5,7 +5,7 @@ var ghost2 =
            "type": "Feature",
                "geometry": {
                    "type": "Point",
-                   "coordinates": [-113.995, 46.8703797
+                   "coordinates": [46.8703797, -113.995
              			 ]
                },
                "properties": {
@@ -20,7 +20,7 @@ var ghost2 =
            "geometry": {
                "type": "Point",
                "coordinates":
-                   [-113.9821,46.8605]
+                   [46.8605,-113.9821]
            },
            "properties": {
              "ghost_name": "",
@@ -35,7 +35,7 @@ var ghost2 =
              "geometry": {
                  "type": "Point",
                  "coordinates":
-                     [-112.681631,  46.9558]
+                     [46.9558,-112.681631]
               },
                "properties": {
                  "ghost_name": "",
@@ -53,3 +53,5 @@ var ghost2 =
          }
        ]
      }
+
+     module.exports = ghost2;

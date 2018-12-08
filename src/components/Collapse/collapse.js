@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'react-google-maps';
+//import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'react-google-maps';
 
 class Example extends Component {
   constructor(props) {

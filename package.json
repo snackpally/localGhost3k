@@ -4,28 +4,23 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-<<<<<<< HEAD
-    "bootstrap": "^4.1.3",
-    "google-maps-react": "^2.0.2",
-    "leaflet": "^1.3.4",
-=======
     "bcryptjs": "*",
+    "bootstrap": "^4.1.3",
     "cancan": "^3.1.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
->>>>>>> 7f1b4b4efca9eaead4199bc1e2ea4ecf81cbfdd6
+    "google-maps-react": "^2.0.2",
+    "leaflet": "^1.3.4",
     "mongoose": "^5.3.13",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-<<<<<<< HEAD
     "react-google-maps": "^9.4.5",
     "react-leaflet": "^2.1.2",
-=======
->>>>>>> 7f1b4b4efca9eaead4199bc1e2ea4ecf81cbfdd6
+    "react-leaflet-marker-layer": "^0.1.4",
     "react-scripts": "2.1.1",
     "reactstrap": "^6.5.0"
   },
@@ -43,5 +38,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@types/prop-types": "^15.5.7"
+  }
 }
