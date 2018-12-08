@@ -1,10 +1,20 @@
 const mongoose = require("mongoose");
-const Comment = require("./Comment");
+// const User = require("./User");
 let Schema = mongoose.Schema;
+
+let Comment = new Schema({
+  author: {
+    type: Schema.Types.ObjectId,
+    name: String
+  },
+  comment: { type: String },
+  date_created: { type: Date, default: Date.now },
+  date_deleted: { type: Date, default: Date.now }
+});
 
 let locationSchema = new Schema({
   ghost_name: { type: String, required: true },
-  place_name: String,
+  place_name: { type: String, required: true },
   ghost_imgs: [String],
   ghost_type: String,
   loc: {
@@ -29,10 +39,7 @@ let locationSchema = new Schema({
     country: String
   },
   info_link: String,
-  comment: {
-    type: Schema.Types.ObjectId,
-    ref: Comment
-  }
+  comment: [Comment],
   occupied: { type: Boolean, required: true }
 });
 
