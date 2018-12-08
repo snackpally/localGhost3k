@@ -1,7 +1,7 @@
 .navbar-custom {
 
-  background-image: -webkit-linear-gradient(top, #ffffff 0%, #030001 100%);
-background-image: linear-gradient(to bottom, #ffffff 0%, #030001 100%);
+  background-image: -webkit-linear-gradient(top, #DD1FF3 0%, #E0F31F 100%);
+background-image: linear-gradient(to bottom, #DD1FF3 0%, #E0F31F 100%);
 background-repeat: repeat-x;
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdfdfdf', GradientType=0);
 }
@@ -13,6 +13,10 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', en
 
 .nav-link {
   color: #d7e2e9;
+}
+
+.btn-lg {
+  
 }
 
 /* .navbar-toggler-always {
