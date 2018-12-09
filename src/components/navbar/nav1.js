@@ -16,23 +16,12 @@ class Navbar extends React.Component {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <a
-          className="navbar-brand"
-          href="https://trello.com/b/bqjihFDa/local-ghost-3000"
-        >
+        <a className="navbar-brand" href="https://trello.com/b/bqjihFDa/local-ghost-3000">
           <img src={require("./ghosty2.gif")} alt="" width="54px" /> LocalGhost
         </a>
         <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button
-            className="btn btn-outline-dark btn-sm my-2 my-sm-0"
-            type="submit"
-          >
+          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+          <button className="btn btn-outline-dark btn-sm my-2 my-sm-0" type="submit">
             Search
           </button>
         </form>
@@ -42,10 +31,7 @@ class Navbar extends React.Component {
         <div className="navbar-collapse collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a
-                className="nav-link"
-                href="https://community.canvaslms.com/docs/DOC-13089-4152719730"
-              >
+              <a className="nav-link" href="https://community.canvaslms.com/docs/DOC-13089-4152719730">
                 Profile<span className="sr-only">(current)</span>
               </a>
             </li>

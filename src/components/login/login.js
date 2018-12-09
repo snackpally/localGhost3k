@@ -7,7 +7,7 @@ class Login extends React.Component {
     this.state = {
       username: "",
       password: "",
-      enterSubmit: false
+      enterSubmit: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,7 +26,7 @@ class Login extends React.Component {
   handleSubmit() {
     let login = {
       username: this.state.username,
-      password: this.state.password
+      password: this.state.password,
     };
     axios
       .post("http://localhost:3001/user/login", login)
