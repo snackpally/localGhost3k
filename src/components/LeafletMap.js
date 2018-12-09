@@ -48,9 +48,9 @@ export default class LeafletMap extends React.Component{
 
   borderStyle(feature) {
     if (feature.properties.STATE_NAME == 'Montana') {
-      return {fillOpacity: 0, color: 'orange' }
+      return {fillOpacity: 0, color: 'lightgreen' }
     } else {
-      return {fillOpacity: .5, color: 'orange' , fillColor: 'navy'}
+      return {fillOpacity: .5, color: 'lightgreen' , fillColor: 'navy'}
     }
   }
 
