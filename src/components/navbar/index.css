@@ -1,11 +1,9 @@
 .navbar-custom {
-
-  background-image: -webkit-linear-gradient(top, #DD1FF3 0%, #E0F31F 100%);
-background-image: linear-gradient(to bottom, #DD1FF3 0%, #E0F31F 100%);
-background-repeat: repeat-x;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdfdfdf', GradientType=0);
+  background-image: -webkit-linear-gradient(top, #dd1ff3 0%, #e0f31f 100%);
+  background-image: linear-gradient(to bottom, #dd1ff3 0%, #e0f31f 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdfdfdf', GradientType=0);
 }
-
 
 .navbar-brand {
   color: #d7e2e9;
