@@ -1,37 +1,81 @@
 import React from "react";
-import SignUp from "./loginButton";
+import axios from "axios";
 
-class UserForm extends React.Component {
+class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+      enterSubmit: false
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+  _handleKeyPress = e => {
+    if (e.key === "Enter") {
+      this.setState({ enterSubmit: true });
+      console.log("do validate");
+    }
+  };
+  //TODO submit on enter
+
+  handleSubmit() {
+    let login = {
+      username: this.state.username,
+      password: this.state.password
+    };
+    axios
+      .post("http://localhost:3001/user/login", login)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    //TODO redirect to User page on success
+  }
   render() {
     return (
-      <form>
-        <div className="form-group">
-          <label htmlFor="signUpUsername">Username</label>
-          <input
-            type="text"
-            className="form-control"
-            id="signUpUsername"
-            aria-describedby="usernameHelp"
-            placeholder="Enter Username"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="inputEmail">Email Address</label>
-          <input
-            type="email"
-            className="form-control"
-            id="inputEmail"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-          />
-          <small id="emailHelp" className="form-text text-muted">
-            We'll never share your email with anyone else.
-          </small>
-        </div>
-        <SignUp />
-      </form>
+      <div>
+        <h1>Log In</h1>
+        <form>
+          <div className=" form-group">
+            <label htmlFor="loginUsername">Username</label>
+            <input
+              type="text"
+              name="username"
+              className="form-control"
+              id="loginUsername"
+              aria-describedby="loginusernameHelp"
+              placeholder="Enter Username"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className=" form-group">
+            <label htmlFor="loginPassword">Password</label>
+            <input
+              type="password"
+              name="password"
+              className="form-control"
+              id="loginPassword"
+              aria-describedby="loginPasswordHelp"
+              placeholder="Enter Password"
+              onChange={this.handleChange}
+              onKeyPress={this._handleKeyPress}
+            />
+          </div>
+        </form>
+        <button className="btn btn-primary" onClick={this.handleSubmit}>
+          Sign Up
+        </button>
+      </div>
     );
   }
 }
 
-export default UserForm;
+export default Login;
