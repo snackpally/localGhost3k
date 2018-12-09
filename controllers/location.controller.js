@@ -32,13 +32,13 @@ exports.location_details = function(req, res, next) {
   Location.findById(req.params.id, function(err, location) {
     if (err) return next(err);
     res.send(location);
-    here = location;
-  });
-  here.comment.push({ comment: req.body.comment });
-  here.save(function(err) {
-    if (err) {
-      return next(err);
-    }
-    res.send("New comment saved!");
   });
 };
+// here = location;
+// here.comment.push({ comment: req.body.comment });
+// here.save(function(err) {
+// 	if (err) {
+// 		return next(err);
+// 	}
+// 	res.send("New comment saved!");
+// });
