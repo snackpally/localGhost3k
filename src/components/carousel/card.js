@@ -7,6 +7,7 @@ import "./Cindex.css";
 
 class Card extends React.Component {
 	render() {
+		console.log("title", this.props.data)
 		return(
       <div className="container">
         <div className="row">
@@ -15,6 +16,7 @@ class Card extends React.Component {
               <h5 className="card-title" className="ghost-name">{this.props.data.ghost_name}</h5>
               <h3 className="title" className="place-name">{this.props.data.place_name}</h3>
               <p className="loc-info">{this.props.data.loc_desc}</p>
+							//<img className="imageStyle" src={this.props.data.loc_img_link}/>
             </div>
           </div>
         </div>
