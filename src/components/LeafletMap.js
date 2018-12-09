@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Leaflet from 'leaflet';
-import {Map, TileLayer, GeoJSON} from 'react-leaflet';
+import {Map, TileLayer, Marker, GeoJSON} from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import Markers from './Markers.js';
-import Collapsable from './Collapsable.js';
+//import Markers from './Markers.js';
+import Collapseable from './Collapseable.js';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import 'leaflet/dist/leaflet.css';
-import northamerica from './northamerica.js';
-import ghostIcon from '../assets/image/ghost-icon.png';
+import northamerica from '../assets/maps/northamerica.js';
+import ghost2 from '../assets/dummyData/ghost2.js';
 
 const centerCoord = [46.8797, -110.3626];
 
@@ -16,6 +16,11 @@ const mapStyle = {
   height: "800px",
   zIndex: 999
 };
+
+const ghostSingleIcon = new Leaflet.Icon({
+  iconUrl: './assets/image/ghost-icon.png',
+  iconSize: [30,30]
+});
 
 const ghostClusterIcon = new Leaflet.Icon({
   iconUrl: './assets/image/ghost-icon.png',
@@ -26,15 +31,18 @@ export default class LeafletMap extends React.Component{
   constructor(props) {
     super(props)
     this.features = []
-    this.highlightFeature.bind(this);
-    this.resetHighlight.bind(this);
-    this.clickToCollapse.bind(this);
-    this.onEachFeature.bind(this);
+    this.markers = []
   }
 
-  generateGeoJSON(feature) {
+  generateFeatures() {
     for (let i = 0; i < northamerica.features.length; i++){
       this.features.push(<GeoJSON key={i} data={northamerica.features[i]}  style={this.borderStyle(northamerica.features[i])} ></GeoJSON>);
+    }
+  }
+
+  generateMarkers() {
+    for (let i = 0; i < ghost2.features.length; i++){
+      this.markers.push(<Marker key={i} riseOnHover={true} position={ghost2.features[i].geometry.coordinates}  icon={ghostSingleIcon}/>);
     }
   }
 
@@ -46,16 +54,20 @@ export default class LeafletMap extends React.Component{
     }
   }
 
-  onEachFeature(ghosts, layer) {
-    layer.on({
-      mouseover: this.highlightFeature,
-      mouseout: this.resetHighlight,
-      click: this.clickToCollapse
-    })
-  };
+  onEachFeature(ghostSingleMarker, layer) {
+  //   layer.on({
+  //     mouseover: this.highlightFeature,
+  //     mouseout: this.resetHighlight,
+  //     click: this.clickToCollapse
+  //   })
+   };
 
+   componentWillMount(){
+     this.generateFeatures();
+     this.generateMarkers();
+   }
   render() {
-    this.generateGeoJSON();
+
 
     return (
       <Map className="map" center={centerCoord} style={mapStyle} zoom={7.25} zoomSnap={0} zoomDelta={.25} minZoom={6} maxZoom={20}>
@@ -66,9 +78,8 @@ export default class LeafletMap extends React.Component{
           />
           //below refers to northamerica geojson
         {this.features}
-        <MarkerClusterGroup iconCreateFunction={ghostClusterIcon} showCoverageOnHover={true}>
-          <Markers onEachFeature={this.onEachFeature.bind(this)}/>
-          onEachFeature={this.onEachFeature}
+        <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon} showCoverageOnHover={true}>
+          {this.markers}
         </MarkerClusterGroup>
       </Map>
 

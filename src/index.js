@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LeafletMap from './components/map/leafletMap.js';
+import LeafletMap from './components/LeafletMap.js';
 
 
 class App extends React.Component {
