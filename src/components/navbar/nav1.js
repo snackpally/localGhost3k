@@ -13,9 +13,9 @@ class Navbar extends React.Component{
 <a className="navbar-brand" href="https://trello.com/b/bqjihFDa/local-ghost-3000"><img src={require('./ghosty2.gif')} alt="" width="54px"/> LocalGhost</a>
 <form className="form-inline my-2 my-lg-0">
 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-<button className="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+<button className="btn btn-outline-dark btn-sm my-2 my-sm-0" type="submit">Search</button>
 </form>
-<button type="button" className="btn btn-outline-dark">Sign in</button>
+<button className="btn btn-outline-dark btn-sm" type="button" >Sign in</button>
 <div className="navbar-collapse collapse" id="navbarSupportedContent">
   <ul className="navbar-nav mr-auto">
         <li className="nav-item active">

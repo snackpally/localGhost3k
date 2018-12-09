@@ -1,10 +1,10 @@
 #TODO NavBar
 
 ##Links
-[] Sign Up(maybe these are buttons)
-[] Login(maybe these are buttons)
-[] Home
-[] Hauntings
+[x] Sign Up(maybe these are buttons)
+[x] Login(maybe these are buttons)
+[x] Home
+[x] Hauntings
 
 ##Title
 [] Title and Logo
