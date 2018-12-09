@@ -1,48 +1,38 @@
 import React from 'react';
-import L from 'leaflet';
+import Leaflet from 'leaflet';
 import {Marker, GeoJSON} from 'react-leaflet';
-import icon from './ghost-icon.png'
-import ghost2 from './ghost2.geojson';
-// import MarkerLayer from 'react-leaflet-marker-layer';
-// import * as PropTypes from 'prop-types';
+import ghost from './ghost-icon.png';
+import ghost2 from './ghost2.js';
 
-const ghost = L.icon({
-  iconUrl: "ghost-icon.png",
-  iconSize: [30, 30]
-});
-class MarkerComponent extends React.Component {
-  static propTypes = {
-       ghost2: PropTypes.array.isRequired
-     }
-  render() {
-    const style = {
-      img: 'ghost-icon.png',
-      width: '30px',
-      height: '30px'
-    };
 
-    return (
-      <div style={Object.assign({}, this.props.style, style)}></div>
-    );
-  }
 
-}
+const ghosts = new Leaflet.Icon({
+    iconUrl: require('./ghost-icon.png'),
+    iconSize: [30,30]
+  });
+
 
 class Markers extends React.Component {
   constructor(props) {
     super(props)
-    this.feature = []
-
-
+    this.features = []
   }
-  render() {
-    const {key, position, geoJSON} = this.props;
 
-    return (
-      <MarkerLayer markers = {ghost2} data = {geoJSON} longitudeExtractor= {m => m.features.geometry.coordinates[0]}
-        latitudeExtractor= {m => m.features.geometry.coordinates[1]} markerComponent={MarkerComponent}>
-       </MarkerLayer>
-    );
+
+  generateMarkers() {
+    for (let i = 0; i < ghost2.features.length; i++){
+      this.features.push(<Marker key={i} riseOnHover={true} position={ghost2.features[i].geometry.coordinates}  icon={ghosts}/>);
+    }
   }
+
+render() {
+  this.generateMarkers()
+  console.log(this.features)
+
+  return (
+  this.features
+  );
+ }
 }
+
 export default Markers
