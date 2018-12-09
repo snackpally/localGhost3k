@@ -51,7 +51,7 @@ export default class Carousel extends React.Component {
       activeItemIndex,
       children,
     } = this.state;
-
+    
     return (
       <ItemsCarousel
       // Placeholder configurations
