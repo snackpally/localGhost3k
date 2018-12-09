@@ -2,6 +2,18 @@ const mongoose = require("mongoose");
 // const User = require("./User");
 let Schema = mongoose.Schema;
 
+let Featurepoint = new Schema({
+  type: {
+    type: String,
+    enum: ["Point"],
+    required: true
+  },
+  coordinates: {
+    type: [Number],
+    required: true
+  }
+});
+
 let Comment = new Schema({
   author: {
     type: Schema.Types.ObjectId,
@@ -18,15 +30,8 @@ let locationSchema = new Schema({
   ghost_imgs: [String],
   ghost_type: String,
   loc: {
-    type: {
-      type: String,
-      enum: ["Point"],
-      required: true
-    },
-    coordinates: {
-      type: [Number],
-      required: true
-    }
+    type: Featurepoint,
+    required: true
   },
   loc_type: String,
   loc_img_link: String,

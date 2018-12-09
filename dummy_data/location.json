@@ -1,25 +1,28 @@
 // Location object
 
 {
-	"ghost_name": "", 
+	"ghost_name": "",
 	"place_name": "House Of Screams - Zakos House",
-	"ghost_imgs": [Strings],
-	"ghost_type": "",//could be own collection 
+	"ghost_imgs": [],
+	"ghost_type": "",
 	"loc": {
-		"lon": 46.864724,
-		"lat": -114.001308
+		"type": "Point",
+		"coordinates": [
+			46.864724,
+			-114.001308
+		]
 	},
-	"loc_type": "Historical Buildings",//could be own collection for search feature
+	"loc_type": "Historical Buildings", //could be own collection for search feature
 	"loc_img_link": "https://bloximages.chicago2.vip.townnews.com/missoula.com/content/tncms/assets/v3/editorial/a/1c/a1c153c0-aea0-11e7-b787-9f560c7a2ffc/59de45fc2496f.image.jpg",
 	"img_cite": "Kurt Wilson",
-	"loc_desc": "Residents of this house in the 1930s reportedly heard extremely loud shrieks from somewhere inside the house. 
+	"loc_desc": "Residents of this house in the 1930s reportedly heard extremely loud shrieks from somewhere inside the house.
 			They tolerated it until 1956 when an exorcism was performed. In 1980 the haunt returned sometimes to scribble ghostly writing on the walls.",
 		"address": {
-			"street" : "319 S. Fifth W.",
-			"city" :  "Missoula", 
-			"state" : "MT", 
-			"country" : "United States"
-		},
+		"street": "319 S. Fifth W.",
+		"city": "Missoula",
+		"state": "MT",
+		"country": "United States"
+	},
 	"info_link": "http://missoula.com/places/the-house-of-screams/article_9a1c04fe-ae9f-11e7-b2c1-8f5c2535dca5.html",
 	"occupied": true
 },

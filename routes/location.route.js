@@ -3,7 +3,7 @@ const router = express.Router();
 
 const location_controller = require("../controllers/location.controller");
 
-router.get("/test", location_controller.test);
+router.get("/allGhost", location_controller.test);
 
 router.post("/create", location_controller.location_create);
 

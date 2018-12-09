@@ -15,8 +15,7 @@ exports.location_create = function(req, res, next) {
     if (err) {
       return next(err);
     }
-    // console.log(location);
-    // res.json(location);
+    console.log(res);
     res.send("Location Created successfully");
   });
 };
