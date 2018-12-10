@@ -1,7 +1,6 @@
 const Location = require('../models/Location');
 
 exports.test = function (req, res) {
-	//res.send('Greetings from the Test Controller!');
 	Location.find({}, function(err, location) {
 		if (err) return next(err);
 		res.send(location);
