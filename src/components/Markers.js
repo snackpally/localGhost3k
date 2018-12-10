@@ -34,7 +34,7 @@ export default class Markers extends React.Component {
   componentDidMount() {
     axios.get('http://localhost:3001/location/test').then(res => {
       console.log(res);
-      console.log(res.data.loc);
+      console.log(res.data);
       this.setState({
         data: res.data
       })
