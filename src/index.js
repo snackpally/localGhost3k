@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import UserForm from './components/login/login';
 import Navbar from './components/navbar/nav1';
-
+import Profile from './components/profile/profile'
 class App extends React.Component {
 	render() {
 		return (
 			<div>
 			<Navbar />
-				<UserForm />
+			<Profile />
 			</div>
 
 		)
