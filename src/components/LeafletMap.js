@@ -1,14 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Leaflet from 'leaflet';
 import {Map, TileLayer, Marker, GeoJSON} from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import Collapseable from './Collapseable.js';
+// import Collapseable from './Collapseable.js';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import 'leaflet/dist/leaflet.css';
 import northamerica from '../assets/maps/northamerica.js';
 //import ghost2 from '../assets/dummyData/ghost2.js';
+
+const getNestedObject = (nestedObj, pathArr) => {
+	return pathArr.reduce((obj, key) =>
+		(obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj);
+};
 
 const centerCoord = [46.8797, -110.3626];
 
@@ -17,8 +22,6 @@ const mapStyle = {
   zIndex: 999
 };
 
-//assigns coordinated from nested object
-const testCoord = this.state.data[0] && this.state.data[0].loc ? this.state.data[0].loc;
 
 const ghostSingleIcon = new Leaflet.Icon({
   iconUrl: './assets/image/ghost-icon.png',
@@ -30,6 +33,7 @@ const ghostClusterIcon = new Leaflet.Icon({
   iconSize: [80,80]
 });
 
+
 export default class LeafletMap extends React.Component{
   constructor(props) {
     super(props)
@@ -39,15 +43,21 @@ export default class LeafletMap extends React.Component{
       data: ""
     }
   }
-
+	//TODO map data? reduce via getnestedobjects
   componentDidMount() {
+		
     axios.get('http://localhost:3001/location/test').then(res => {
       console.log(res);
       console.log(res.data);
       this.setState({
         data: res.data
-      })
-    })
+			})
+			let test = res.data[0];
+			console.log(test);
+			let obj = getNestedObject(test, ["loc", "coordinates"]);
+			console.log(obj);
+		})
+
   }
 
   generateFeatures() {
@@ -84,7 +94,7 @@ export default class LeafletMap extends React.Component{
    }
   render() {
 
-    console.log(this.state.data[0])
+    
     return (
       <Map className="map" center={centerCoord} style={mapStyle} zoom={7.25} zoomSnap={0} zoomDelta={.25} minZoom={0} maxZoom={20}>
         <TileLayer
@@ -92,7 +102,7 @@ export default class LeafletMap extends React.Component{
           id="mapbox.streets"
           url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
           />
-          //below refers to northamerica geojson
+          
         {this.features}
         <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon} showCoverageOnHover={true}>
           {this.markers}
