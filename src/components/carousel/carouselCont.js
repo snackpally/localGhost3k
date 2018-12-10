@@ -51,14 +51,14 @@ export default class Carousel extends React.Component {
       activeItemIndex,
       children,
     } = this.state;
-    
+
     return (
       <ItemsCarousel
       // Placeholder configurations
       enablePlaceholder
       numberOfPlaceholderItems={5}
       minimumPlaceholderTime={1000}
-      // placeholderItem={<div style={{ height: 200, background: 'black' }}>{this.cards}</div>}
+      // placeholderItem={<div style={{ height: 200 }}>{this.cards}</div>}
 
       // Carousel configurations
       numberOfCards={3}
