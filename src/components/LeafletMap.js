@@ -13,7 +13,8 @@ import northamerica from "../assets/maps/northamerica.js";
 const centerCoord = [46.8797, -110.3626];
 
 const mapStyle = {
-  height: "800px",
+  height: "550px",
+  width: "1100px",
   zIndex: 999
 };
 
@@ -65,9 +66,9 @@ export default class LeafletMap extends React.Component {
 
   borderStyle(feature) {
     if (feature.properties.STATE_NAME == "Montana") {
-      return { fillOpacity: 0, color: "lightgreen" };
+      return { fillOpacity: 0, color: "yellow" };
     } else {
-      return { fillOpacity: 0.5, color: "lightgreen", fillColor: "navy" };
+      return { fillOpacity: 0.5, color: "yellow", fillColor: "navy" };
     }
   }
 
@@ -85,7 +86,7 @@ export default class LeafletMap extends React.Component {
   }
   render() {
     return (
-      <Map className="map" center={centerCoord} style={mapStyle} zoom={7.25} zoomSnap={0} zoomDelta={0.25} minZoom={0} maxZoom={20}>
+      <Map className="map" center={centerCoord} style={mapStyle} zoom={6.75} zoomSnap={0} zoomDelta={0.25} minZoom={0} maxZoom={20}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           id="mapbox.streets"
