@@ -7,8 +7,6 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-
-
 			<div className='map'>
 				<h1>Ghost Map Attempt</h1>
 				<LeafletMap />
