@@ -14,17 +14,17 @@ const centerCoord = [46.8797, -110.3626];
 
 const mapStyle = {
   height: "800px",
-  zIndex: 999
+  zIndex: 999,
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
   iconUrl: "./assets/image/ghost-icon.png",
-  iconSize: [30, 30]
+  iconSize: [30, 30],
 });
 
 const ghostClusterIcon = new Leaflet.Icon({
   iconUrl: "./assets/image/ghost-icon.png",
-  iconSize: [80, 80]
+  iconSize: [80, 80],
 });
 
 export default class LeafletMap extends React.Component {
@@ -33,7 +33,7 @@ export default class LeafletMap extends React.Component {
     this.features = [];
     this.markers = [];
     this.state = {
-      data: ""
+      data: "",
     };
   }
   //TODO map data? reduce via getnestedobjects
@@ -42,7 +42,7 @@ export default class LeafletMap extends React.Component {
       console.log(res);
       console.log(res.data);
       this.setState({
-        data: res.data
+        data: res.data,
       });
       let test = res.data[0];
       console.log(test);
@@ -54,11 +54,7 @@ export default class LeafletMap extends React.Component {
   generateFeatures() {
     for (let i = 0; i < northamerica.features.length; i++) {
       this.features.push(
-        <GeoJSON
-          key={i}
-          data={northamerica.features[i]}
-          style={this.borderStyle(northamerica.features[i])}
-        />
+        <GeoJSON key={i} data={northamerica.features[i]} style={this.borderStyle(northamerica.features[i])} />
       );
     }
   }
@@ -66,12 +62,7 @@ export default class LeafletMap extends React.Component {
   generateMarkers() {
     for (let i = 0; i < this.state.data.length; i++) {
       this.markers.push(
-        <Marker
-          key={i}
-          riseOnHover={true}
-          position={this.state.data[i].loc.coordinates}
-          icon={ghostSingleIcon}
-        />
+        <Marker key={i} riseOnHover={true} position={this.state.data[i].loc.coordinates} icon={ghostSingleIcon} />
       );
     }
   }
@@ -115,10 +106,7 @@ export default class LeafletMap extends React.Component {
         />
 
         {this.features}
-        <MarkerClusterGroup
-          iconCreateFunction={() => ghostClusterIcon}
-          showCoverageOnHover={true}
-        >
+        <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon} showCoverageOnHover={true}>
           {this.markers}
         </MarkerClusterGroup>
       </Map>

@@ -10,14 +10,13 @@ const cors = require("cors");
 //import routes for project
 const user = require("../routes/user.route");
 const location = require("../routes/location.route");
-const comment = require("../routes/comment.route");
+// const comment = require("../routes/comment.route");
 //set up express server
 const app = express();
 app.use(cors("*"));
 
 //set mongoose to connect with mlab remote database
-let dev_db_url =
-  "mongodb://zviente:zack1123@ds038888.mlab.com:38888/localghost3k";
+let dev_db_url = "mongodb://zviente:zack1123@ds038888.mlab.com:38888/localghost3k";
 
 let mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(
@@ -40,7 +39,7 @@ app.use(
   session({
     secret: "secret",
     saveUninitialized: true,
-    resave: true
+    resave: true,
   })
 );
 
@@ -50,7 +49,7 @@ app.use(passport.session());
 
 //Routes
 app.use("/location", location);
-app.use("/comment", comment);
+// app.use("/comment", comment);
 app.use("/user", user);
 
 app.listen(3001, function() {

@@ -6,22 +6,22 @@ let Featurepoint = new Schema({
   type: {
     type: String,
     enum: ["Point"],
-    required: true
+    required: true,
   },
   coordinates: {
     type: [Number],
-    required: true
-  }
+    required: true,
+  },
 });
 
 let Comment = new Schema({
   author: {
     type: Schema.Types.ObjectId,
-    name: String
+    name: String,
   },
   comment: { type: String },
   date_created: { type: Date, default: Date.now },
-  date_deleted: { type: Date, default: Date.now }
+  date_deleted: { type: Date, default: Date.now },
 });
 
 let locationSchema = new Schema({
@@ -31,7 +31,7 @@ let locationSchema = new Schema({
   ghost_type: String,
   loc: {
     type: Featurepoint,
-    required: true
+    required: true,
   },
   loc_type: String,
   loc_img_link: String,
@@ -41,11 +41,11 @@ let locationSchema = new Schema({
     street: String,
     city: String,
     state: String,
-    country: String
+    country: String,
   },
   info_link: String,
   comment: [Comment],
-  occupied: { type: Boolean, required: true }
+  occupied: { type: Boolean, required: true },
 });
 
 module.exports = mongoose.model("Location", locationSchema);
