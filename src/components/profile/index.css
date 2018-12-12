@@ -5,7 +5,7 @@
 }
 .tab-content {
    border: 1px solid #ddd;
-   border-radius: 600px;
+   border-radius: 10px;
    padding: 15px;
 }
 .card-img-top{
@@ -14,5 +14,5 @@
 }
 
 .fullcard {
-  
+
 }
