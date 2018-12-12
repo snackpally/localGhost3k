@@ -34,8 +34,8 @@
 
 } */
 .card-image-overlay {
-width: 300px;
-height: 190px;
+  width: 300px;
+  height: 190px;
   position: absolute;
   z-index: 5
 }
