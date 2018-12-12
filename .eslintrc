@@ -13,7 +13,6 @@
     "prettier/prettier": [
       "error",
       {
-        "trailingComma": "es5",
         "doubleQuote": true,
 				"printWidth": 175,
 				"jsxBracketSameLine": true
