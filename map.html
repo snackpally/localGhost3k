@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuKPHJxYxFfGhfoR1sJQTPoTIVjpN4xyg" async defer></script>
+  <link href="leaflet/leaflet.css" type="text/css" rel="stylesheet" crossorigin=""/>
+
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="sideInfoPopUp"></div>
+
+    <style> #map  {height: 800px; width: 900px}
+    #sideInfoPopUp {float: right; height: 800px;
+    width: 500px}
+    </style>
+
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="leaflet/leaflet.js" crossorigin=""></script>
+    <script src='https://unpkg.com/leaflet.gridlayer.googlemutant@latest/Leaflet.GoogleMutant.js'></script>
+    <script src="ghost2.geojson"></script>
+    <script src="us_states.geojson"></script>
+    <script src="canada-province.geojson"></script>
+
+<script>
+
+var map = L.map('map', { //this sets the map so it can't zoom out past montana, but can't go in past zoom 18 (even though it says 30) which it can't read at anyway.
+  minZoom: 7,
+  maxZoom: 30
+});
+map.setView([46.8797, -110.3626], 7);
+
+// map.fitBounds(polyline.getBounds());
+
+// A different streetmap view from Map box rather than Google
+
+// var topo =  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={AIzaSyBuKPHJxYxFfGhfoR1sJQTPoTIVjpN4xyg}', {
+//   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+//   maxZoom: 18,
+//   id: 'mapbox.streets',
+//   accessToken: 'pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqb2dwNWZiZjBoanAzdm1uMGl4aHV3MnEifQ.Xiw-4Exg4p6kiqkJXow27g'
+// }).addTo(map);
+
+// Google maps added valid values are 'roadmap', 'satellite', 'terrain' and 'hybrid'
+
+var roads = new L.GridLayer.GoogleMutant({
+    type: 'roadmap',
+    styles: [{featureType: 'poi.business', stylers: [{visibility: 'off'}]},
+    // {elementType: 'poi.parks', stylers: [{visibility: 'on'}]}
+  ]
+}).addTo(map);
+
+// var panoramaOptions = {
+//     position: [46.8797, -110.3626],
+//     pov: {
+//       heading: 34,
+//       pitch: 10
+//     }
+//   };
+// var panorama = new  google.maps.StreetViewPanorama(document.getElementById('sideInfoPopUp'),panoramaOptions);
+//   map.setStreetView(panorama);
+
+
+//Local geoJson files loaded in--This code reads in the data and I get borders separated montana US(states) and Canada(canada) added as well, two separate geojsons.
+
+
+L.geoJSON(states, {
+  style: styling
+}).addTo(map);
+
+L.geoJSON(canada, {
+  style: styling
+}).addTo(map);
+
+
+function styling (feature) {
+  if (feature.properties.STATE_NAME === 'Montana') {
+    return {fillOpacity: 0, color: 'orange' }
+  } else {
+    return {fillOpacity: .5, color: 'orange' , fillColor: 'blue'}
+  }
+}
+
+//MARKERS
+//adding markers to the maps
+
+// The following code adds just one marker
+//var marker = L.marker([46.8797, -110.3626]).addTo(mymap);
+
+
+//multiple markers with ghost icon (for now) icon--https://maptimeboston.github.io/leaflet-intro/and video https://www.youtube.com/watch?v=fDfkjx-VhLI  icon size shrinks with zoom in
+
+var ghost = new L.icon({
+    iconUrl: "ghost-icon.png", //can add any png here!
+    iconSize: [80,80]
+  });
+
+function ghostInfo (feature,
+  layer) {
+    console.log("I'm reading");
+      layer.bindPopup("<h1>I'm the scariest ghost on the planet</h1>");
+    layer.setIcon(ghost);
+  };
+L.geoJson(ghost2 ,{
+      onEachFeature: ghostInfo
+    }).addTo(map);
+
+
+//
+//Making markers interactive
+
+// pointToLayer: function(feature,latlng){
+//     var marker = L.marker(latlng,{icon: ghostIcon});
+//   marker.bindPopup(feature.properties.Location + '<br/>' + feature.properties.OPEN_DT);
+//   return marker;
+// }
+
+//Adding info to the popUp side bar
+
+// function onEachFeature(feature, layer) {
+//     layer.on({
+//         click: function populate() {
+//           document.getElementById("sideInfoPopUp"),
+//           innerHTML =  "<h4>"feature.properties.place_name"</h4>" + "<br>" + feature.properties.loc_img_link + "<br>" + feature.properties.loc_desc + "<br>" + feature.properties.info_link + <button id="addStories" placeholder="Add my Story"></button>
+//
+//       }
+//     });
+// }
+ //map.fitBounds(polygon.getBounds());
+
+
+
+//trying to incorporate streetview after certain zoom level
+
+// var mapGoogleStreet = new google.maps.LatLng(latitude,longitude); //fenway = wf {G: 40.989025, K: 29.096618000000035}
+// Insurance.Map.StreetView(fenway);
+//
+// StreetView: function (coor) {
+//             var options = {
+//                 position: coor,
+//                 pov: {
+//                     heading: 34,
+//                     pitch:10
+//                 }
+//             };
+//             var panorama = new google.maps.StreetViewPanorama(document.getElementById('map'), options);
+//             map.setStreetView(panorama);
+
+
+
+//Trying to clip just montana
+
+// map.on('load', function () {
+//   map.addSource("statesData", {
+//     "type": "geojson",
+//     // "data":"../us_states.geojson"
+//     "data":"https://leafletjs.com/examples/choropleth/us-states.js" //"https://www.mapbox.com/mapbox-gl-js/assets/us_states.geojson"
+//   });
+// });
+
+//Trying to clip just Montana
+
+//var montana = state.feature.properties.STATE_NAME ==='Montana';
+//map.setFeatureState({source: 'states', id: 30});
+// var clippedMontana = function clip(states) {
+//   console.log("montana")
+//    for (var i = 0; i < states.length; i++) {
+//       if (states.feature.properties.STATE_NAME[i] === "Montana") {
+//       return this.states.feature.properties({setView: true});
+//   }   else {
+//     return {setView: false};
+//   }}
+//  };
+
+ // var baseMaps = {
+ //    "Topo": topo,
+ //    "Streets": streets
+ //  };
+  //   'Google Roadmap': googleRoadmapLayer, 'Google': googleLayer};
+  // var overlayMaps = {geojson }
+  // L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+</script>
+</body>
+</html>
+</html>
