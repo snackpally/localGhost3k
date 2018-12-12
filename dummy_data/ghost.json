@@ -1,17 +1,17 @@
 [
 	{
-		"ghost_name" : "",
+		"ghost_name" : "Sarbob",
 		"place_name": "House Of Screams - Zakos House",
 		"ghost_imgs": "",
 		"ghost_type": "",
 		"loc": {
-			"lng": 46.864724, 
+			"lng": 46.864724,
 			"lat": -114.001308
 		},
 		"loc_type": "Historical Buildings",
 		"loc_img_link": "https://bloximages.chicago2.vip.townnews.com/missoula.com/content/tncms/assets/v3/editorial/a/1c/a1c153c0-aea0-11e7-b787-9f560c7a2ffc/59de45fc2496f.image.jpg",
 		"img_cite": "Kurt Wilson",
-		"loc_desc": "Residents of this house in the 1930s reportedly heard extremely loud shrieks from somewhere inside the house. 
+		"loc_desc": "Residents of this house in the 1930s reportedly heard extremely loud shrieks from somewhere inside the house.
 			They tolerated it until 1956 when an exorcism was performed. In 1980 the haunt returned sometimes to scribble ghostly writing on the walls.",
 		"address": "319 S. Fifth W. Missoula, MT United States",
 		"info_link": "http://missoula.com/places/the-house-of-screams/article_9a1c04fe-ae9f-11e7-b2c1-8f5c2535dca5.html",
@@ -29,7 +29,7 @@
 		"loc_type": "Historical Buildings",
 		"loc_img_link": "https://assets.change.org/photos/6/hc/lx/XvhClxabHYALONN-800x450-noPad.jpg?1527746782",
 		"img_cite": "",
-		"loc_desc": "Currently under construction as a new hotel. When it was formerly a department store staff reported sighting the apparition of a mustachioed man in a plaid, 
+		"loc_desc": "Currently under construction as a new hotel. When it was formerly a department store staff reported sighting the apparition of a mustachioed man in a plaid,
 			flannel shirt and overalls. ",
 		"address": "105 North Higgins Avenue Missoula, MT United States",
 		"info_link": "",
@@ -100,7 +100,7 @@
 		"img_cite": "https://www.tripadvisor.com/LocationPhotoDirectLink-g45251-d2257212-i105948285-Hotel_Lincoln-Lincoln_Montana.html",
 		"loc_desc": "Built in 1928 this hotel is haunted by up to three apparitions. Guest have seen a woman in a Victorian gown, a gold miner known by the staff as Jack, and a group of children who haunt the upstairs corridor.",
 		"address": "101 Sleepy Hollows Lane Lincoln, MT United States",
-		"info_link": "https://www.tripadvisor.com/ShowUserReviews-g45251-d2257212-r302650843-Hotel_Lincoln-Lincoln_Montana.html",	
+		"info_link": "https://www.tripadvisor.com/ShowUserReviews-g45251-d2257212-r302650843-Hotel_Lincoln-Lincoln_Montana.html",
 		"occupied": true
 	},
 	//todo: Move north on Map
@@ -117,7 +117,7 @@
 		"loc_img_link": "",
 		"loc_desc": "This historic saloon was built in 1883, and is said to be haunted by a trio of cowboys, who have been known to engage staff and diners in conversation.",
 		"address": "337 North Higgins Avenue Missoula, MT United States",
-		"info_link": "",	
+		"info_link": "",
 		"occupied": true
 	},
 
