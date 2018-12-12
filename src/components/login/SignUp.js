@@ -10,7 +10,7 @@ class UserForm extends React.Component {
       password2: "",
       email: "",
       first_name: "",
-      last_name: "",
+      last_name: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +25,7 @@ class UserForm extends React.Component {
       password2: this.state.password2,
       email: this.state.email,
       first_name: this.state.first_name,
-      last_name: this.state.last_name,
+      last_name: this.state.last_name
     };
     console.log(sendUser);
     axios
@@ -82,15 +82,7 @@ class UserForm extends React.Component {
           </div>
           <div className="form-group">
             <label htmlFor="signUpEmail">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              className="form-control"
-              id="signUpEmail"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-              onChange={this.handleChange}
-            />
+            <input type="email" name="email" className="form-control" id="signUpEmail" aria-describedby="emailHelp" placeholder="Enter email" onChange={this.handleChange} />
             <small id="emailHelp" className="form-text text-muted">
               We will never share your email with anyone else.
             </small>
