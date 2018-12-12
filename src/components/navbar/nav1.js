@@ -12,8 +12,7 @@ class Navbar extends React.Component {
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="true"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
         <a className="navbar-brand" href="https://trello.com/b/bqjihFDa/local-ghost-3000">
