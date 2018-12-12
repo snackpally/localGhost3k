@@ -10,13 +10,6 @@ import "leaflet/dist/leaflet.css";
 import northamerica from "../assets/maps/northamerica.js";
 //import ghost2 from '../assets/dummyData/ghost2.js';
 
-const getNestedObject = (nestedObj, pathArr) => {
-  return pathArr.reduce(
-    (obj, key) => (obj && obj[key] !== "undefined" ? obj[key] : undefined),
-    nestedObj
-  );
-};
-
 const centerCoord = [46.8797, -110.3626];
 
 const mapStyle = {
@@ -45,7 +38,7 @@ export default class LeafletMap extends React.Component {
   }
   //TODO map data? reduce via getnestedobjects
   componentDidMount() {
-    axios.get("http://localhost:3001/location/test").then(res => {
+    axios.get("http://localhost:3001/location/allGhost").then(res => {
       console.log(res);
       console.log(res.data);
       this.setState({
@@ -53,8 +46,8 @@ export default class LeafletMap extends React.Component {
       });
       let test = res.data[0];
       console.log(test);
-      let obj = getNestedObject(test, ["loc", "coordinates"]);
-      console.log(obj);
+      // let obj = getNestedObject(test, ["loc", "coordinates"]);
+      // console.log(obj);
     });
   }
 
