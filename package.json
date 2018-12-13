@@ -27,6 +27,7 @@
     "react-leaflet": "^2.1.2",
     "react-leaflet-marker-layer": "^0.1.4",
     "react-leaflet-markercluster": "^2.0.0-rc3",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "reactstrap": "^6.5.0"
   },

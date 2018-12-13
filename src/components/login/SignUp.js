@@ -1,16 +1,16 @@
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
 
 class UserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: "",
-      password2: "",
-      email: "",
-      first_name: "",
-      last_name: ""
+      username: '',
+      password: '',
+      password2: '',
+      email: '',
+      first_name: '',
+      last_name: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +29,7 @@ class UserForm extends React.Component {
     };
     console.log(sendUser);
     axios
-      .post("http://localhost:3001/user/register", sendUser)
+      .post('http://localhost:3001/user/register', sendUser)
       .then(function(res) {
         console.log(res);
         console.log(res.data);

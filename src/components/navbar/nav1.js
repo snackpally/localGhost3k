@@ -1,5 +1,5 @@
-import React from "react";
-import "./index.css";
+import React from 'react';
+import './index.css';
 
 class Navbar extends React.Component {
   render() {
@@ -16,7 +16,7 @@ class Navbar extends React.Component {
           <span className="navbar-toggler-icon" />
         </button>
         <a className="navbar-brand" href="https://trello.com/b/bqjihFDa/local-ghost-3000">
-          <img src={require("./ghosty2.gif")} alt="" width="54px" /> LocalGhost
+          <img src={require('./ghosty2.gif')} alt="" width="54px" /> LocalGhost
         </a>
         <form className="form-inline my-2 my-lg-0">
           <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
