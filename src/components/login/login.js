@@ -1,13 +1,13 @@
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: "",
-      enterSubmit: false,
+      username: '',
+      password: '',
+      enterSubmit: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,9 +16,9 @@ class Login extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
   _handleKeyPress = e => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       this.setState({ enterSubmit: true });
-      console.log("do validate");
+      console.log('do validate');
     }
   };
   //TODO submit on enter
@@ -26,10 +26,10 @@ class Login extends React.Component {
   handleSubmit() {
     let login = {
       username: this.state.username,
-      password: this.state.password,
+      password: this.state.password
     };
     axios
-      .post("http://localhost:3001/user/login", login)
+      .post('http://localhost:3001/user/login', login)
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -71,7 +71,7 @@ class Login extends React.Component {
           </div>
         </form>
         <button className="btn btn-primary" onClick={this.handleSubmit}>
-          Sign Up
+          Log in
         </button>
       </div>
     );
