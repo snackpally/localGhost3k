@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 //import axios from 'axios';
-import Carousel from "./carouselCont";
-import "./Cindex.css";
+import Carousel from './carouselCont';
+import './Cindex.css';
 
 class Card extends React.Component {
   render() {
