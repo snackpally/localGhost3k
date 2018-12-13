@@ -61,7 +61,7 @@ export default class Carousel extends React.Component {
         // placeholderItem={<div style={{ height: 200 }}>{this.cards}</div>}
 
         // Carousel configurations
-        numberOfCards={3}
+        numberOfCards={5}
         gutter={5}
         showSlither={false}
         firstAndLastGutter={true}
