@@ -2,7 +2,7 @@ import React from 'react';
 import './landing.css';
 import Leaflet from '../LeafletMap';
 import Carousel from '../carousel/carouselCont';
-
+import GhostCard from '../carousel/cardNew';
 class Landing extends React.Component {
   render() {
     return (
@@ -12,6 +12,7 @@ class Landing extends React.Component {
           <p>Your haunted location finder</p>
           <Leaflet />
           <Carousel />
+          {/* <GhostCard /> */}
         </div>
       </div>
     );

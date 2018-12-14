@@ -14,10 +14,11 @@ import ghostIconImage from '../assets/image/ghost-icon.png';
 const centerCoord = [46.8797, -110.3626];
 
 const mapStyle = {
-  height: '490px',
+  height: '590px',
   width: 'auto',
   position: 'relative',
-  outline: 'none'
+  outline: 'none',
+  marginBottom: '10em'
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
@@ -82,7 +83,7 @@ export default class LeafletMap extends React.Component {
     if (feature.properties.STATE_NAME == 'Montana') {
       return { fillOpacity: 0, color: '#ffcc66' };
     } else {
-      return { fillOpacity: 0.5, color: '#ffcc66', fillColor: 'navy' };
+      return { fillOpacity: 1, color: '#ffcc66', fillColor: 'navy' };
     }
   }
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import './carousel.css';
+// import './carousel.css';
 import Card from './card';
+import GhostCard from './cardNew';
 import ItemsCarousel from 'react-items-carousel';
 import range from 'lodash/range';
 
@@ -16,7 +17,7 @@ export default class Carousel extends React.Component {
     this.cards = [];
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('http://localhost:3001/location/allGhost').then(res => {
       console.log(res);
       console.log(res.data);
@@ -29,8 +30,8 @@ export default class Carousel extends React.Component {
   }
   generateCards() {
     for (let i = 0; i < this.state.data.length; i++) {
-      this.cards.push(<Card key={i} data={this.state.data[i]} />);
-      console.log('card', this.state.data[i]);
+      this.cards.push(<GhostCard key={i} data={this.state.data[i]} />);
+      // console.log('card', this.state.data[i]);
     }
   }
 
@@ -42,7 +43,7 @@ export default class Carousel extends React.Component {
 
   createChildren = n =>
     range(n).map(i => (
-      <div key={i} style={{ height: 200, background: '#333' }}>
+      <div key={i} style={{ height: 300, background: '#333' }}>
         {i}
       </div>
     ));

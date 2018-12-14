@@ -11,14 +11,12 @@ class Card extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="card" className="card-style">
+          <div className="card card-style">
             <div className="card-image-overlay" style={background}>
               {/* <h5 className="card-title" className="ghost-name">
               //   {this.props.data.ghost_name}
               // </h5>*/}
-              <h3 className="title" className="place-name">
-                {this.props.data.place_name}
-              </h3>
+              <h3 className="title place-name">{this.props.data.place_name}</h3>
               <p className="loc-info">{this.props.data.loc_desc}</p>
             </div>
           </div>
