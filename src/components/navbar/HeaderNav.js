@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, NavbarBrand, Collapse, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 import Routes from '../../Routes/route';
+import './headerNav.css';
 
 class Header extends React.Component {
   constructor(props) {
@@ -23,6 +24,14 @@ class Header extends React.Component {
         <Navbar color="dark" dark>
           <NavbarToggler onClick={this.toggle} />
           <NavbarBrand href="/">LocalGhost3K</NavbarBrand>
+          <Nav>
+            <NavItem>
+              <NavLink href="/Login">Log in</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/Register">Sign Up</NavLink>
+            </NavItem>
+          </Nav>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>

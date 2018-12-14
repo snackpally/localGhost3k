@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
-class UserForm extends React.Component {
+import './signup.css';
+class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,7 +44,7 @@ class UserForm extends React.Component {
     return (
       <div className="Signup">
         <h1>Sign up for Local Ghost</h1>
-        <p>Unlocks access to saved tours and locations</p>
+        <h3>Unlocks access to saved tours and locations</h3>
         <Form>
           <FormGroup>
             <Label for="username">Username</Label>
@@ -79,3 +79,5 @@ class UserForm extends React.Component {
     );
   }
 }
+
+export default SignUpForm;

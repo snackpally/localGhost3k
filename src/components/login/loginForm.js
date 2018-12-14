@@ -33,6 +33,7 @@ class LoginForm extends React.Component {
       })
       .catch(err => {
         console.log(err);
+        alert('Could not log-in...');
       });
     //TODO redirect to User page on success
   }

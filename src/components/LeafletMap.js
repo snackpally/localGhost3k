@@ -1,30 +1,31 @@
-import React from "react";
+import React from 'react';
 // import ReactDOM from 'react-dom';
-import axios from "axios";
-import Leaflet from "leaflet";
-import { Map, TileLayer, Marker, GeoJSON } from "react-leaflet";
-import MarkerClusterGroup from "react-leaflet-markercluster";
+import axios from 'axios';
+import Leaflet from 'leaflet';
+import { Map, TileLayer, Marker, GeoJSON } from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 // import Collapseable from './Collapseable.js';
-import "react-leaflet-markercluster/dist/styles.min.css";
-import "leaflet/dist/leaflet.css";
-import northamerica from "../assets/maps/northamerica.js";
+import 'react-leaflet-markercluster/dist/styles.min.css';
+import 'leaflet/dist/leaflet.css';
+import northamerica from '../assets/maps/northamerica.js';
 //import ghost2 from '../assets/dummyData/ghost2.js';
 
 const centerCoord = [46.8797, -110.3626];
 
 const mapStyle = {
-  height: "550px",
-  width: "1100px",
-  zIndex: 999
+  height: '490px',
+  width: 'auto',
+  position: 'relative',
+  outline: 'none'
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
-  iconUrl: "./assets/image/ghost-icon.png",
+  iconUrl: './assets/image/ghost-icon.png',
   iconSize: [30, 30]
 });
 
 const ghostClusterIcon = new Leaflet.Icon({
-  iconUrl: "./assets/image/ghost-icon.png",
+  iconUrl: './assets/image/ghost-icon.png',
   iconSize: [80, 80]
 });
 
@@ -34,12 +35,12 @@ export default class LeafletMap extends React.Component {
     this.features = [];
     this.markers = [];
     this.state = {
-      data: ""
+      data: ''
     };
   }
   //TODO map data? reduce via getnestedobjects
   componentDidMount() {
-    axios.get("http://localhost:3001/location/allGhost").then(res => {
+    axios.get('http://localhost:3001/location/allGhost').then(res => {
       console.log(res);
       console.log(res.data);
       this.setState({
@@ -65,10 +66,10 @@ export default class LeafletMap extends React.Component {
   }
 
   borderStyle(feature) {
-    if (feature.properties.STATE_NAME == "Montana") {
-      return { fillOpacity: 0, color: "yellow" };
+    if (feature.properties.STATE_NAME == 'Montana') {
+      return { fillOpacity: 0, color: 'yellow' };
     } else {
-      return { fillOpacity: 0.5, color: "yellow", fillColor: "navy" };
+      return { fillOpacity: 0.5, color: 'yellow', fillColor: 'navy' };
     }
   }
 
