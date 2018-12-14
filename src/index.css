@@ -1,0 +1,12 @@
+h1 {
+  font-family: "Amatic SC", cursive;
+  style: "bold";
+  font-weight: 1000;
+  margin-left: 20px;
+  color: #ffcc66;
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}

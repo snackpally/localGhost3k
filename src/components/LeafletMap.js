@@ -15,7 +15,9 @@ const centerCoord = [46.8797, -110.3626];
 const mapStyle = {
   height: "550px",
   width: "1100px",
-  zIndex: 999
+  zIndex: 999,
+  margin: "auto",
+  borderStyle: "solid",
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
@@ -28,35 +30,41 @@ const ghostClusterIcon = new Leaflet.Icon({
   iconSize: [80, 80]
 });
 
+// const markers =  new Leaflet.geoJson(localghost ,{
+//       onEachFeature: ghostSingleIcon
+//     })
+
+
 export default class LeafletMap extends React.Component {
   constructor(props) {
     super(props);
     this.features = [];
     this.markers = [];
     this.state = {
-      data: ""
+      data: '',
     };
   }
-  //TODO map data? reduce via getnestedobjects
+  // map data? reduce via getnestedobjects
   componentDidMount() {
-    axios.get("http://localhost:3001/location/allGhost").then(res => {
+    axios.get('http://localhost:3001/location/allGhost').then(res => {
       console.log(res);
       console.log(res.data);
       this.setState({
-        data: res.data
+        data: res.data,
+        ready: true
       });
-      let test = res.data[0];
-      console.log(test);
-      // let obj = getNestedObject(test, ["loc", "coordinates"]);
-      // console.log(obj);
+      this.generateMarkers();
     });
   }
+
 
   generateFeatures() {
     for (let i = 0; i < northamerica.features.length; i++) {
       this.features.push(<GeoJSON key={i} data={northamerica.features[i]} style={this.borderStyle(northamerica.features[i])} />);
     }
   }
+
+  //const latlng = Leaflet.latLng({this.state.data[i].loc.coordinates});
 
   generateMarkers() {
     for (let i = 0; i < this.state.data.length; i++) {
@@ -66,9 +74,9 @@ export default class LeafletMap extends React.Component {
 
   borderStyle(feature) {
     if (feature.properties.STATE_NAME == "Montana") {
-      return { fillOpacity: 0, color: "yellow" };
+      return { fillOpacity: 0, color: "#ffcc66" };
     } else {
-      return { fillOpacity: 0.5, color: "yellow", fillColor: "navy" };
+      return { fillOpacity: 0.5, color: "#ffcc66", fillColor: "navy" };
     }
   }
 
@@ -86,12 +94,12 @@ export default class LeafletMap extends React.Component {
   }
   render() {
     return (
-      <Map className="map" center={centerCoord} style={mapStyle} zoom={6.75} zoomSnap={0} zoomDelta={0.25} minZoom={0} maxZoom={20}>
+      <Map className="map" center={centerCoord} style={mapStyle} zoom={6.75} zoomSnap={0} zoomDelta={0.1} minZoom={6.5} maxZoom={20}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           id="mapbox.streets"
           url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
-        />
+          />
 
         {this.features}
         <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon} showCoverageOnHover={true}>

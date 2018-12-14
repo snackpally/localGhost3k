@@ -4,6 +4,7 @@ import LeafletMap from './components/LeafletMap.js';
 import Carousel from './components/carousel/carouselCont';
 import Navbar from './components/navbar/nav1.js';
 import style from './components/navbar/index.css';
+import nearyou from './index.css';
 class App extends React.Component {
   render() {
     return (
@@ -16,7 +17,7 @@ class App extends React.Component {
         <LeafletMap />
         {/* </div> */}
         {/* <div className="carousel"> */}
-        <h3 className="hauntings-near-you">Hauntings near you</h3>
+        <h1 className="hauntings-near-you">Hauntings near you</h1>
         <Carousel />
         {/* </div> */}
       </div>
