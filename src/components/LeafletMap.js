@@ -9,6 +9,7 @@ import "react-leaflet-markercluster/dist/styles.min.css";
 import "leaflet/dist/leaflet.css";
 import northamerica from "../assets/maps/northamerica.js";
 //import ghost2 from '../assets/dummyData/ghost2.js';
+import ghostIconImage from "../assets/image/ghost-icon.png";
 
 const centerCoord = [46.8797, -110.3626];
 
@@ -21,12 +22,12 @@ const mapStyle = {
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
-  iconUrl: "../assets/image/ghost-icon.png",
+  iconUrl: ghostIconImage,
   iconSize: [30, 30]
 });
 
 const ghostClusterIcon = new Leaflet.Icon({
-  iconUrl: "../assets/image/ghost-icon.png",
+  iconUrl: ghostIconImage,
   iconSize: [80, 80]
 });
 
