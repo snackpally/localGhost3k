@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, NavbarBrand, Collapse, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
+import { Navbar, NavbarBrand, Collapse, NavbarToggler, Nav, NavItem, NavLink, Button } from 'reactstrap';
 import Routes from '../../Routes/route';
 import './headerNav.css';
 
@@ -18,6 +18,7 @@ class Header extends React.Component {
     });
   }
   //TODO: render profile if user is logged in else render Sign in
+  //TODO: space login and signup buttons apart
   render() {
     return (
       <div>
@@ -25,11 +26,15 @@ class Header extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <NavbarBrand href="/">LocalGhost3K</NavbarBrand>
           <Nav>
-            <NavItem>
-              <NavLink href="/Login">Log in</NavLink>
+            <NavItem className="btnRight">
+              <Button color="secondary" href="/Login">
+                Log in
+              </Button>
             </NavItem>
             <NavItem>
-              <NavLink href="/Register">Sign Up</NavLink>
+              <Button color="secondary" href="/Register">
+                Sign Up
+              </Button>
             </NavItem>
           </Nav>
           <Collapse isOpen={this.state.isOpen} navbar>
