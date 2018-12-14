@@ -21,12 +21,12 @@ const mapStyle = {
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
-  iconUrl: "./assets/image/ghost-icon.png",
+  iconUrl: "../assets/image/ghost-icon.png",
   iconSize: [30, 30]
 });
 
 const ghostClusterIcon = new Leaflet.Icon({
-  iconUrl: "./assets/image/ghost-icon.png",
+  iconUrl: "../assets/image/ghost-icon.png",
   iconSize: [80, 80]
 });
 
@@ -42,21 +42,19 @@ export default class LeafletMap extends React.Component {
     this.markers = [];
     this.state = {
       data: '',
+      markers: []
     };
   }
+
   // map data? reduce via getnestedobjects
   componentDidMount() {
     axios.get('http://localhost:3001/location/allGhost').then(res => {
-      console.log(res);
-      console.log(res.data);
       this.setState({
         data: res.data,
         ready: true
-      });
-      this.generateMarkers();
+      }, ()=> this.generateMarkers());
     });
   }
-
 
   generateFeatures() {
     for (let i = 0; i < northamerica.features.length; i++) {
@@ -70,6 +68,10 @@ export default class LeafletMap extends React.Component {
     for (let i = 0; i < this.state.data.length; i++) {
       this.markers.push(<Marker key={i} riseOnHover={true} position={this.state.data[i].loc.coordinates} icon={ghostSingleIcon} />);
     }
+
+    this.setState({
+      markers: this.markers
+    });
   }
 
   borderStyle(feature) {
@@ -88,13 +90,11 @@ export default class LeafletMap extends React.Component {
   // //   })
   //  };
 
-  componentWillMount() {
-    this.generateFeatures();
-    this.generateMarkers();
-  }
   render() {
+    this.generateFeatures();
+
     return (
-      <Map className="map" center={centerCoord} style={mapStyle} zoom={6.75} zoomSnap={0} zoomDelta={0.1} minZoom={6.5} maxZoom={20}>
+      <Map className="map" center={centerCoord} style={mapStyle} zoom={6.75} zoomSnap={0} zoomDelta={0.1} minZoom={0} maxZoom={20}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           id="mapbox.streets"
@@ -103,7 +103,7 @@ export default class LeafletMap extends React.Component {
 
         {this.features}
         <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon} showCoverageOnHover={true}>
-          {this.markers}
+          {this.state.markers}
         </MarkerClusterGroup>
       </Map>
     );
