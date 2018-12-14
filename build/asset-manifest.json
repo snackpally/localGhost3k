@@ -1,13 +1,16 @@
 {
-  "main.js": "/static/js/main.baea424d.chunk.js",
-  "main.js.map": "/static/js/main.baea424d.chunk.js.map",
-  "static/css/1.d0251f96.chunk.css": "/static/css/1.d0251f96.chunk.css",
-  "static/js/1.0d4fb245.chunk.js": "/static/js/1.0d4fb245.chunk.js",
-  "static/js/1.0d4fb245.chunk.js.map": "/static/js/1.0d4fb245.chunk.js.map",
+  "main.css": "/static/css/main.6c872643.chunk.css",
+  "main.js": "/static/js/main.b87c2121.chunk.js",
+  "main.js.map": "/static/js/main.b87c2121.chunk.js.map",
+  "static/css/1.0cfe1a79.chunk.css": "/static/css/1.0cfe1a79.chunk.css",
+  "static/js/1.762d42eb.chunk.js": "/static/js/1.762d42eb.chunk.js",
+  "static/js/1.762d42eb.chunk.js.map": "/static/js/1.762d42eb.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/1.d0251f96.chunk.css.map": "/static/css/1.d0251f96.chunk.css.map",
+  "static/media/ghosty2.gif": "/static/media/ghosty2.9c2ec373.gif",
+  "static/css/main.6c872643.chunk.css.map": "/static/css/main.6c872643.chunk.css.map",
+  "static/css/1.0cfe1a79.chunk.css.map": "/static/css/1.0cfe1a79.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.f112489df323fe8c925b5497e5cd98eb.js": "/precache-manifest.f112489df323fe8c925b5497e5cd98eb.js",
+  "precache-manifest.9408e7381f238dce3bd3c1c9bf0cf37f.js": "/precache-manifest.9408e7381f238dce3bd3c1c9bf0cf37f.js",
   "service-worker.js": "/service-worker.js"
 }

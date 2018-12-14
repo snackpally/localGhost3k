@@ -9,6 +9,7 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import 'leaflet/dist/leaflet.css';
 import northamerica from '../assets/maps/northamerica.js';
 //import ghost2 from '../assets/dummyData/ghost2.js';
+import ghostIconImage from '../assets/image/ghost-icon.png';
 
 const centerCoord = [46.8797, -110.3626];
 
@@ -20,14 +21,18 @@ const mapStyle = {
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
-  iconUrl: './assets/image/ghost-icon.png',
+  iconUrl: ghostIconImage,
   iconSize: [30, 30]
 });
 
 const ghostClusterIcon = new Leaflet.Icon({
-  iconUrl: './assets/image/ghost-icon.png',
-  iconSize: [80, 80]
+  iconUrl: ghostIconImage,
+  iconSize: [50, 50]
 });
+
+// const markers =  new Leaflet.geoJson(localghost ,{
+//       onEachFeature: ghostSingleIcon
+//     })
 
 export default class LeafletMap extends React.Component {
   constructor(props) {
@@ -35,21 +40,23 @@ export default class LeafletMap extends React.Component {
     this.features = [];
     this.markers = [];
     this.state = {
-      data: ''
+      data: '',
+      markers: []
     };
   }
-  //TODO map data? reduce via getnestedobjects
+
+  // map data? reduce via getnestedobjects
   componentDidMount() {
     axios.get('http://localhost:3001/location/allGhost').then(res => {
       console.log(res);
       console.log(res.data);
-      this.setState({
-        data: res.data
-      });
-      let test = res.data[0];
-      console.log(test);
-      // let obj = getNestedObject(test, ["loc", "coordinates"]);
-      // console.log(obj);
+      this.setState(
+        {
+          data: res.data,
+          ready: true
+        },
+        () => this.generateMarkers()
+      );
     });
   }
 
@@ -59,17 +66,23 @@ export default class LeafletMap extends React.Component {
     }
   }
 
+  //const latlng = Leaflet.latLng({this.state.data[i].loc.coordinates});
+
   generateMarkers() {
     for (let i = 0; i < this.state.data.length; i++) {
       this.markers.push(<Marker key={i} riseOnHover={true} position={this.state.data[i].loc.coordinates} icon={ghostSingleIcon} />);
     }
+
+    this.setState({
+      markers: this.markers
+    });
   }
 
   borderStyle(feature) {
     if (feature.properties.STATE_NAME == 'Montana') {
-      return { fillOpacity: 0, color: 'yellow' };
+      return { fillOpacity: 0, color: '#ffcc66' };
     } else {
-      return { fillOpacity: 0.5, color: 'yellow', fillColor: 'navy' };
+      return { fillOpacity: 0.5, color: '#ffcc66', fillColor: 'navy' };
     }
   }
 
@@ -81,13 +94,11 @@ export default class LeafletMap extends React.Component {
   // //   })
   //  };
 
-  componentWillMount() {
-    this.generateFeatures();
-    this.generateMarkers();
-  }
   render() {
+    this.generateFeatures();
+
     return (
-      <Map className="map" center={centerCoord} style={mapStyle} zoom={6.75} zoomSnap={0} zoomDelta={0.25} minZoom={0} maxZoom={20}>
+      <Map className="map" center={centerCoord} style={mapStyle} zoom={6.75} zoomSnap={0} zoomDelta={0.1} minZoom={0} maxZoom={20}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           id="mapbox.streets"
@@ -96,7 +107,7 @@ export default class LeafletMap extends React.Component {
 
         {this.features}
         <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon} showCoverageOnHover={true}>
-          {this.markers}
+          {this.state.markers}
         </MarkerClusterGroup>
       </Map>
     );

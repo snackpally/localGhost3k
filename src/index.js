@@ -34,7 +34,3 @@ ReactDOM.render(
   </Router>,
   document.getElementById('root')
 );
-
-// A few of these divs are redundent and are overriding the css rules already being called with bootstrap.
-//I commented them the out and we can work on the alignment from there.
-//Just a thought.
