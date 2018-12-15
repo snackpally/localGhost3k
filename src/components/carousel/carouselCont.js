@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 // import './carousel.css';
-import Card from './card';
+//import Card from './card';
 import GhostCard from './cardNew';
 import ItemsCarousel from 'react-items-carousel';
 import range from 'lodash/range';

@@ -21,7 +21,8 @@ const mapStyle = {
   width: 'auto',
   position: 'relative',
   outline: 'none',
-  marginBottom: '10em'
+  marginBottom: '10em',
+  border: 'solid'
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
@@ -85,7 +86,7 @@ export default class LeafletMap extends React.Component {
     if (feature.properties.STATE_NAME == 'Montana') {
       return { fillOpacity: 0, color: '#ffcc66' };
     } else {
-      return { fillOpacity: .4, color: '#ffcc66', fillColor: 'black' };
+      return { fillOpacity: .6, color: '#ffcc66', fillColor: 'black' };
     }
   }
 
