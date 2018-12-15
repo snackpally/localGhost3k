@@ -1,17 +1,20 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Leaflet from 'leaflet';
 import { Map, TileLayer, Marker, GeoJSON } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-// import Collapseable from './Collapseable.js';
+import Collapseable from './Collapseable.js';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import 'leaflet/dist/leaflet.css';
 import northamerica from '../assets/maps/northamerica.js';
-//import ghost2 from '../assets/dummyData/ghost2.js';
 import ghostIconImage from '../assets/image/ghost-icon.png';
-
+//import $ from 'j-query';
+//import '../index.css';
 const centerCoord = [46.8797, -110.3626];
+const northEastCorner = Leaflet.latLng(48.933, -103.868);
+const southWestCorner = Leaflet.latLng(44.659, -103.925);
+const bounds = Leaflet.latLngBounds(southWestCorner, northEastCorner);
 
 const mapStyle = {
   height: '590px',
@@ -31,10 +34,6 @@ const ghostClusterIcon = new Leaflet.Icon({
   iconSize: [50, 50]
 });
 
-// const markers =  new Leaflet.geoJson(localghost ,{
-//       onEachFeature: ghostSingleIcon
-//     })
-
 export default class LeafletMap extends React.Component {
   constructor(props) {
     super(props);
@@ -46,7 +45,6 @@ export default class LeafletMap extends React.Component {
     };
   }
 
-  // map data? reduce via getnestedobjects
   componentDidMount() {
     axios.get('http://localhost:3001/location/allGhost').then(res => {
       console.log(res);
@@ -61,19 +59,23 @@ export default class LeafletMap extends React.Component {
     });
   }
 
-  generateFeatures() {
-    for (let i = 0; i < northamerica.features.length; i++) {
-      this.features.push(<GeoJSON key={i} data={northamerica.features[i]} style={this.borderStyle(northamerica.features[i])} />);
+    generateFeatures() {
+      for (let i = 0; i < northamerica.features.length; i++) {
+        this.features.push(<GeoJSON key={i} data={northamerica.features[i]} style={this.borderStyle(northamerica.features[i])} />);
+      }
     }
-  }
-
-  //const latlng = Leaflet.latLng({this.state.data[i].loc.coordinates});
 
   generateMarkers() {
     for (let i = 0; i < this.state.data.length; i++) {
-      this.markers.push(<Marker key={i} riseOnHover={true} position={this.state.data[i].loc.coordinates} icon={ghostSingleIcon} />);
+      this.markers.push(<Marker className="markers"
+      key={i}
+      riseOnHover={true}
+      position={this.state.data[i].loc.coordinates}
+      maxBounds={this.state.bounds}
+      icon={ghostSingleIcon}
+      bubblingMouseEvents={true}
+      />);
     }
-
     this.setState({
       markers: this.markers
     });
@@ -83,23 +85,35 @@ export default class LeafletMap extends React.Component {
     if (feature.properties.STATE_NAME == 'Montana') {
       return { fillOpacity: 0, color: '#ffcc66' };
     } else {
-      return { fillOpacity: 1, color: '#ffcc66', fillColor: 'navy' };
+      return { fillOpacity: .4, color: '#ffcc66', fillColor: 'black' };
     }
   }
 
-  // onEachFeature(ghostSingleMarker, layer) {
-  // //   layer.on({
-  // //     mouseover: this.highlightFeature,
-  // //     mouseout: this.resetHighlight,
-  // //     click: this.clickToCollapse
-  // //   })
-  //  };
+  // onEachFeature(marker, layer) {
+  //   layer.on({
+  //     mouseover: this.highlightFeature.bind(this),
+  //     mouseout: this.resetHighlight.bind(this),
+  //     click: this.clickToFeature.bind(this)
+  //   });
+  // }
+  //
+  // clickToFeature(e) {
+  //   var layer = e.target;
+  //   console.log("I clicked on " + layer.data.place_name);
+  //
+  // }
+  //
+  // onMarkerClick(e) {
+  //   marker_ID = this.e.marker.id;
+  //   console.log("You clicked the marker " + marker_ID);
+  //   return <Collapseable />
+  // }
 
   render() {
     this.generateFeatures();
 
     return (
-      <Map className="map" center={centerCoord} style={mapStyle} zoom={6.75} zoomSnap={0} zoomDelta={0.1} minZoom={0} maxZoom={20}>
+      <Map className="map" center={centerCoord} style={mapStyle} scrollWheelZoom={false} zoom={6.75} zoomSnap={0} zoomDelta={2} minZoom={6.75} maxZoom={20}  maxBoundsViscosity={1} >
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           id="mapbox.streets"
@@ -107,8 +121,10 @@ export default class LeafletMap extends React.Component {
         />
 
         {this.features}
-        <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon} showCoverageOnHover={true}>
+
+        <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon}>
           {this.state.markers}
+          onEachFeature={this.onEachFeature}
         </MarkerClusterGroup>
       </Map>
     );
