@@ -13,7 +13,7 @@ export default class GhostCard extends React.Component {
             <CardText className="cardCity">{this.props.data.address.city}</CardText>
             <CardText>
               <small href="#" className="text-muted">
-                Learn more...
+                Learn more >>>
               </small>
             </CardText>
           </CardImgOverlay>

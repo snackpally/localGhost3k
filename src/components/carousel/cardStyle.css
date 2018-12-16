@@ -31,7 +31,17 @@
 }
 
 .cardCity {
-	text-shadow: white;
+	/* color: white;
+	text-shadow: white; */
+	position: center absolute;
+	bottom: 50px;
+	top: 70px;
+	color: white !important;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 .text-muted {
