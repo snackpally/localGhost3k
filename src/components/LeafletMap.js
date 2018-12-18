@@ -2,16 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Leaflet from 'leaflet';
-import { Map, TileLayer, Marker, GeoJSON } from 'react-leaflet';
+import { Map, TileLayer, Marker, GeoJSON, Popup} from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import Collapseable from './Collapseable.js';
 import 'react-leaflet-markercluster/dist/styles.min.css';
+import './component.css'
 import 'leaflet/dist/leaflet.css';
+import Collapseable from './Collapseable.js';
 import northamerica from '../assets/maps/northamerica.js';
 import ghostIconImage from '../assets/image/ghost-icon.png';
 //import $ from 'j-query';
 //import '../index.css';
+
 const centerCoord = [46.8797, -110.3626];
+
 const northEastCorner = Leaflet.latLng(48.933, -103.868);
 const southWestCorner = Leaflet.latLng(44.659, -103.925);
 const bounds = Leaflet.latLngBounds(southWestCorner, northEastCorner);
@@ -75,8 +78,11 @@ export default class LeafletMap extends React.Component {
       maxBounds={this.state.bounds}
       icon={ghostSingleIcon}
       bubblingMouseEvents={true}
-      />);
-    }
+
+      >
+      <Popup  maxWidth={7} key={i}> <Collapseable key={i} data={this.state.data[i]}/> </Popup>
+    </Marker>
+  );}
     this.setState({
       markers: this.markers
     });
@@ -90,25 +96,9 @@ export default class LeafletMap extends React.Component {
     }
   }
 
-  // onEachFeature(marker, layer) {
-  //   layer.on({
-  //     mouseover: this.highlightFeature.bind(this),
-  //     mouseout: this.resetHighlight.bind(this),
-  //     click: this.clickToFeature.bind(this)
-  //   });
-  // }
-  //
-  // clickToFeature(e) {
-  //   var layer = e.target;
-  //   console.log("I clicked on " + layer.data.place_name);
-  //
-  // }
-  //
-  // onMarkerClick(e) {
-  //   marker_ID = this.e.marker.id;
-  //   console.log("You clicked the marker " + marker_ID);
-  //   return <Collapseable />
-  // }
+  attachPopup(markers, layer) {
+    onEachFeature: layer.bindPopup();
+  }
 
   render() {
     this.generateFeatures();
@@ -125,7 +115,7 @@ export default class LeafletMap extends React.Component {
 
         <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon}>
           {this.state.markers}
-          onEachFeature={this.onEachFeature}
+          onEachFeature={}
         </MarkerClusterGroup>
       </Map>
     );

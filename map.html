@@ -105,7 +105,9 @@ L.geoJson(ghost2 ,{
       onEachFeature: ghostInfo
     }).addTo(map);
 
-
+onEachFeature (marker, layer) {
+  layer.bindPopup();
+}
 //
 //Making markers interactive
 
