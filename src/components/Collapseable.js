@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { Collapse, Button, CardBody, Card, Media } from 'reactstrap';
 import './component.css'
 
 export default class Collapseable extends Component {
@@ -22,19 +22,25 @@ export default class Collapseable extends Component {
     return (
 
       <div>
-        <Collapse isOpen={this.state.collapse} toggle={this.markers} className={this.props.className}>
-          <Card className="collapseableCard" toggle={this.markers}>
-            <CardBody className="collapseCardBody">
-              <img className="collapse-img" src={this.props.data.loc_img}/>
-              <h3 className="collapse-place_name" > {this.props.data.place_name}</h3>
-              <h4 className="collapse-city" > {this.props.data.address.city}</h4>
-              <p className="collapse-loc_desc"> {this.props.data.loc_desc}</p>
-              <h5 className="collapse-source">{this.props.data.info_source}</h5>
+        <Collapse isOpen={this.state.collapse} toggle={this.markers} className={this.props.className} className="Collapse">
+          <Media>
+                <Media left href="#">
+                  <Media object data-src="{this.props.data.loc_img}" alt="Collapse placeholder image" />
+                </Media>
+                <Media body>
+                  <Media heading>
+                    {this.props.data.place_name}
+                  </Media>
+                  <Media heading>
+                    {this.props.data.address.city}
+                  </Media>
+                  {this.props.data.loc_desc}
+                </Media>
+              </Media>
               <Button color="secondary" size="sm">More info....</Button>
               <Button color="danger" size="lg">Add to Profile</Button>{' '}
               <Button color="secondary" size="lg">Add to tour</Button>
-            </CardBody>
-          </Card>
+
         </Collapse>
       </div>
     );
@@ -43,6 +49,11 @@ export default class Collapseable extends Component {
 
 
 
+// <img className="collapse-img" src={this.props.data.loc_img}/>
+// <h3 className="collapse-place_name" > {this.props.data.place_name}</h3>
+// <h4 className="collapse-city" > {this.props.data.address.city}</h4>
+// <p className="collapse-loc_desc"> {this.props.data.loc_desc}</p>
+// <h5 className="collapse-source">{this.props.data.info_source}</h5>
 
 
 

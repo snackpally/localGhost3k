@@ -20,3 +20,10 @@
     height: 0px;
     width: 0px // DANGEROUS HACK
     }
+
+.Collapse {
+  width: 900px;
+}
+.collapseableCard{
+  width: 900px;
+}
