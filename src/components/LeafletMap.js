@@ -58,7 +58,7 @@ export default class LeafletMap extends React.Component {
           data: res.data,
           ready: true
         },
-        () => this.generateMarkers()
+        () => this.generateMarkers(),
       );
     });
   }
@@ -69,20 +69,18 @@ export default class LeafletMap extends React.Component {
       }
     }
 
-  generateMarkers() {
-    for (let i = 0; i < this.state.data.length; i++) {
-      this.markers.push(<Marker className="markers"
-      key={i}
-      riseOnHover={true}
-      position={this.state.data[i].loc.coordinates}
-      maxBounds={this.state.bounds}
-      icon={ghostSingleIcon}
-      bubblingMouseEvents={true}
-
-      >
-      <Popup  maxWidth={7} key={i}> <Collapseable key={i} data={this.state.data[i]}/> </Popup>
-    </Marker>
-  );}
+    generateMarkers() {
+      for (let i = 0; i < this.state.data.length; i++) {
+        this.markers.push(<Marker className="markers"
+        key={i}
+        riseOnHover={true}
+        position={this.state.data[i].loc.coordinates}
+        maxBounds={this.state.bounds}
+        icon={ghostSingleIcon}
+        bubblingMouseEvents={true}
+        onMarkerClick={()=>this.onMarkerClick}>
+      </Marker>
+    );}
     this.setState({
       markers: this.markers
     });
@@ -96,28 +94,31 @@ export default class LeafletMap extends React.Component {
     }
   }
 
-  attachPopup(markers, layer) {
-    onEachFeature: layer.bindPopup();
-  }
+  onMarkerClick(markers) {
+   	this.setState({
+     	data: markers
+   });
+ }
+
 
   render() {
     this.generateFeatures();
-
+    onClick={()=>this.props.onMarkerClick(this.state.markers)}; 
     return (
+      <div>
       <Map className="map" center={centerCoord} style={mapStyle} scrollWheelZoom={false} zoom={6.75} zoomSnap={0} zoomDelta={2} minZoom={6.75} maxZoom={20}  maxBoundsViscosity={1} >
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           id="mapbox.streets"
           url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
         />
-
         {this.features}
-
         <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon}>
           {this.state.markers}
-          onEachFeature={}
         </MarkerClusterGroup>
       </Map>
+      <Collapseable data={this.state.data[i]}/>
+      </div>
     );
   }
 }

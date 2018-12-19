@@ -4,7 +4,7 @@ import { Collapse, Button, CardBody, Card } from 'reactstrap';
 export default class Collapseable extends Component {
   constructor(props) {
     super(props);
-    this.toggle = this.toggle.bind(this);
+    this.toggle = this.markers.bind(this);
     this.state = { collapse: false };
   }
 
@@ -19,12 +19,12 @@ export default class Collapseable extends Component {
   render() {
     return (
       <div>
-        <Collapse isOpen={this.state.collapse} toggle={this.marker} className={this.props.className}>
-          <Card toggle={this.marker}>
+        <Collapse isOpen={this.state.collapse} toggle={this.markers} className={this.props.className}>
+          <Card toggle={this.markers}>
             <CardBody className="collapseCardBody">
               <img className="collapse-img" src={this.props.data.loc_img}/>
-              <h1 className="collapse-place_name" > {this.props.data.place_name}</h1>
-              <h2 className="collapse-city" > {this.props.data.address.city}</h2>
+              <h3 className="collapse-place_name" > {this.props.data.place_name}</h3>
+              <h4 className="collapse-city" > {this.props.data.address.city}</h4>
               <p className="collapse-loc_desc"> {this.props.data.loc_desc}</p>
               <h5 className="collapse-source">{this.props.data.info_source}</h5>
               <Button color="secondary" size="sm">More info....</Button>
