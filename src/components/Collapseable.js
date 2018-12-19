@@ -16,7 +16,7 @@ export default class Collapseable extends Component {
   componentDidMount() {
     this.setState({ collapse: true });
   }
-
+  
   render() {
     console.log('PROPS', this.props.data);
     return (
