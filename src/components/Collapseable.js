@@ -4,7 +4,7 @@ import { Collapse, Button, CardBody, Card } from 'reactstrap';
 export default class Collapseable extends Component {
   constructor(props) {
     super(props);
-    this.toggle = this.markers.bind(this);
+    
     this.state = { collapse: false };
   }
 

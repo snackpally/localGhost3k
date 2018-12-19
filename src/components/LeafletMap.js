@@ -78,7 +78,8 @@ export default class LeafletMap extends React.Component {
         maxBounds={this.state.bounds}
         icon={ghostSingleIcon}
         bubblingMouseEvents={true}
-        onMarkerClick={()=>this.onMarkerClick}>
+        onClick={this.props.handleMarkerClick(this.state.data[i])}>
+        console.log("this here", this.state.data[i]);
       </Marker>
     );}
     this.setState({
@@ -94,16 +95,11 @@ export default class LeafletMap extends React.Component {
     }
   }
 
-  onMarkerClick(markers) {
-   	this.setState({
-     	data: markers
-   });
- }
 
 
   render() {
     this.generateFeatures();
-    onClick={()=>this.props.onMarkerClick(this.state.markers)}; 
+
     return (
       <div>
       <Map className="map" center={centerCoord} style={mapStyle} scrollWheelZoom={false} zoom={6.75} zoomSnap={0} zoomDelta={2} minZoom={6.75} maxZoom={20}  maxBoundsViscosity={1} >
@@ -117,7 +113,7 @@ export default class LeafletMap extends React.Component {
           {this.state.markers}
         </MarkerClusterGroup>
       </Map>
-      <Collapseable data={this.state.data[i]}/>
+
       </div>
     );
   }
