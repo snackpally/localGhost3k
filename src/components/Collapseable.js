@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Collapse, Button, CardBody, Card, Media } from 'reactstrap';
-import './component.css'
+import './component.css';
 
 export default class Collapseable extends Component {
   constructor(props) {
@@ -13,14 +13,13 @@ export default class Collapseable extends Component {
     this.setState({ collapse: !this.state.collapse });
   }
 
-  componentDidMount(){
-    this.setState({collapse: true})
+  componentDidMount() {
+    this.setState({ collapse: true });
   }
 
   render() {
-    console.log("PROPS", this.props.data);
+    console.log('PROPS', this.props.data);
     return (
-
       <div>
         <Collapse isOpen={this.state.collapse} toggle={this.markers}
           className={this.props.className} className="Collapse">
@@ -49,18 +48,12 @@ export default class Collapseable extends Component {
     }
   }
 
-
-
 // <img className="collapse-img" src={this.props.data.loc_img}/>
 // <h3 className="collapse-place_name" > {this.props.data.place_name}</h3>
 // <h4 className="collapse-city" > {this.props.data.address.city}</h4>
 // <p className="collapse-loc_desc"> {this.props.data.loc_desc}</p>
 // <h5 className="collapse-source">{this.props.data.info_source}</h5>
 // <Button className="tourButton" color="secondary" size="sm">Add to tour</Button>
-
-
-
-
 
 // import React, { Component } from 'react';
 // import { Collapse, Button, CardBody, Card } from 'reactstrap';
