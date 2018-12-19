@@ -1,29 +1,48 @@
-.leaflet-container a.leaflet-popup-close-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 8px 8px 0 0;
-    text-align: center;
-    width: 0px;
-    height: 0px;
-    font: 0px/0px Tahoma, Verdana, sans-serif; //DANGEROUS HACK
-    color: #c3c3c3;
-    text-decoration: none;
-    font-weight: bold;
-    background: transparent;
-    }
-
-.leaflet-popup-content-wrapper {
-    padding: 1px;
-    text-align: left;
-    border-radius: 12px;
-    height: 0px;
-    width: 0px // DANGEROUS HACK
-    }
-
 .Collapse {
-  width: 900px;
+  border: solid;
+  background-color: #ffcc66;
+  margin: 20px;
+  border-radius: .7em;
 }
-.collapseableCard{
-  width: 900px;
+
+.collapseImg {
+    max-width: 200px;
+    max-height: 300px;
+    margin-top: 40px;
+    border-color: #404040;
+    border-style: ridge;
+    border-radius: .5em;
+  	/* opacity: .7;
+  height: 50px;
+  width: 50px; */
+  margin-left: 50px;
+  float: left;
+}
+.collapsePlaceName {
+  margin-top: 10px;
+}
+
+.collapseCity {
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.collapseLocDesc{
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.profileButton  {
+  margin-left: 263px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+
+  /* margin-right: auto; */
+
+}
+.tourButton {
+  /* margin-right: 00px; */
+}
+.collapseLearnMore {
+  margin-left: 10px;
 }

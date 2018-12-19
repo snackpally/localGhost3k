@@ -18,34 +18,36 @@ export default class Collapseable extends Component {
   }
 
   render() {
-          console.log("PROPS", this.props.data);
+    console.log("PROPS", this.props.data);
     return (
 
       <div>
-        <Collapse isOpen={this.state.collapse} toggle={this.markers} className={this.props.className} className="Collapse">
+        <Collapse isOpen={this.state.collapse} toggle={this.markers}
+          className={this.props.className} className="Collapse">
           <Media>
-                <Media left href="#">
-                  <Media object data-src="{this.props.data.loc_img}" alt="Collapse placeholder image" />
-                </Media>
-                <Media body>
-                  <Media heading>
-                    {this.props.data.place_name}
-                  </Media>
-                  <Media heading>
-                    {this.props.data.address.city}
-                  </Media>
-                  {this.props.data.loc_desc}
-                </Media>
+            <Media left href="#">
+              <Media object className="collapseImg" src={this.props.data.loc_img_link} alt="Collapse placeholder image" />
+            </Media>
+            <Media body>
+              <Media heading className="collapsePlaceName">
+                {this.props.data.place_name}
               </Media>
-              <Button color="secondary" size="sm">More info....</Button>
-              <Button color="danger" size="lg">Add to Profile</Button>{' '}
-              <Button color="secondary" size="lg">Add to tour</Button>
+              <Media >
+                <h5 className="collapseCity">{this.props.data.address.city}</h5>
+              </Media>
+              <Media className="collapseLocDesc">
+              {this.props.data.loc_desc}
+            </Media>
+              <Button outline className="collapseLearnMore" color="primary" size="sm">Learn More ... </Button>{' '}
+            </Media>
+          </Media>
+           <Button className="profileButton" color="danger" size="sm">Add to Profile</Button>{' '}
 
-        </Collapse>
-      </div>
-    );
+          </Collapse>
+        </div>
+      );
+    }
   }
-}
 
 
 
@@ -54,6 +56,7 @@ export default class Collapseable extends Component {
 // <h4 className="collapse-city" > {this.props.data.address.city}</h4>
 // <p className="collapse-loc_desc"> {this.props.data.loc_desc}</p>
 // <h5 className="collapse-source">{this.props.data.info_source}</h5>
+// <Button className="tourButton" color="secondary" size="sm">Add to tour</Button>
 
 
 

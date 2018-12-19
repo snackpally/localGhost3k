@@ -18,9 +18,10 @@
 }
 .card {
 	height: 200px;
-	width: 270px;
-	padding: 20px;
+	width: 240px;
+	padding: 10px;
 	margin: 1em;
+	background-color: #404040;
 }
 
 .card-background-image {

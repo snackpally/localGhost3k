@@ -24,7 +24,7 @@ const mapStyle = {
   width: 'auto',
   position: 'relative',
   outline: 'none',
-  marginBottom: '10em',
+  marginBottom: '2em',
   border: 'solid'
 };
 
@@ -91,7 +91,7 @@ export default class LeafletMap extends React.Component {
     if (feature.properties.STATE_NAME == 'Montana') {
       return { fillOpacity: 0, color: '#ffcc66' };
     } else {
-      return { fillOpacity: .6, color: '#ffcc66', fillColor: 'black' };
+      return { fillOpacity: .6, color: '#ffcc66', fillColor: '#404040' };
     }
   }
 
