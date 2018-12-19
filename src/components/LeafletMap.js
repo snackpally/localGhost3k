@@ -78,10 +78,10 @@ export default class LeafletMap extends React.Component {
         maxBounds={this.state.bounds}
         icon={ghostSingleIcon}
         bubblingMouseEvents={true}
-        onClick={this.props.handleMarkerClick(this.state.data[i])}>
-        console.log("this here", this.state.data[i]);
-      </Marker>
-    );}
+        onClick={()=>this.props.handleMarkerClick(this.state.data[i])}/>
+    );
+      console.log("this here", this.state.data[i]);
+    }
     this.setState({
       markers: this.markers
     });
