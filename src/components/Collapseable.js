@@ -5,29 +5,47 @@ import './component.css';
 export default class Collapseable extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { collapse: false };
+    this.toggle=this.toggle.bind(this);
+    this.state = {
+      collapse: false
+    };
   }
 
-  toggle() {
+  toggle = (e) => {
     this.setState({ collapse: !this.state.collapse });
-  }
+  };
+
+
+  // closeCollapse() {
+  //   if (this.state.collapsed !== true) {
+  //     this.setState{collapse: false}
+  //   };
+  // }
+  // closeCollapse(e){
+  //   console.log("I want to close something")
+  //   if(e){
+  //     e.click();
+  //   }
+  //   this.setState({collapse: false});
+  // }
 
   componentDidMount() {
     this.setState({ collapse: true });
   }
-  
+
+
   render() {
     console.log('PROPS', this.props.data);
     return (
       <div>
         <Collapse isOpen={this.state.collapse} toggle={this.markers}
           className={this.props.className} className="Collapse">
+          <Button className="collapseClose" toggle={this.toggle} onClick={(e) => {this.toggle(this.props.data)}} close />
           <Media>
             <Media left href="#">
               <Media object className="collapseImg" src={this.props.data.loc_img_link} alt="Collapse placeholder image" />
             </Media>
-            <Media body>
+            <Media body className="blurred-box">
               <Media heading className="collapsePlaceName">
                 {this.props.data.place_name}
               </Media>
@@ -35,18 +53,17 @@ export default class Collapseable extends Component {
                 <h5 className="collapseCity">{this.props.data.address.city}</h5>
               </Media>
               <Media className="collapseLocDesc">
-              {this.props.data.loc_desc}
+                {this.props.data.loc_desc}
+              </Media>
+              <Button outline className="collapseLearnMore" color="primary" size="sm">Learn More... </Button>{' '}
+              </Media>
             </Media>
-              <Button outline className="collapseLearnMore" color="primary" size="sm">Learn More ... </Button>{' '}
-            </Media>
-          </Media>
-           <Button className="profileButton" color="danger" size="sm">Add to Profile</Button>{' '}
-
-          </Collapse>
-        </div>
-      );
+            <Button className="profileButton" color="danger" size="sm">Add to Profile</Button>{' '}
+            </Collapse>
+          </div>
+        );
+      }
     }
-  }
 
 // <img className="collapse-img" src={this.props.data.loc_img}/>
 // <h3 className="collapse-place_name" > {this.props.data.place_name}</h3>

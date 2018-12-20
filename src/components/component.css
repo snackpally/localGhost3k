@@ -1,8 +1,14 @@
 .Collapse {
   border: solid;
   background-color: #ffcc66;
-  margin: 20px;
+  margin: 20px 50px 20px 50px;
+  position: center;
   border-radius: .7em;
+}
+
+.collapseClose {
+  margin-top: 10px;
+  margin-right: 20px;
 }
 
 .collapseImg {
@@ -19,30 +25,50 @@
   float: left;
 }
 .collapsePlaceName {
+  position: center;
   margin-top: 10px;
+  color: #b6b6b6;
+  text-shadow:
+		-1px -1px 0 #333,
+		1px -1px 0 #333,
+		-1px 1px 0 #333,
+		1px 1px 0 #333
 }
+/* .blurred-box{
+  position: relative;
+  width: 250px;
+  height: 350px;
+  /* /top: calc(50% - 175px);
+  left: calc(50% - 125px);
+  background: inherit;
+  border-radius: 2px;
+} */
 
 .collapseCity {
+  position: center;
   margin-left: auto;
   margin-right: auto;
 
 }
 .collapseLocDesc{
+  position: center; */
   margin-right: 20px;
   margin-left: 20px;
 }
 
 .profileButton  {
-  margin-left: 263px;
+  margin-left: 225px;
   margin-top: 2px;
   margin-bottom: 5px;
+  /* position: center; */
 
   /* margin-right: auto; */
 
 }
-.tourButton {
-  /* margin-right: 00px; */
-}
+/* .tourButton {
+  position: center;
+  margin-right: 00px;
+} */
 .collapseLearnMore {
   margin-left: 10px;
 }
