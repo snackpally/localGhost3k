@@ -31,10 +31,10 @@ class Landing extends React.Component {
         <div className="Landing">
           <h1>Local Ghost 3000</h1>
           <p>Your haunted location finder</p>
+          <ghostInfoCard />
           <Leaflet handleMarkerClick={this.handleMarkerClick}/>
           {this.state.currentLocation}
           <Carousel />
-          {/* <GhostCard /> */}
         </div>
       </div>
     );
