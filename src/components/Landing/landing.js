@@ -13,11 +13,12 @@ class Landing extends React.Component {
       currentLocation: null,
     }
     this.handleMarkerClick=this.handleMarkerClick.bind(this);
+
   }
 
   handleMarkerClick(e) {
     console.log("clicked marker! info now available in Landing", e);
-    let collapse = <Collapseable data={e}/>;
+    let collapse = <Collapseable collapse="true" data={e}/>;
     // for some reason, data, passed above, is showing up 'undefined' in collapseable.
     //
    	this.setState({

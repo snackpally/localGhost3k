@@ -10,6 +10,7 @@ import 'leaflet/dist/leaflet.css';
 import Collapseable from './Collapseable.js';
 import northamerica from '../assets/maps/northamerica.js';
 import ghostIconImage from '../assets/image/ghost-icon.png';
+import ghostIcon from '../assets/image/ghost.png';
 //import $ from 'j-query';
 //import '../index.css';
 
@@ -29,12 +30,12 @@ const mapStyle = {
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
-  iconUrl: ghostIconImage,
+  iconUrl: ghostIcon,
   iconSize: [30, 30]
 });
 
 const ghostClusterIcon = new Leaflet.Icon({
-  iconUrl: ghostIconImage,
+  iconUrl: ghostIcon,
   iconSize: [50, 50]
 });
 
