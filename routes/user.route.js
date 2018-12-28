@@ -10,7 +10,9 @@ router.post('/register', user_controller.new_user);
 //this works right now
 router.post('/login', passport.authenticate('local'), function(req, res) {
   res.send(req.user);
-  console.log(req.user.first_name);
+  console.log(req.user);
+  console.log(req.session);
+  console.log(req.sessionID);
 });
 
 // Endpoint to get current user

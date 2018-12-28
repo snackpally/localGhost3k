@@ -20,7 +20,8 @@ class LoginForm extends React.Component {
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     let login = {
       username: this.state.username,
       password: this.state.password
@@ -30,6 +31,7 @@ class LoginForm extends React.Component {
       .then(res => {
         console.log(res);
         console.log(res.data);
+        alert('Logged in as ' + res.data.username);
       })
       .catch(err => {
         console.log(err);
