@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardTitle, CardText, CardImg, CardImgOverlay } from 'reactstrap';
 import './cardStyle.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default class GhostCard extends React.Component {
   render() {
@@ -13,7 +14,8 @@ export default class GhostCard extends React.Component {
             <CardText className="cardCity">{this.props.data.address.city}</CardText>
             <CardText>
               <small href="#" className="text-muted">
-                Learn more >>>
+
+              <Link to={"/ghostInfo/"+this.props.data._id}> Learn more </Link>
               </small>
             </CardText>
           </CardImgOverlay>

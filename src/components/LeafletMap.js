@@ -24,7 +24,7 @@ const mapStyle = {
   width: 'auto',
   position: 'relative',
   outline: 'none',
-  marginBottom: '10em',
+  marginBottom: '2em',
   border: 'solid'
 };
 
@@ -63,56 +63,54 @@ export default class LeafletMap extends React.Component {
     });
   }
 
-    generateFeatures() {
-      for (let i = 0; i < northamerica.features.length; i++) {
-        this.features.push(<GeoJSON key={i} data={northamerica.features[i]} style={this.borderStyle(northamerica.features[i])} />);
-      }
-    }
-
-    generateMarkers() {
-      for (let i = 0; i < this.state.data.length; i++) {
-        this.markers.push(<Marker className="markers"
-        key={i}
-        riseOnHover={true}
-        position={this.state.data[i].loc.coordinates}
-        maxBounds={this.state.bounds}
-        icon={ghostSingleIcon}
-        bubblingMouseEvents={true}
-        onClick={()=>this.props.handleMarkerClick(this.state.data[i])}/>
-    );
-      console.log("this here", this.state.data[i]);
-    }
-    this.setState({
-      markers: this.markers
-    });
-  }
-
-  borderStyle(feature) {
-    if (feature.properties.STATE_NAME == 'Montana') {
-      return { fillOpacity: 0, color: '#ffcc66' };
-    } else {
-      return { fillOpacity: .6, color: '#ffcc66', fillColor: 'black' };
+  generateFeatures() {
+    for (let i = 0; i < northamerica.features.length; i++) {
+      this.features.push(<GeoJSON key={i} data={northamerica.features[i]} style={this.borderStyle(northamerica.features[i])} />);
     }
   }
 
+  generateMarkers() {
+    for (let i = 0; i < this.state.data.length; i++) {
+      this.markers.push(<Marker className="markers"
+      key={i}
+      riseOnHover={true}
+      position={this.state.data[i].loc.coordinates}
+      maxBounds={this.state.bounds}
+      icon={ghostSingleIcon}
+      bubblingMouseEvents={true}
+      onClick={()=>this.props.handleMarkerClick(this.state.data[i])}/>
+  );
+  console.log("this here", this.state.data[i]);
+}
+this.setState({
+  markers: this.markers
+});
+}
 
+borderStyle(feature) {
+  if (feature.properties.STATE_NAME == 'Montana') {
+    return { fillOpacity: 0, color: '#ffcc66' };
+  } else {
+    return { fillOpacity: .6, color: '#ffcc66', fillColor: '#404040' };
+  }
+}
 
   render() {
     this.generateFeatures();
 
     return (
       <div>
-      <Map className="map" center={centerCoord} style={mapStyle} scrollWheelZoom={false} zoom={6.75} zoomSnap={0} zoomDelta={2} minZoom={6.75} maxZoom={20}  maxBoundsViscosity={1} >
-        <TileLayer
-          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          id="mapbox.streets"
-          url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
-        />
-        {this.features}
-        <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon}>
-          {this.state.markers}
-        </MarkerClusterGroup>
-      </Map>
+        <Map className="map" center={centerCoord} style={mapStyle} scrollWheelZoom={false} zoom={6.75} zoomSnap={0} zoomDelta={2} minZoom={6.75} maxZoom={20}  maxBoundsViscosity={1} >
+          <TileLayer
+            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            id="mapbox.streets"
+            url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
+            />
+          {this.features}
+          <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon}>
+            {this.state.markers}
+          </MarkerClusterGroup>
+        </Map>
 
       </div>
     );

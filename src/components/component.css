@@ -1,29 +1,74 @@
-.leaflet-container a.leaflet-popup-close-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 8px 8px 0 0;
-    text-align: center;
-    width: 0px;
-    height: 0px;
-    font: 0px/0px Tahoma, Verdana, sans-serif; //DANGEROUS HACK
-    color: #c3c3c3;
-    text-decoration: none;
-    font-weight: bold;
-    background: transparent;
-    }
-
-.leaflet-popup-content-wrapper {
-    padding: 1px;
-    text-align: left;
-    border-radius: 12px;
-    height: 0px;
-    width: 0px // DANGEROUS HACK
-    }
-
 .Collapse {
-  width: 900px;
+  border: solid;
+  background-color: #ffcc66;
+  margin: 20px 50px 20px 50px;
+  position: center;
+  border-radius: .7em;
 }
-.collapseableCard{
-  width: 900px;
+
+.collapseClose {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.collapseImg {
+    max-width: 200px;
+    max-height: 300px;
+    margin-top: 40px;
+    border-color: #404040;
+    border-style: ridge;
+    border-radius: .5em;
+  	/* opacity: .7;
+  height: 50px;
+  width: 50px; */
+  margin-left: 50px;
+  float: left;
+}
+.collapsePlaceName {
+  position: center;
+  margin-top: 10px;
+  color: #b6b6b6;
+  text-shadow:
+		-1px -1px 0 #333,
+		1px -1px 0 #333,
+		-1px 1px 0 #333,
+		1px 1px 0 #333
+}
+/* .blurred-box{
+  position: relative;
+  width: 250px;
+  height: 350px;
+  /* /top: calc(50% - 175px);
+  left: calc(50% - 125px);
+  background: inherit;
+  border-radius: 2px;
+} */
+
+.collapseCity {
+  position: center;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.collapseLocDesc{
+  position: center; */
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.profileButton  {
+  margin-left: 225px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  /* position: center; */
+
+  /* margin-right: auto; */
+
+}
+/* .tourButton {
+  position: center;
+  margin-right: 00px;
+} */
+.collapseLearnMore {
+  margin-left: 10px;
 }

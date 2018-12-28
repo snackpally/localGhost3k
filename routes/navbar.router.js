@@ -18,11 +18,12 @@ BasicExample() {
         </ul>
 
         <hr />
-
+        <h1>bloopblopbleep</h1>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={Profile} />
         <Route path="/topics" component={Contacts} />
         <Route path="/ghostInfoCard" component={Hauntings} />
+
       </div>
     </Router>
   );

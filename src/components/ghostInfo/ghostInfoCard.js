@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
-import { Collapse, Button, CardBody, Card, Media } from 'reactstrap';
-import '.profile/component.css';
-import Header from './components/navbar/HeaderNav';
+import { Media } from 'reactstrap';
+// import '.profile/component.css';
+// import Header from './components/navbar/HeaderNav';
 
 export default class GhostInfo extends React.Component{
+  constructor(props){
+    super(props);
+  }
   render() {
-    console.log('PROPS', this.props.data);
+    console.log('PROPS', this.props);
+
     return (
       <div>
-        <Header />
-          <h1>Test</h1>
+        <Media>
           <Media left href="#">
-            <Media object data-src="{this.props.data.loc_img}" alt="Collapse placeholder image" />
+            <Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
           </Media>
           <Media body>
-            <Media heading>{this.props.data.place_name}</Media>
-            <Media heading>{this.props.data.address.city}</Media>
-            {this.props.data.loc_desc}
+            <Media heading>
+              Media heading
+            </Media>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
           </Media>
         </Media>
+      </div>
     );
   }
 }
