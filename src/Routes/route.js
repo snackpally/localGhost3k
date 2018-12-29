@@ -6,12 +6,13 @@ import signUpFrom from '../components/login/signUpForm';
 import Collapseable from '../components/Collapseable';
 // import Appliedroute from '../components/nonAPI/appliedroute';
 
-export default ({ childProps }) => (
+export default () => (
   <Switch>
     <Route path="/Login" exact component={loginForm} />
     <Route path="/" exact component={Landing} />
     <Route path="/Register" exact component={signUpFrom} />
     <Route path={`/Collapseable/:id`} component={Collapseable} />
+    {/* <PrivateRoute path="/protected" component={Protected} /> */}
     {/* <Route component={notFound} /> */}
   </Switch>
 );

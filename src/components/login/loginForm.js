@@ -8,11 +8,12 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      redirectToReferrer: false
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
   validateForm() {
     return this.state.username.length > 0 && this.state.password.length > 0;
@@ -20,7 +21,7 @@ class LoginForm extends React.Component {
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-  handleSubmit(e) {
+  handleLogin(e) {
     e.preventDefault();
     let login = {
       username: this.state.username,
@@ -32,6 +33,7 @@ class LoginForm extends React.Component {
         console.log(res);
         console.log(res.data);
         alert('Logged in as ' + res.data.username);
+        this.setState({ redirectToReferrer: true });
       })
       .catch(err => {
         console.log(err);
@@ -51,7 +53,7 @@ class LoginForm extends React.Component {
             <Label for="loginPassword">Password</Label>
             <Input type="password" name="password" placeholder="Enter Password" onChange={this.handleChange} />
           </FormGroup>
-          <Button color="primary" onClick={this.handleSubmit} block>
+          <Button color="primary" onClick={this.handleLogin} block>
             Log In
           </Button>
           <Button color="secondary" block>

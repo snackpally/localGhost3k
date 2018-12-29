@@ -8,8 +8,8 @@ const passport = require('passport');
 const cors = require('cors');
 
 //import routes for project
-const user = require('../routes/user.route');
-const location = require('../routes/location.route');
+const user = require('../Server_routes/user.route');
+const location = require('../Server_routes/location.route');
 // const comment = require("../routes/comment.route");
 //set up express server
 const app = express();

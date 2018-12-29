@@ -16,14 +16,9 @@ class App extends React.Component {
   };
 
   render() {
-    const childProps = {
-      isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated
-    };
     return (
       <div>
         <Header />
-        
       </div>
     );
   }
