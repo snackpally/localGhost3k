@@ -22,8 +22,12 @@ BasicExample() {
         <Route exact path="/" component={Home} />
         <Route path="/about" component={Profile} />
         <Route path="/topics" component={Contacts} />
+<<<<<<< HEAD
         <Route path="/ghostInfoCard" component={Hauntings} />
 
+=======
+        
+>>>>>>> smf/dev/markers_popUnderMap
       </div>
     </Router>
   );
