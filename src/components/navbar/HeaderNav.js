@@ -10,8 +10,7 @@ class Header extends React.Component {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false,
-      loggedIn: false
+      isOpen: false
     };
   }
   toggle() {
@@ -19,6 +18,7 @@ class Header extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
   //TODO: render profile if user is logged in else render Sign in
   //TODO: space login and signup buttons apart
   render() {
@@ -68,7 +68,7 @@ class Header extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-        <Routes />
+        {/* <Routes /> */}
       </div>
     );
   }

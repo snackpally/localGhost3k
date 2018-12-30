@@ -21,6 +21,9 @@ class LoginForm extends React.Component {
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
+  clearForm() {
+    this.setState({ username: '', password: '' });
+  }
   handleLogin(e) {
     e.preventDefault();
     let login = {
@@ -34,6 +37,7 @@ class LoginForm extends React.Component {
         console.log(res.data);
         alert('Logged in as ' + res.data.username);
         this.setState({ redirectToReferrer: true });
+        this.clearForm();
       })
       .catch(err => {
         console.log(err);
