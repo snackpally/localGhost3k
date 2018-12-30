@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Leaflet from 'leaflet';
-import { Map, TileLayer, Marker, GeoJSON, Popup} from 'react-leaflet';
+import { Map, TileLayer, Marker, GeoJSON, Popup } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'react-leaflet-markercluster/dist/styles.min.css';
-import './component.css'
+import './component.css';
 import 'leaflet/dist/leaflet.css';
 import Collapseable from './Collapseable.js';
 import northamerica from '../assets/maps/northamerica.js';
@@ -59,7 +59,7 @@ export default class LeafletMap extends React.Component {
           data: res.data,
           ready: true
         },
-        () => this.generateMarkers(),
+        () => this.generateMarkers()
       );
     });
   }
@@ -72,47 +72,57 @@ export default class LeafletMap extends React.Component {
 
   generateMarkers() {
     for (let i = 0; i < this.state.data.length; i++) {
-      this.markers.push(<Marker className="markers"
-      key={i}
-      riseOnHover={true}
-      position={this.state.data[i].loc.coordinates}
-      maxBounds={this.state.bounds}
-      icon={ghostSingleIcon}
-      bubblingMouseEvents={true}
-      onClick={()=>this.props.handleMarkerClick(this.state.data[i])}/>
-  );
-  console.log("this here", this.state.data[i]);
-}
-this.setState({
-  markers: this.markers
-});
-}
-
-borderStyle(feature) {
-  if (feature.properties.STATE_NAME == 'Montana') {
-    return { fillOpacity: 0, color: '#ffcc66' };
-  } else {
-    return { fillOpacity: .6, color: '#ffcc66', fillColor: '#404040' };
+      this.markers.push(
+        <Marker
+          className="markers"
+          key={i}
+          riseOnHover={true}
+          position={this.state.data[i].loc.coordinates}
+          maxBounds={this.state.bounds}
+          icon={ghostSingleIcon}
+          bubblingMouseEvents={true}
+          onClick={() => this.props.handleMarkerClick(this.state.data[i])}
+        />
+      );
+      console.log('this here', this.state.data[i]);
+    }
+    this.setState({
+      markers: this.markers
+    });
   }
-}
+
+  borderStyle(feature) {
+    if (feature.properties.STATE_NAME == 'Montana') {
+      return { fillOpacity: 0, color: '#ffcc66' };
+    } else {
+      return { fillOpacity: 0.6, color: '#ffcc66', fillColor: '#404040' };
+    }
+  }
 
   render() {
     this.generateFeatures();
 
     return (
       <div>
-        <Map className="map" center={centerCoord} style={mapStyle} scrollWheelZoom={false} zoom={6.75} zoomSnap={0} zoomDelta={2} minZoom={6.75} maxZoom={20}  maxBoundsViscosity={1} >
+        <Map
+          className="map"
+          center={centerCoord}
+          style={mapStyle}
+          scrollWheelZoom={false}
+          zoom={6.75}
+          zoomSnap={0}
+          zoomDelta={2}
+          minZoom={6.75}
+          maxZoom={20}
+          maxBoundsViscosity={1}>
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             id="mapbox.streets"
             url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
-            />
+          />
           {this.features}
-          <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon}>
-            {this.state.markers}
-          </MarkerClusterGroup>
+          <MarkerClusterGroup iconCreateFunction={() => ghostClusterIcon}>{this.state.markers}</MarkerClusterGroup>
         </Map>
-
       </div>
     );
   }
