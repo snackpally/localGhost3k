@@ -7,14 +7,23 @@ import GhostInfoCard from '../components/ghostInfo/ghostInfoCard.js';
 import Collapseable from '../components/Collapseable';
 
 // import Appliedroute from '../components/nonAPI/appliedroute';
+import Header from '../components/navbar/HeaderNav';
+class AppContainer extends React.Component {
+  render() {
+    return (
+      <Switch>
+        <div>
+          <Header />
+          <Route path="/Login" exact component={loginForm} />
+          <Route path="/" exact component={Landing} />
+          <Route path="/Register" exact component={signUpFrom} />
+          <Route path={`/Collapseable/:id`} component={Collapseable} />
+          {/* <PrivateRoute path="/protected" component={Protected} /> */}
+          {/* <Route component={notFound} /> */}
+        </div>
+      </Switch>
+    );
+  }
+}
 
-export default ({ childProps }) => (
-  <Switch>
-    <Route path="/Login" exact component={loginForm} />
-    <Route path="/" exact component={Landing} />
-    <Route path={`/ghostInfo/:id`} component={GhostInfoCard} />
-    <Route path="/Register" exact component={signUpFrom} />
-    <Route path={`/Collapseable/:id`} component={Collapseable} />
-    {/* <Route component={notFound} /> */}
-  </Switch>
-);
+export default AppContainer;
