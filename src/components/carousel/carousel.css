@@ -11,11 +11,13 @@
   border-color: black;
 }
 
-.card-background-image img {
-  max-width: 318vh;
-  max-height: 270vh;
+.card-background-image > img {
+  width: 100%
+  /* max-width: 318vh;
+  max-height: 270vh; */
   /* background */
 }
+
 
 /* .card-image-overlay div {
   width: 100%;
