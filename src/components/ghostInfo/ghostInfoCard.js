@@ -3,8 +3,8 @@ import { Media } from 'reactstrap';
 // import '.profile/component.css';
 // import Header from './components/navbar/HeaderNav';
 
-export default class GhostInfo extends React.Component{
-  constructor(props){
+export default class GhostInfo extends React.Component {
+  constructor(props) {
     super(props);
   }
   render() {
@@ -17,10 +17,9 @@ export default class GhostInfo extends React.Component{
             <Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
           </Media>
           <Media body>
-            <Media heading>
-              Media heading
-            </Media>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            <Media heading>Media heading</Media>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra
+            turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
           </Media>
         </Media>
       </div>
