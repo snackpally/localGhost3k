@@ -36,6 +36,7 @@ class SignUpForm extends React.Component {
         console.log(res.data);
       })
       .catch(function(err) {
+        alert(err);
         console.log(err);
       });
   }
@@ -61,7 +62,7 @@ class SignUpForm extends React.Component {
           <FormGroup>
             <Label for="email">Email Address</Label>
             <Input type="email" name="email" placeholder="Enter your email" onChange={this.handleChange} />
-            <FormText color="muted">We will never share your email with anyone else</FormText>
+            {/* <FormText color="muted">We will never share your email with anyone else</FormText> */}
           </FormGroup>
           <FormGroup>
             <Label for="firstname">First Name</Label>

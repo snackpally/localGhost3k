@@ -32,13 +32,13 @@ class Header extends React.Component {
           <Nav>
             {/* this neeeds to be its own component authentication button that will run "auth code and return either log in or sign out" */}
             <NavItem className="btnRight">
-              <Button color="secondary" href="/Login">
+              <Button color="secondary" tag={Link} to="/Login">
                 Log in
               </Button>
             </NavItem>
             {/* this can stay the same */}
             <NavItem>
-              <Button color="secondary" href="/Register">
+              <Button color="secondary" tag={Link} to="/Register">
                 Sign Up
               </Button>
             </NavItem>
