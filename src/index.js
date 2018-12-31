@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/navbar/HeaderNav';
 import { BrowserRouter as Router } from 'react-router-dom';
-
+import AppContainer from './Routes/route';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,13 +16,10 @@ class App extends React.Component {
   };
 
   render() {
-    const childProps = {
-      isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated
-    };
     return (
       <div>
-        <Header />
+        {/* <Header /> */}
+        <AppContainer />
       </div>
     );
   }
