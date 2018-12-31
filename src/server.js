@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose').set('debug', true);
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
