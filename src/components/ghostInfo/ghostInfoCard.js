@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Media } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 // import '.profile/component.css';
-// import Header from './components/navbar/HeaderNav';
-//
+//import Header from './components/navbar/HeaderNav';
+
 // function getGhostData(id) {
-//   return fetch(`${http://localhost:3001/location/location_details}/${id}`).then(res => res.json());
+//   return fetch(`${http://localhost:3001/location/detail}/${id}`).then(res => res.json());
 // }
 //
 // export default class GhostInfo extends React.Component {
@@ -30,7 +30,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 //     });
 //   }
 
-// 
+
 //   render() {
 //     console.log('PROPS', this.props);
 //
