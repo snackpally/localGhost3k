@@ -43,7 +43,7 @@ export default class Carousel extends React.Component {
 
   createChildren = n =>
     range(n).map(i => (
-      <div key={i} style={{ height: 300, background: '#333' }}>
+      <div key={i} style={{ height: 100, background: '#333' }}>
         {i}
       </div>
     ));

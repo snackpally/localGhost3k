@@ -7,15 +7,14 @@ export default class GhostCard extends React.Component {
   render() {
     return (
       <div>
-        <Card className="card" inverse>
+        <Card className="card" tag={Link} to={'/ghostInfo/' + this.props.data._id} inverse>
           <CardImg className="card-background-image" width="auto" src={this.props.data.loc_img_link} alt="Card image cap" />
           <CardImgOverlay className="cardSizing">
-            <CardTitle className="CardTitle">{this.props.data.place_name}</CardTitle>
-            <CardText className="cardCity">{this.props.data.address.city}</CardText>
-            <CardText>
-              <small href="#" className="text-muted">
-                <Link to={'/ghostInfo/' + this.props.data._id}> Learn more </Link>
-              </small>
+            <CardText className="CardText">
+              <h3 className="cardTitle">{this.props.data.place_name}</h3>
+            <h4 className="cardCity">{this.props.data.address.city}</h4>
+            <h5 className="LearnMore">
+                Learn more...</h5>
             </CardText>
           </CardImgOverlay>
         </Card>
@@ -23,5 +22,3 @@ export default class GhostCard extends React.Component {
     );
   }
 }
-
-//TODO get CardImgOverlay to fill the whole card that is being created.
