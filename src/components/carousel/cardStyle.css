@@ -35,7 +35,7 @@ h3.cardTitle {
 h4.cardCity {
 	position: absolute;
 	font-size: 16px;
-	top: 55%;
+	top: 60%;
 	width: 85%;
 	text-align: center;
 	margin-top: 5px;
@@ -50,7 +50,7 @@ h4.cardCity {
 h5.LearnMore {
 	position: absolute;
 	bottom: 15px;
-	left: 100px;
+	width: 85%;
   font-size: 20px;
   style: bolder;
   font-weight: 1000;
@@ -62,18 +62,18 @@ h5.LearnMore {
     -1px 1px 0 #000,
      1px 1px 0 #000;
 }
-/* .row-eq-height {
+.row-eq-height {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display:         flex;
-} */
+}
 /* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 600px) {
-  h3  {
+ @media only screen and (max-width: 600px) {
+  /* h3  {
     font-size: 6vw;
-  }
-  h4, h5 {
+  } */
+  h3, h4, h5 {
     font-size: 4vw;
   }
   .card {
@@ -81,7 +81,7 @@ h5.LearnMore {
   }
 }
 /* Medium devices (landscape tablets, 768px and up) */
-/* @media only screen and (min-width: 768px) {
+ @media only screen and (min-width: 768px) {
   h3, h4, h5 {
     font-size: 1vw;
   }
@@ -90,13 +90,13 @@ h5.LearnMore {
   }
 }
 /* Large devices (laptops/desktops, 992px and up) */
-/* @media only screen and (min-width: 992px) {
-  .card .card-background-image {
-    width: 100% !important; */
-		/* max-height: 100% !important; */
-  /* }
-} */
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-/* @media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 992px) {
+  .card {
+    width: 100% !important;
 
-}   */
+   }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
