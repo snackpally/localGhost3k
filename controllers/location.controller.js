@@ -1,4 +1,4 @@
-const Location = require("../models/Location");
+const Location = require('../models/Location');
 
 exports.test = function(req, res) {
   Location.find({}, function(err, location) {
@@ -15,7 +15,7 @@ exports.location_create = function(req, res, next) {
       return next(err);
     }
     console.log(res);
-    res.send("Location Created successfully");
+    res.send('Location Created successfully');
   });
 };
 
@@ -24,7 +24,7 @@ exports.location_details = function(req, res, next) {
     console.log(req.params.id);
     console.log(location);
     if (err) return next(err);
-    res.json(location);
-    // res.send(location);
+    // res.json(location);
+    res.send(location);
   });
 };
