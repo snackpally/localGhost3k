@@ -20,8 +20,11 @@ exports.location_create = function(req, res, next) {
 };
 
 exports.location_details = function(req, res, next) {
-  Location.findById({ _id: req.params.id }, function(err, location) {
+  Location.findById(req.params.id).exec(function(err, location) {
+    console.log(req.params.id);
+    console.log(location);
     if (err) return next(err);
-    res.send(location);
+    res.json(location);
+    // res.send(location);
   });
 };

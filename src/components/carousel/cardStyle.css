@@ -30,7 +30,6 @@ h3.cardTitle {
   max-width: 100%;
   max-height: 100%;
 	opacity: .7;
-
  }
 
 h4.cardCity {
@@ -63,3 +62,41 @@ h5.LearnMore {
     -1px 1px 0 #000,
      1px 1px 0 #000;
 }
+/* .row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+} */
+/* Extra small devices (phones, 600px and down) */
+/* @media only screen and (max-width: 600px) {
+  h3  {
+    font-size: 6vw;
+  }
+  h4, h5 {
+    font-size: 4vw;
+  }
+  .card {
+    width: 150% !important;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {
+  h3, h4, h5 {
+    font-size: 1vw;
+  }
+  .card  {
+    width: 120%% !important;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {
+  .card .card-background-image {
+    width: 100% !important; */
+		/* max-height: 100% !important; */
+  /* }
+} */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {
+
+}   */

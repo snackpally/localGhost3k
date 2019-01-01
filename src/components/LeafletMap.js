@@ -2,17 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Leaflet from 'leaflet';
-import { Map, TileLayer, Marker, GeoJSON, Popup } from 'react-leaflet';
+import { Map, TileLayer, Marker, GeoJSON} from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import './component.css';
 import 'leaflet/dist/leaflet.css';
-import Collapseable from './Collapseable.js';
 import northamerica from '../assets/maps/northamerica.js';
-import ghostIconImage from '../assets/image/ghost-icon.png';
+//import ghostIconImage from '../assets/image/ghost-icon.png';
 import ghostIcon from '../assets/image/ghost.png';
-//import $ from 'j-query';
-//import '../index.css';
 
 const centerCoord = [46.8797, -110.3626];
 
@@ -92,7 +89,7 @@ export default class LeafletMap extends React.Component {
   }
 
   borderStyle(feature) {
-    if (feature.properties.STATE_NAME == 'Montana') {
+    if (feature.properties.STATE_NAME === 'Montana') {
       return { fillOpacity: 0, color: '#ffcc66' };
     } else {
       return { fillOpacity: 0.6, color: '#ffcc66', fillColor: '#2e2e44' };
