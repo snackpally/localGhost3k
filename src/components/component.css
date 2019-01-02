@@ -27,6 +27,8 @@
 .collapsePlaceName {
   position: center;
   margin-top: 10px;
+   font-family: "Gill Sans", sans-serif;
+  font-size: 25px; 
   color: #b6b6b6;
   text-shadow:
 		-1px -1px 0 #333,

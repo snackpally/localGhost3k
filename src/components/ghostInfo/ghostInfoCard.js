@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Media } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import axios from 'axios';
-// import '.profile/component.css';
+import './ghostInfo.css';
 //import Header from './components/navbar/HeaderNav';
 
 
@@ -40,20 +40,30 @@ export default class GhostInfo extends React.Component {
     console.log('PROPS', this.props);
 
     return (
-      <div>
+      <div className="GhostInfo">
         <Media>
-
-          <Media object className="ghostDataImg" src={this.state.ghostData.loc_img_link} alt="Place Image" width="400px" height="400px"/>
-
-          <Media>
-            <h1 className="ghostDataPlaceName">{this.state.ghostData.place_name}</h1>
+          <Media left href="#">
+            <Media object className="ghostDataImg" src={this.state.ghostData.loc_img_link} alt="Place Image" width="450px" height="450px"/>
           </Media>
-          <Media>
-            <p className="ghostDataLocDesc">{ this.state.ghostData.loc_desc }</p>
+          <Media body className="ghostDataInfo">
+            <Media className="ghostDataPlaceName">
+              <h1 >{this.state.ghostData.place_name}</h1>
+
+            </Media>
+            <Media className="ghostDataAddress">
+              {/*}<h3>{this.state.ghostData.address.street}</h3>
+            <h3>{this.state.ghostData.address.city}</h3>*/}
+            </Media>
+            <Media className="ghostDataLocDesc">
+              <p >{ this.state.ghostData.loc_desc }</p>
+            </Media>
+            <Media>
+              <h5>Source: {this.state.ghostData.info_source}</h5>
           </Media>
         </Media>
+      </Media>
 
-      </div>
-    );
-  }
+    </div>
+  );
+}
 }
