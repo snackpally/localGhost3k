@@ -45,7 +45,7 @@ export default class Collapseable extends Component {
             </Media>
             <Media body className="blurred-box">
               <Media heading className="collapsePlaceName">
-                {this.props.data.place_name}
+                <h2>{this.props.data.place_name}</h2>
               </Media>
               <Media>
                 <h5 className="collapseCity">{this.props.data.address.city}</h5>

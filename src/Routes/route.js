@@ -18,7 +18,7 @@ class AppContainer extends React.Component {
           <Route exact path="/" component={Landing} />
           <Route path="/Register" exact component={signUpFrom} />
           <Route path={`/Collapseable/:id`} component={Collapseable} />
-          {/* <Route path={`/ghostInfo/:id`} component={GhostInfoCard} />*/}
+          <Route path={`/ghostInfo/:id`} component={GhostInfoCard} />
           {/* <PrivateRoute path="/protected" component={Protected} /> */}
           {/* <Route component={notFound} /> */}
         </div>
