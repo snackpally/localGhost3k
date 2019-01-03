@@ -31,10 +31,34 @@ export default class GhostInfo extends React.Component {
     this.getGhostData(id).then((res)=>{
       console.log("THE JSON", res.data);
       this.setState({
-        ghostData: res.data
+        ghostData: res.data,
       });
     });
   }
+  // ghostStreet(){
+  //   if (this.state.ghostData.address.street) {
+  //     return this.state.ghostData.address.street;
+  //   } else {
+  //     return '';
+  //   }
+  // }
+  ghostCity() {
+    if (this.state.ghostData.city) {
+      return this.state.ghostData.city
+    }
+    else {
+      return ("NOWHERE LAND");
+    }
+  }
+
+  ghostSource() {
+    if (this.state.ghostData.info_source) {
+      return this.state.ghostData.info_source;
+    } else {
+      return ("Unknown");
+    }
+  }
+
 
   render() {
     console.log('PROPS', this.props);
@@ -51,18 +75,17 @@ export default class GhostInfo extends React.Component {
 
             </Media>
             <Media className="ghostDataAddress">
-              {/*}<h3>{this.state.ghostData.address.street}</h3>
-            <h3>{this.state.ghostData.address.city}</h3>*/}
+              {/*}<h3>{this.ghostStreet()}</h3>*/}
+              <h3>{this.ghostCity()}</h3>
             </Media>
             <Media className="ghostDataLocDesc">
               <p >{ this.state.ghostData.loc_desc }</p>
             </Media>
             <Media>
-              <h5>Source: {this.state.ghostData.info_source}</h5>
+              <h5>Source: {this.ghostSource()}</h5>
           </Media>
         </Media>
       </Media>
-
     </div>
   );
 }
