@@ -10,7 +10,7 @@ export default class GhostInfo extends React.Component {
     super(props);
     this.state = {
       isLoading: true,
-      ghostData: {}
+      ghostData: ''
     };
   }
 
@@ -29,26 +29,35 @@ export default class GhostInfo extends React.Component {
       });
     });
   }
-  // ghostStreet(){
-  //   if (this.state.ghostData.address.street) {
-  //     return this.state.ghostData.address.street;
-  //   } else {
-  //     return '';
-  //   }
-  // }
-  ghostCity() {
-    if (this.state.ghostData.city) {
-      return this.state.ghostData.city;
-    } else {
-      return 'NOWHERE LAND';
+  ghostStreet() {
+    if (this.state.ghostData) {
+      let address = this.state.ghostData.address;
+      // console.log(this.state.ghostData);
+      // console.log('FAIL', address.city);
+      if (address.street) {
+        return address.street;
+      } else {
+        return 'NOWHERE LAND';
+      }
     }
   }
-
   ghostSource() {
     if (this.state.ghostData.info_source) {
       return this.state.ghostData.info_source;
     } else {
       return 'Unknown';
+    }
+  }
+  ghostCity() {
+    if (this.state.ghostData) {
+      let address = this.state.ghostData.address;
+      console.log(this.state.ghostData);
+      console.log('FAIL', address.city);
+      if (address.city) {
+        return address.city;
+      } else {
+        return 'NOWHERE LAND';
+      }
     }
   }
 
@@ -65,9 +74,12 @@ export default class GhostInfo extends React.Component {
               <h1>{this.state.ghostData.place_name}</h1>
             </Media>
             <Media className="ghostDataAddress">
-              {/*}<h3>{this.ghostStreet()}</h3>*/}
+              <h3>{this.ghostStreet()}</h3>
+            </Media>
+            <Media>
               <h3>{this.ghostCity()}</h3>
             </Media>
+
             <Media className="ghostDataLocDesc">
               <p>{this.state.ghostData.loc_desc}</p>
             </Media>
