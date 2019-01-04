@@ -2,42 +2,78 @@ import React from 'react';
 import { Media } from 'reactstrap';
 import axios from 'axios';
 // import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import './ghostInfo.css';
+//import Header from './components/navbar/HeaderNav';
 
 export default class GhostInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ghostData: ''
+      isLoading: true,
+      ghostData: {}
     };
   }
 
+  getGhostData(id) {
+    return axios.get('http://localhost:3001/location/detail/' + id);
+  }
+
   componentDidMount() {
-    let ghostId = this.props.match.params.id;
-    axios
-      .get(`http://localhost:3001/location/detail/${ghostId}`)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-        this.setState({ ghostData: res.data });
-      })
-      .catch(err => {
-        console.log(err);
+    console.log(this.props.match.params.id);
+    const id = this.props.match.params.id;
+    console.log('ID', id);
+    this.getGhostData(id).then(res => {
+      console.log('THE JSON', res.data);
+      this.setState({
+        ghostData: res.data
       });
+    });
+  }
+  // ghostStreet(){
+  //   if (this.state.ghostData.address.street) {
+  //     return this.state.ghostData.address.street;
+  //   } else {
+  //     return '';
+  //   }
+  // }
+  ghostCity() {
+    if (this.state.ghostData.city) {
+      return this.state.ghostData.city;
+    } else {
+      return 'NOWHERE LAND';
+    }
+  }
+
+  ghostSource() {
+    if (this.state.ghostData.info_source) {
+      return this.state.ghostData.info_source;
+    } else {
+      return 'Unknown';
+    }
   }
 
   render() {
     console.log('PROPS', this.props);
-
     return (
-      <div>
+      <div className="GhostInfo">
         <Media>
           <Media left href="#">
-            <Media object data-src={this.state.ghostData.loc_img_link} alt="Generic placeholder image" />
+            <Media object className="ghostDataImg" src={this.state.ghostData.loc_img_link} alt="Place Image" width="450px" height="450px" />
           </Media>
-          <Media body>
-            <Media heading>Media heading</Media>
-            {this.state.ghostData.place_name}
-            <h1> {this.state.ghostData.place_name}</h1>
+          <Media body className="ghostDataInfo">
+            <Media className="ghostDataPlaceName">
+              <h1>{this.state.ghostData.place_name}</h1>
+            </Media>
+            <Media className="ghostDataAddress">
+              {/*}<h3>{this.ghostStreet()}</h3>*/}
+              <h3>{this.ghostCity()}</h3>
+            </Media>
+            <Media className="ghostDataLocDesc">
+              <p>{this.state.ghostData.loc_desc}</p>
+            </Media>
+            <Media>
+              <h5>Source: {this.ghostSource()}</h5>
+            </Media>
           </Media>
         </Media>
       </div>

@@ -35,12 +35,6 @@ export default class Carousel extends React.Component {
     }
   }
 
-  //   setTimeout(() => {
-  //     this.setState({
-  //       children: this.createChildren(20),
-  //     })
-  //   }, 100);
-
   createChildren = n =>
     range(n).map(i => (
       <div key={i} style={{ height: 100, background: '#333' }}>
