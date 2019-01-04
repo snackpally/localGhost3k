@@ -1,6 +1,6 @@
 .Collapse {
   border: solid;
-  background-color: #ffcc66;
+  background-color: #2e2e44;
   opacity: .9;
   background-blend-mode: lighten;
   margin: 20px 50px 20px 50px;
@@ -31,7 +31,9 @@
   margin-top: 10px;
   font-family: Times New Roman;
   font-size: 23px;
-  color: #d9d9e0;
+  /* color: #d9d9e0; */
+  color: #ffcc66 !important;
+
   text-shadow:
 		-1px -1px 0 #333,
 		1px -1px 0 #333,
@@ -52,12 +54,14 @@
   position: center;
   margin-left: auto;
   margin-right: auto;
+  color: #d9d9e0;
 
 }
 .collapseLocDesc{
   position: center; */
   margin-right: 20px;
   margin-left: 20px;
+  color: #d9d9e0;
 }
 
 .profileButton  {

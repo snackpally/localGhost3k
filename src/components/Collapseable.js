@@ -51,13 +51,13 @@ export default class Collapseable extends Component {
                 <h5 className="collapseCity">{this.props.data.address.city}</h5>
               </Media>
               <Media className="collapseLocDesc">{this.props.data.loc_desc}</Media>
-              <Button outline className="collapseLearnMore" color="primary" size="sm" tag={Link} to={"/ghostInfo/"+this.props.data._id}>
+              <Button outline className="collapseLearnMore" color="info" size="sm" tag={Link} to={"/ghostInfo/"+this.props.data._id}>
                  Learn More...
               </Button>
               {''}
             </Media>
           </Media>
-          <Button className="profileButton" color="danger" size="sm">
+          <Button className="profileButton" color="warning" size="sm">
             Add to Profile
           </Button>
           {}
