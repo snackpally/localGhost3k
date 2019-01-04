@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import loginForm from '../components/login/loginForm';
 import Landing from '../components/Landing/landing';
 import signUpFrom from '../components/login/signUpForm';
-import GhostInfoCard from '../components/ghostInfo/ghostInfoCard.js';
+import GhostInfoCard from '../components/ghostInfo/ghostInfoCard';
 import Collapseable from '../components/Collapseable';
 
 // import Appliedroute from '../components/nonAPI/appliedroute';
@@ -15,7 +15,7 @@ class AppContainer extends React.Component {
         <div>
           <Header />
           <Route path="/Login" exact component={loginForm} />
-          <Route path="/" exact component={Landing} />
+          <Route exact path="/" component={Landing} />
           <Route path="/Register" exact component={signUpFrom} />
           <Route path={`/Collapseable/:id`} component={Collapseable} />
           <Route path={`/ghostInfo/:id`} component={GhostInfoCard} />

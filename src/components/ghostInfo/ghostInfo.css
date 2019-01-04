@@ -1,0 +1,23 @@
+.ghostDataInfo {
+  padding: 10px;
+  margin-top: 70px;
+  margin-left: 90px;
+  margin-right: 115px;
+}
+.ghostDataLocDesc {
+  margin-top: 30px;
+}
+
+
+ .ghostDataImg {
+ border-image-slice: fill 125 50 125;
+   /*border: solid; */
+   /*border-image-slice: 30%;
+
+  border: 10px solid transparent;
+  padding: 15px;
+  -webkit-border-image: url(border.png) round; /* Safari 3.1-5 */
+  /*-o-border-image: url(border.png) round; /* Opera 11-12.1 */
+  /*border-image: url(border.png) round;
+  border-image-slice: 10%;*/
+} 

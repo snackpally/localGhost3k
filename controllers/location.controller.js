@@ -24,7 +24,6 @@ exports.location_details = function(req, res, next) {
     console.log(req.params.id);
     console.log(location);
     if (err) return next(err);
-    res.json(location);
-    // res.send(location);
+    res.send(location);
   });
 };
