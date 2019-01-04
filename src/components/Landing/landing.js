@@ -25,6 +25,7 @@ class Landing extends React.Component {
     });
     let newView = document.getElementById('ghostCollapse');
     newView.scrollIntoView();
+    //todo scroll transition
   }
 
   render() {
@@ -33,7 +34,6 @@ class Landing extends React.Component {
         <div className="Landing">
           <h1>Local Ghost 3000</h1>
           <p>Your haunted location finder</p>
-          <ghostInfoCard />
           <Leaflet handleMarkerClick={this.handleMarkerClick} />
           {this.state.currentLocation}
           <Carousel />
