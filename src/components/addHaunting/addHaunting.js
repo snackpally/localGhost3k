@@ -14,20 +14,20 @@ import HauntingForm from './hauntingForm';
 export default class AddHaunting extends React.Component {
   state = {
     data: {
-      place_name:'',
-      loc_desc:'',
-      loc_img_link:'',
-      info_source:'',
+      place_name: '',
+      loc_desc: '',
+      loc_img_link: '',
+      info_source: '',
       coordinates: [],
       address: {
         street: '',
         city: '',
-        state: '',
+        state: ''
       }
     },
     creating: false
-  }
-  // 
+  };
+  //
   // createHaunting = (data) => {
   //   console.log('In create Haunding:', data);
   //   this.setState({
@@ -42,8 +42,8 @@ export default class AddHaunting extends React.Component {
     return (
       <div>
         <h1>Add A Haunted Location</h1>
-        <HauntingForm  onFormSubmitted={this.createHaunting} data={this.state.data}/>
+        <HauntingForm onFormSubmitted={this.createHaunting} data={this.state.data} />
       </div>
-    )
+    );
   }
 }
