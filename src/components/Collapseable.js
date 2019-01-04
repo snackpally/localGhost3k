@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Collapse, Button, CardBody, Card, Media } from 'reactstrap';
 import './component.css';
 
@@ -29,7 +29,7 @@ export default class Collapseable extends Component {
   render() {
     console.log('PROPS', this.props.data);
     return (
-      <div>
+      <div id="ghostCollapse">
         <Collapse isOpen={this.state.collapse} toggle={this.markers} className={this.props.className} className="Collapse">
           <Button
             className="collapseClose"
@@ -51,8 +51,8 @@ export default class Collapseable extends Component {
                 <h5 className="collapseCity">{this.props.data.address.city}</h5>
               </Media>
               <Media className="collapseLocDesc">{this.props.data.loc_desc}</Media>
-              <Button outline className="collapseLearnMore" color="primary" size="sm" tag={Link} to={"/ghostInfo/"+this.props.data._id}>
-                 Learn More...
+              <Button outline className="collapseLearnMore" color="primary" size="sm" tag={Link} to={'/ghostInfo/' + this.props.data._id}>
+                Learn More...
               </Button>
               {''}
             </Media>

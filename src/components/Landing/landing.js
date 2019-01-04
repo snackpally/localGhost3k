@@ -23,6 +23,8 @@ class Landing extends React.Component {
     this.setState({
       currentLocation: collapse
     });
+    let newView = document.getElementById('ghostCollapse');
+    newView.scrollIntoView();
   }
 
   render() {
