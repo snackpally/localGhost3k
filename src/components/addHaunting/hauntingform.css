@@ -1,13 +1,14 @@
-Form {
-  margin-left: 300px;
-  width: 800px;
-  position: center;
+@media all and (min-width:480px){
+	.hauntedLocations{
+		padding: 60px 0;
+	}
+	.hauntedLocations form {
+		margin: 0 auto;
+		max-width: 500px;
+	}
 }
-
-.AddYourHauntedLocation {
-  font-size: 20px;
-  font-weight: bolder;
-}
-/* .longitude {
-  width: 350px !important;
-} */
+	.AddYourHauntedLocation {
+		text-align: center;
+		font-size: 20px;
+		font-weight: bolder;
+	}

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import axios from 'axios';
 import './hauntingform.css';
 //
 // function createHaunting(data) {
@@ -7,72 +8,86 @@ import './hauntingform.css';
 // }
 
 export default class HauntingForm extends React.Component {
-  state = {
-    hauntedLocationName: '',
-    coordinates: [''],
-    description: '',
-    image: '',
-    address: '',
-    city: '',
-    state: '',
-    source: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      place_name: '',
+      loc: {
+        coordinates: [],
+        type: 'Point'
+      },
+      loc_desc: '',
+      loc_img_link: '',
+      address: {
+        street: '',
+        city: '',
+        state: ''
+      },
+      source: ''
+    };
+  }
 
-  // valueChanged = event => {
-  //   const { name, value } = event.target;
-  //   this.setState(prevState => ({
-  //     data: {
-  //       ...prevState.data,
-  //       [name]: value
-  //     }
-  //   }));
-  // };
-
+  // TODO Switch Statement
   handleChange = event => {
-    if(event.target.name == 'latitude'){
-      this.setState({ coordinates: [event.target.value,this.state.coordinates[1]] });
-    }else if(event.target.name == 'longitude'){
-      this.setState({ coordinates: [this.state.coordinates[0], event.target.value] });
-    }else{
+    if (event.target.name == 'latitude') {
+      this.setState({ loc: { ...this.state.loc, coordinates: [Number(event.target.value), this.state.loc.coordinates[1]] } });
+    } else if (event.target.name == 'longitude') {
+      this.setState({ loc: { ...this.state.loc, coordinates: [this.state.loc.coordinates[0], Number(event.target.value)] } });
+    } else if (event.target.name == 'street') {
+      this.setState({ address: { ...this.state.address, street: [event.target.value] } });
+    } else if (event.target.name == 'city') {
+      this.setState({ address: { ...this.state.address, city: [event.target.value] } });
+    } else if (event.target.name == 'state') {
+      this.setState({ address: { ...this.state.address, state: [event.target.value] } });
+    } else {
       this.setState({ [event.target.name]: event.target.value });
     }
   };
 
-  validData = () => {
-    const hasLocationName = this.state.hauntedLocationName.trim() !== '';
-    const hasCoordinates = !isNaN(this.state.coordinates);
-    const hasDescription = this.state.description.trim() !== '';
-    const hasImage = this.state.image.trim() !== '';
-    const hasAddress = this.state.address.trim() !== '';
-    const hasCity = this.state.city.trim() !== '';
-    const hasState = this.state.state.trim() !== '';
-    const hasSource = this.state.source.trim() !== '';
+  // validData = () => {
+  //   const hasLocationName = this.state.place_name.trim() !== '';
+  //   const hasCoordinates = !isNaN(this.state.loc.coordinates);
+  //   const hasDescription = this.state.loc_desc.trim() !== '';
+  //   const hasImage = this.state.loc_img_link.trim() !== '';
+  //   const hasAddress = this.state.address.trim() !== '';
+  //   const hasCity = this.state.city.trim() !== '';
+  //   const hasState = this.state.state.trim() !== '';
+  //   const hasSource = this.state.source.trim() !== '';
 
-    return hasLocationName && hasCoordinates && hasDescription && hasImage && hasAddress && hasCity && hasState;
-  };
+  //   return hasLocationName && hasCoordinates && hasDescription && hasImage && hasAddress && hasCity && hasState;
+  // };
 
   formSubmitted = event => {
     event.preventDefault();
     console.log(this.state);
-    if (this.validData()) {
-      console.log(this.state);
-      this.props.onFormSubmitted(this.state);
-    }
+    // if (this.validData()) {
+    let ghosty = this.state;
+    console.log('TO SEND', ghosty);
+    axios
+      .post('http://localhost:3001/location/create', ghosty)
+      .then(res => {
+        console.log(res);
+        alert('You added a haunting!');
+        window.location = '/';
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    // this.props.onFormSubmitted(this.state);
+    // }
   };
 
   render() {
     return (
       <div className="hauntedLocations">
-        <Form className="hauntingForm" onSubmit={this.formSubmitted}>
+        <h2 className="AddYourHauntedLocation">Add Your Haunted Location</h2>
+        <Form className="hauntingForm">
           <FormGroup>
-            <Label className="AddYourHauntedLocation" htmlFor="title">Add Your Haunted Location</Label>
+            <Label for="place_name">Name of haunted location:</Label>
+            <Input onChange={this.handleChange} className="hauntedLocationName" name="place_name" placeholder="Enter name of haunted location" required />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="exampleEmail">Name of haunted location:</Label>
-            <Input onChange={this.handleChange} className="hauntedLocationName" name="hauntedLocationName" placeholder="Enter name of haunted location" required />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="title">GPS coordinates of haunted location: </Label>
+            <Label for="title">GPS coordinates of haunted location: </Label>
           </FormGroup>
           <Row form>
             <Col md={8}>
@@ -87,36 +102,36 @@ export default class HauntingForm extends React.Component {
             </Col>
           </Row>
           <FormGroup>
-            <Label htmlFor="description">History and description of haunting:</Label>
-            <Input onChange={this.handleChange} className="description" type="textarea" name="description" id="exampleText" required />
+            <Label for="description">History and description of haunting:</Label>
+            <Input onChange={this.handleChange} className="description" type="textarea" name="loc_desc" id="exampleText" required />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="exampleUrl">Image of haunting location:</Label>
-            <Input onChange={this.handleChange} className="locationImage" type="url" name="image" id="exampleUrl" placeholder="http://example_image.jpg" required />
+            <Label for="exampleUrl">Image of haunting location:</Label>
+            <Input onChange={this.handleChange} className="locationImage" type="url" name="loc_img_link" id="exampleUrl" placeholder="http://example_image.jpg" required />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="exampleAddress">Address of haunted location:</Label>
-            <Input onChange={this.handleChange} className="address" type="text" name="address" id="exampleAddress" placeholder="example: 1234 Main St" />
+            <Label for="exampleAddress">Address of haunted location:</Label>
+            <Input onChange={this.handleChange} className="address" type="text" name="street" id="exampleAddress" placeholder="example: 1234 Main St" />
           </FormGroup>
           <Row form>
             <Col md={8}>
               <FormGroup>
-                <Label htmlFor="exampleCity">City:</Label>
+                <Label for="exampleCity">City:</Label>
                 <Input onChange={this.handleChange} type="text" className="city" name="city" id="exampleCity" />
               </FormGroup>
             </Col>
             <Col md={4}>
               <FormGroup>
-                <Label htmlFor="state">State:</Label>
+                <Label for="state">State:</Label>
                 <Input onChange={this.handleChange} type="text" name="state" id="state" />
               </FormGroup>
             </Col>
           </Row>
           <FormGroup>
-            <Label htmlFor="exampleEmail">Source of information:</Label>
+            <Label for="exampleEmail">Source of information:</Label>
             <Input onChange={this.handleChange} name="source" className="source" placeholder="Enter source" />
           </FormGroup>
-          <Button>Submit</Button>
+          <Button onClick={this.formSubmitted}>Submit</Button>
         </Form>
       </div>
     );

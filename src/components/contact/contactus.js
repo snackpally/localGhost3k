@@ -15,12 +15,14 @@ export default class Contactform extends React.Component {
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
+
   validData = () => {
     const hasName = this.state.first_name.trim() !== '';
     const hasEmail = this.state.email.trim() !== '';
     const hasComment = this.state.comment.trim() !== '';
     return hasName && hasEmail && hasComment;
   };
+
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.props);

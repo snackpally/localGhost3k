@@ -25,7 +25,7 @@ let Comment = new Schema({
 });
 
 let locationSchema = new Schema({
-  ghost_name: { type: String, required: true },
+  ghost_name: String,
   place_name: { type: String, required: true },
   ghost_imgs: [String],
   ghost_type: String,
@@ -45,7 +45,7 @@ let locationSchema = new Schema({
   },
   info_link: String,
   comment: [Comment],
-  occupied: { type: Boolean, required: true }
+  occupied: Boolean
 });
 
 module.exports = mongoose.model('Location', locationSchema);

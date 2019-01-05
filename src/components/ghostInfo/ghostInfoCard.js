@@ -50,8 +50,6 @@ export default class GhostInfo extends React.Component {
   ghostCity() {
     if (this.state.ghostData) {
       let address = this.state.ghostData.address;
-      console.log(this.state.ghostData);
-      console.log('FAIL', address.city);
       if (address.city) {
         return address.city;
       } else {
@@ -84,7 +82,10 @@ export default class GhostInfo extends React.Component {
             <Media>
               <h5>Source: {this.ghostSource()}</h5>
             </Media>
-            <Button outline color="secondary" tag={Link} to='/'>  Back </Button>
+            <Button color="secondary" tag={Link} to="/">
+              {' < '}
+              Back{' '}
+            </Button>
           </Media>
         </Media>
       </div>
