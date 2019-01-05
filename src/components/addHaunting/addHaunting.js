@@ -1,15 +1,11 @@
 import React from 'react';
 import HauntingForm from './hauntingForm';
 //
-// function createHaunting(data) {
-//   return fetch('http://localhost:3001/location/detail/', [
-//     method: 'POST',
-//     body: JSON.stringify(data),
-//     headers: {
-//       'content-type': 'application/json'
-//     }
-//   ]).then(res => res.json());
-// }
+
+function createHaunting(data) {
+axios.post('http://localhost:3001/location/detail/', data);
+}
+
 
 export default class AddHaunting extends React.Component {
   state = {

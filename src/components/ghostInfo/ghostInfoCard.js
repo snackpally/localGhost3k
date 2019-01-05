@@ -1,9 +1,8 @@
 import React from 'react';
-import { Media } from 'reactstrap';
+import { Media, Button } from 'reactstrap';
 import axios from 'axios';
-// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './ghostInfo.css';
-//import Header from './components/navbar/HeaderNav';
 
 export default class GhostInfo extends React.Component {
   constructor(props) {
@@ -37,7 +36,7 @@ export default class GhostInfo extends React.Component {
       if (address.street) {
         return address.street;
       } else {
-        return 'NOWHERE LAND';
+        return '';
       }
     }
   }
@@ -56,7 +55,7 @@ export default class GhostInfo extends React.Component {
       if (address.city) {
         return address.city;
       } else {
-        return 'NOWHERE LAND';
+        return '';
       }
     }
   }
@@ -67,7 +66,7 @@ export default class GhostInfo extends React.Component {
       <div className="GhostInfo">
         <Media>
           <Media left href="#">
-            <Media object className="ghostDataImg" src={this.state.ghostData.loc_img_link} alt="Place Image" width="450px" height="450px" />
+            <Media object className="ghostDataImg" src={this.state.ghostData.loc_img_link} alt="Place Image" width="550px" height="550px" />
           </Media>
           <Media body className="ghostDataInfo">
             <Media className="ghostDataPlaceName">
@@ -76,16 +75,16 @@ export default class GhostInfo extends React.Component {
             <Media className="ghostDataAddress">
               <h3>{this.ghostStreet()}</h3>
             </Media>
-            <Media>
+            <Media className="ghostDataCity">
               <h3>{this.ghostCity()}</h3>
             </Media>
-
             <Media className="ghostDataLocDesc">
               <p>{this.state.ghostData.loc_desc}</p>
             </Media>
             <Media>
               <h5>Source: {this.ghostSource()}</h5>
             </Media>
+            <Button outline color="secondary" tag={Link} to='/'>  Back </Button>
           </Media>
         </Media>
       </div>

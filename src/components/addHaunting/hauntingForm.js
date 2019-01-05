@@ -1,5 +1,10 @@
 import React from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import './hauntingform.css';
+//
+// function createHaunting(data) {
+// axios.post('http://localhost:3001/location/detail/', data);
+// }
 
 export default class HauntingForm extends React.Component {
   state = {
@@ -24,7 +29,13 @@ export default class HauntingForm extends React.Component {
   // };
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    if(event.target.name == 'latitude'){
+      this.setState({ coordinates: [event.target.value,this.state.coordinates[1]] });
+    }else if(event.target.name == 'longitude'){
+      this.setState({ coordinates: [this.state.coordinates[0], event.target.value] });
+    }else{
+      this.setState({ [event.target.name]: event.target.value });
+    }
   };
 
   validData = () => {
@@ -51,10 +62,10 @@ export default class HauntingForm extends React.Component {
 
   render() {
     return (
-      <div className="hauntingForm">
-        <Form onSubmit={this.formSubmitted}>
+      <div className="hauntedLocations">
+        <Form className="hauntingForm" onSubmit={this.formSubmitted}>
           <FormGroup>
-            <Label htmlFor="title">Add Your Haunted Location:</Label>
+            <Label className="AddYourHauntedLocation" htmlFor="title">Add Your Haunted Location</Label>
           </FormGroup>
           <FormGroup>
             <Label htmlFor="exampleEmail">Name of haunted location:</Label>
@@ -64,9 +75,9 @@ export default class HauntingForm extends React.Component {
             <Label htmlFor="title">GPS coordinates of haunted location: </Label>
           </FormGroup>
           <Row form>
-            <Col md={6}>
+            <Col md={8}>
               <FormGroup>
-                <Input onChange={this.handleChange} type="text" className="city" name="latitude" id="exampleCity" placeholder="latitude" />
+                <Input onChange={this.handleChange} type="text" className="latitude" name="latitude" id="exampleCity" placeholder="latitude" />
               </FormGroup>
             </Col>
             <Col md={4}>
@@ -81,14 +92,14 @@ export default class HauntingForm extends React.Component {
           </FormGroup>
           <FormGroup>
             <Label htmlFor="exampleUrl">Image of haunting location:</Label>
-            <Input onChange={this.handleChange} className="locationImage" type="url" name="image" id="exampleUrl" placeholder="http://example.com/image.jpg" required />
+            <Input onChange={this.handleChange} className="locationImage" type="url" name="image" id="exampleUrl" placeholder="http://example_image.jpg" required />
           </FormGroup>
           <FormGroup>
             <Label htmlFor="exampleAddress">Address of haunted location:</Label>
             <Input onChange={this.handleChange} className="address" type="text" name="address" id="exampleAddress" placeholder="example: 1234 Main St" />
           </FormGroup>
           <Row form>
-            <Col md={6}>
+            <Col md={8}>
               <FormGroup>
                 <Label htmlFor="exampleCity">City:</Label>
                 <Input onChange={this.handleChange} type="text" className="city" name="city" id="exampleCity" />

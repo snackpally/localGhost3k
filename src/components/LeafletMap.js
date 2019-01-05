@@ -22,8 +22,11 @@ const mapStyle = {
   width: 'auto',
   position: 'relative',
   outline: 'none',
+  marginLeft: '2em',
+  marginRight: '2em',
   marginBottom: '2em',
-  border: 'solid'
+  border: 'solid',
+  borderRadius: '.5em',
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
@@ -90,9 +93,9 @@ export default class LeafletMap extends React.Component {
 
   borderStyle(feature) {
     if (feature.properties.STATE_NAME === 'Montana') {
-      return { fillOpacity: 0, color: '#ffcc66' };
+      return { fillOpacity: 0, color: '#2B3038' };
     } else {
-      return { fillOpacity: 0.6, color: '#ffcc66', fillColor: '#2B3038' };
+      return { fillOpacity: 0.6, color: '#2B3038', fillColor: '#2B3038' };
     }
   }
 
