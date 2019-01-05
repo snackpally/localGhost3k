@@ -24,7 +24,7 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="dark" dark>
+        <Navbar color="dark" dark className="navBar">
           <NavbarToggler onClick={this.toggle} />
           <NavbarBrand tag={Link} to="/">
             LocalGhost3K

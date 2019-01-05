@@ -58,7 +58,7 @@ export default class Collapseable extends Component {
             </Media>
           </Media>
           <Button className="profileButton" color="warning" size="sm">
-            Add to Profile
+            Save
           </Button>
           {}
         </Collapse>

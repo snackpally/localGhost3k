@@ -1,6 +1,6 @@
 .Collapse {
   border: solid;
-  background-color: #2e2e44;
+  background-color: #2B3038;
   opacity: .9;
   background-blend-mode: lighten;
   margin: 20px 50px 20px 50px;
@@ -32,7 +32,7 @@
   font-family: Times New Roman;
   font-size: 23px;
   /* color: #d9d9e0; */
-  color: #ffcc66 !important;
+  color: #BFC81E !important;
 
   text-shadow:
 		-1px -1px 0 #333,

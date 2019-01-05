@@ -92,7 +92,7 @@ export default class LeafletMap extends React.Component {
     if (feature.properties.STATE_NAME === 'Montana') {
       return { fillOpacity: 0, color: '#ffcc66' };
     } else {
-      return { fillOpacity: 0.6, color: '#ffcc66', fillColor: '#2e2e44' };
+      return { fillOpacity: 0.6, color: '#ffcc66', fillColor: '#2B3038' };
     }
   }
 
