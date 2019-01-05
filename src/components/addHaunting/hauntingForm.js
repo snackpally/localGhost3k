@@ -2,10 +2,6 @@ import React from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
 import './hauntingform.css';
-//
-// function createHaunting(data) {
-// axios.post('http://localhost:3001/location/detail/', data);
-// }
 
 export default class HauntingForm extends React.Component {
   constructor(props) {
@@ -67,7 +63,7 @@ export default class HauntingForm extends React.Component {
       .post('http://localhost:3001/location/create', ghosty)
       .then(res => {
         console.log(res);
-        alert('You added a haunting!');
+        alert("You've added a haunting!");
         window.location = '/';
       })
       .catch(err => {
