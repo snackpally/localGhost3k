@@ -1,0 +1,13 @@
+Form {
+  margin-left: 300px;
+  width: 800px;
+  position: center;
+}
+
+.AddYourHauntedLocation {
+  font-size: 20px;
+  font-weight: bolder;
+}
+/* .longitude {
+  width: 350px !important;
+} */
