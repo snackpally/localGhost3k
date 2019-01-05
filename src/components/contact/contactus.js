@@ -32,6 +32,7 @@ export default class Contactform extends React.Component {
         .post('http://localhost:3001/contact/newContact', comments)
         .then(res => {
           console.log(res);
+          alert('Your Comment has been recieved');
           window.location = '/';
         })
         .catch(err => {
