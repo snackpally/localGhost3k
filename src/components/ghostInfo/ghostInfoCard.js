@@ -1,7 +1,7 @@
 import React from 'react';
-import { Media } from 'reactstrap';
+import { Media, Button } from 'reactstrap';
 import axios from 'axios';
-// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './ghostInfo.css';
 //import Header from './components/navbar/HeaderNav';
 
@@ -76,16 +76,16 @@ export default class GhostInfo extends React.Component {
             <Media className="ghostDataAddress">
               <h3>{this.ghostStreet()}</h3>
             </Media>
-            <Media>
+            <Media className="ghostDataCity">
               <h3>{this.ghostCity()}</h3>
             </Media>
-
             <Media className="ghostDataLocDesc">
               <p>{this.state.ghostData.loc_desc}</p>
             </Media>
             <Media>
               <h5>Source: {this.ghostSource()}</h5>
             </Media>
+            <Button outline color="secondary" tag={Link} to='/'>  Back </Button>
           </Media>
         </Media>
       </div>

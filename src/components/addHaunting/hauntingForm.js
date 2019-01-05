@@ -1,5 +1,9 @@
 import React from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+//
+// function createHaunting(data) {
+// axios.post('http://localhost:3001/location/detail/', data);
+// }
 
 export default class HauntingForm extends React.Component {
   state = {
@@ -24,7 +28,13 @@ export default class HauntingForm extends React.Component {
   // };
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    if(event.target.name == 'latitude'){
+      this.setState({ coordinates: [event.target.value,this.state.coordinates[1]] });
+    }else if(event.target.name == 'longitude'){
+      this.setState({ coordinates: [this.state.coordinates[0], event.target.value] });
+    }else{
+      this.setState({ [event.target.name]: event.target.value });
+    }
   };
 
   validData = () => {
