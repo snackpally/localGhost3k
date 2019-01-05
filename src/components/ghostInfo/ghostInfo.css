@@ -1,23 +1,57 @@
+/* .GhostInfo{
+  background-color: black;
+} */
 .ghostDataInfo {
   padding: 10px;
-  margin-top: 70px;
-  margin-left: 90px;
+  margin-top: 35px;
+  margin-left: 70px;
   margin-right: 115px;
 }
-.ghostDataLocDesc {
-  margin-top: 30px;
+.ghostDataImg {
+  margin-left: 70px;
+  margin-top: 50px;
+  border-radius: .5em;
+  border: solid black;
 }
 
+h1{
+  font-size: 70px !important;
 
- .ghostDataImg {
- border-image-slice: fill 125 50 125;
-   /*border: solid; */
-   /*border-image-slice: 30%;
+}
+.ghostDataPlaceName {
+  font-family: "Amatic SC", cursive;
+  color: black !important;
+  text-shadow:
+		-1px -1px 0 #333,
+		1px -1px 0 #333,
+		-1px 1px 0 #333,
+		1px 1px 0 #333
+}
+h3 {
+  font-family: "Amatic SC", cursive;
+  font-size: 25px;
+  font-weight: bolder;
+}
+.ghostStreet {
+  /* color: white; */
+  font-family: "Amatic SC", cursive;
+}
 
-  border: 10px solid transparent;
-  padding: 15px;
-  -webkit-border-image: url(border.png) round; /* Safari 3.1-5 */
-  /*-o-border-image: url(border.png) round; /* Opera 11-12.1 */
-  /*border-image: url(border.png) round;
-  border-image-slice: 10%;*/
-} 
+.ghostCity {
+  /* color: white; */
+}
+p {
+  font-size: 18px;
+}
+
+.ghostDataLocDesc {
+  margin-top: 30px;
+  /* color: white; */
+}
+
+h5 {
+  font-style: italic;
+}
+.ghostSource {
+  /* color: white; */
+}
