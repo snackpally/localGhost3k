@@ -10,7 +10,7 @@ const cors = require('cors');
 //import routes for project
 const user = require('../Server_routes/user.route');
 const location = require('../Server_routes/location.route');
-// const comment = require("../routes/comment.route");
+const contact = require('../Server_routes/contact.route');
 //set up express server
 const app = express();
 app.use(cors('*'));
@@ -49,7 +49,7 @@ app.use(passport.session());
 
 //Routes
 app.use('/location', location);
-// app.use("/comment", comment);
+app.use('/contact', contact);
 app.use('/user', user);
 
 app.listen(3001, function() {
