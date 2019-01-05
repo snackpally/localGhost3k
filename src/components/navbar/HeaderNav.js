@@ -24,7 +24,7 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="dark" dark>
+        <Navbar color="dark" dark className="navBar">
           <NavbarToggler onClick={this.toggle} />
           <NavbarBrand tag={Link} to="/">
             LocalGhost3K
@@ -56,7 +56,7 @@ class Header extends React.Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/">
+                <NavLink tag={Link} to="/addHaunting">
                   Hauntings
                 </NavLink>
               </NavItem>
