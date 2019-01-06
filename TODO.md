@@ -1,7 +1,5 @@
 #TODO
 
-[] cookies saving
-
 [] visual cue that carosuel scrolls
 
 [] styling fixes

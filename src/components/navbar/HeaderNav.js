@@ -38,7 +38,7 @@ class Header extends React.Component {
               </NavItem>
               <NavItem>
                 <NavLink tag={Link} to="/addHaunting">
-                  Hauntings
+                  Add Hauntings
                 </NavLink>
               </NavItem>
               <NavItem>
