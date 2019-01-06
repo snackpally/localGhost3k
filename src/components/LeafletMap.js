@@ -9,7 +9,7 @@ import './component.css';
 import 'leaflet/dist/leaflet.css';
 import northamerica from '../assets/maps/northamerica.js';
 //import ghostIconImage from '../assets/image/ghost-icon.png';
-import ghostIcon from '../assets/image/ghost.png';
+import ghostIcon from '../assets/image/Spookyghost.png';
 
 const centerCoord = [46.8797, -110.3626];
 
@@ -31,12 +31,12 @@ const mapStyle = {
 
 const ghostSingleIcon = new Leaflet.Icon({
   iconUrl: ghostIcon,
-  iconSize: [30, 30]
+  iconSize: [40, 40]
 });
 
 const ghostClusterIcon = new Leaflet.Icon({
   iconUrl: ghostIcon,
-  iconSize: [50, 50]
+  iconSize: [55, 55]
 });
 
 export default class LeafletMap extends React.Component {

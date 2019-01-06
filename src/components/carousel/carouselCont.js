@@ -3,6 +3,7 @@ import axios from 'axios';
 import GhostCard from './cardNew';
 import ItemsCarousel from 'react-items-carousel';
 import range from 'lodash/range';
+import './carouselStyle.css'
 
 export default class Carousel extends React.Component {
   constructor() {
@@ -46,30 +47,28 @@ export default class Carousel extends React.Component {
     const { activeItemIndex, children } = this.state;
 
     return (
-      <ItemsCarousel
-        // Placeholder configurations
-        enablePlaceholder
-        numberOfPlaceholderItems={5}
-        minimumPlaceholderTime={1000}
-        // placeholderItem={<div style={{ height: 200 }}>{this.cards}</div>}
-
-        // Carousel configurations
-        numberOfCards={5}
-        gutter={5}
-        showSlither={false}
-        firstAndLastGutter={true}
-        freeScrolling={true}
-        // Active item configurations
-        requestToChangeActive={this.changeActiveItem}
-        activeItemIndex={activeItemIndex}
-        activePosition={'center'}
-        chevronWidth={24}
-        rightChevron={'>'}
-        leftChevron={'<'}
-        outsideChevron={false}
-        springConfig={{ stiffness: 120, damping: 14 }}>
-        {this.cards}
-      </ItemsCarousel>
+      <div className="chevron">
+        {/*<p className="carouselDirections">Scroll for more ghosts!</p>*/}
+        <ItemsCarousel
+          enablePlaceholder
+          numberOfPlaceholderItems={5}
+          minimumPlaceholderTime={1000}
+          numberOfCards={5}
+          gutter={5}
+          showSlither={false}
+          firstAndLastGutter={true}
+          freeScrolling={false}
+          requestToChangeActive={this.changeActiveItem}
+          activeItemIndex={activeItemIndex}
+          activePosition={'center'}
+          chevronWidth={24}
+          rightChevron={'>'}
+          leftChevron={'<'}
+          outsideChevron={false}
+          springConfig={{ stiffness: 120, damping: 14 }}>
+          {this.cards}
+        </ItemsCarousel>
+      </div>
     );
   }
 }
