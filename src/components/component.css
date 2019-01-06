@@ -57,7 +57,7 @@
 }
 
 .collapseLearnMore {
-  margin-left: 10px;
+  /* margin-left: 495px; */
 }
 .collapseLearnMore .Collapse {
   margin-bottom: 30px;
@@ -66,8 +66,9 @@
 .saveButton  {
   width: 100px;
   color: black;
-  margin-left: 206px;
+  margin-left: 192px;
+  /* position: center;
   margin-top: 2px;
-  margin-bottom: 5px;
+  margin-bottom: 5px; */
   background-color: #BFC81E !important;
 }

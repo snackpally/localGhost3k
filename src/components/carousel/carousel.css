@@ -49,3 +49,8 @@
   overflow: hidden;
   textOverflow: ellipsis;
 }
+
+.carouselDirections {
+  font-size: 40px;
+  color: black !important;
+}

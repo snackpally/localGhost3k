@@ -29,7 +29,7 @@ export default class Collapseable extends Component {
   render() {
     console.log('PROPS', this.props.data);
     return (
-      <div id="ghostCollapse">
+      <div id="ghostCollapse" className="col text-center">
         <Collapse isOpen={this.state.collapse} toggle={this.markers} className={this.props.className} className="Collapse">
           <Button
             className="collapseClose"

@@ -9,7 +9,7 @@ import './component.css';
 import 'leaflet/dist/leaflet.css';
 import northamerica from '../assets/maps/northamerica.js';
 //import ghostIconImage from '../assets/image/ghost-icon.png';
-import ghostIcon from '../assets/image/ghostmarker.png';
+import ghostIcon from '../assets/image/Spookyghost.png';
 
 const centerCoord = [46.8797, -110.3626];
 
