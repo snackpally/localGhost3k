@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Leaflet from 'leaflet';
-import { Map, TileLayer, Marker, GeoJSON} from 'react-leaflet';
+import { Map, TileLayer, Marker, GeoJSON } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import './component.css';
@@ -26,7 +25,7 @@ const mapStyle = {
   marginRight: '2em',
   marginBottom: '2em',
   border: 'solid',
-  borderRadius: '.5em',
+  borderRadius: '.5em'
 };
 
 const ghostSingleIcon = new Leaflet.Icon({

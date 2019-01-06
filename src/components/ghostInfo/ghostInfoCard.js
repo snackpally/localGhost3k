@@ -4,9 +4,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './ghostInfo.css';
 import Leaflet from 'leaflet';
-import { Map, TileLayer, Marker, GeoJSON } from 'react-leaflet';
+import { Map, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import ghostIcon from '../../assets/image/ghost.png';
+import ghostIcon from '../../assets/image/Spookyghost.png';
 
 const littleMapStyle = {
   height: '250px',
@@ -129,10 +129,10 @@ export default class GhostInfo extends React.Component {
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               id="mapbox.streets"
               url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
-              />
+            />
             <Marker icon={ghostSingleIcon} position={this.state.mapCenter} />
           </Map>
-          </Media>
+        </Media>
       </div>
     );
   }
