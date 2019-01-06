@@ -29,30 +29,11 @@ class Header extends React.Component {
           <NavbarBrand tag={Link} to="/" className="localGhostLogo">
             LocalGhost3K
           </NavbarBrand>
-          <Nav>
-            {/* this neeeds to be its own component authentication button that will run "auth code and return either log in or sign out" */}
-            <NavItem className="btnRight">
-              <Button color="secondary" tag={Link} to="/Login">
-                Log in
-              </Button>
-            </NavItem>
-            {/* this can stay the same */}
-            <NavItem>
-              <Button color="secondary" tag={Link} to="/Register">
-                Sign Up
-              </Button>
-            </NavItem>
-          </Nav>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink tag={Link} to="/">
                   Home
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} to="/Login">
-                  Profile
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -68,7 +49,6 @@ class Header extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-        {/* <Routes /> */}
       </div>
     );
   }

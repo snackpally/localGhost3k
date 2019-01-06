@@ -1,9 +1,0 @@
-// Saved tour object
-
-{
-	"user_id" : "ObjectId("54759eb3c090d83494e2d804")",
-	"tour_name" : String,
-	"saved_loc" : [
-		loc, loc, loc, loc
-	]
-}
