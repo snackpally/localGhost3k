@@ -117,13 +117,13 @@ export default class GhostInfo extends React.Component {
             className="littleMap"
             center={this.state.mapCenter}
             style={littleMapStyle}
-            zoomControl={false}
+            zoomControl={true}
             scrollWheelZoom={false}
             zoom={16}
             zoomSnap={0}
             zoomDelta={2}
-            minZoom={15}
-            maxZoom={16}
+            minZoom={11}
+            maxZoom={19}
             maxBoundsViscosity={1}>
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
