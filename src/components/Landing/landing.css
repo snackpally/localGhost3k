@@ -14,10 +14,10 @@
 }
 
 
-.Landing h1 {
+/* .Landing h1 {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
-}
+} */
 
 .Home .Landing p {
   color: #999;
@@ -44,7 +44,6 @@
   z-index: 900;
   text-align: center;
   /* padding-top: 110px; */
-  color: #BFC81E;
   height: 590px;
   width: 100%;
   /* margin-left: 1.6em;
@@ -52,11 +51,24 @@
   margin-bottom: 2em; */
 }
 
+.h1Styling {
+  font-family: "Amatic SC", cursive;
+  color: #BFC81E;
+  font-size: 6.5vw !important;
+  font-weight: 600;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
 p {
-  color: #BFC81E !important;
+  color: #e8e8e8 !important;
   font-size: 20px;
   padding: 2px;
 }
+
 
 .leafZIndex {
   z-index: -1;
