@@ -13,9 +13,9 @@ const littleMapStyle = {
   width: '250px',
   position: 'relative',
   outline: 'none',
-  marginLeft: '2em',
+  marginLeft: '1em',
   marginRight: '2em',
-  marginBottom: '2em',
+  marginTop: '4em',
   border: 'solid',
   borderRadius: '.5em'
 };
@@ -34,7 +34,6 @@ export default class GhostInfo extends React.Component {
       mapCenter: ''
     };
   }
-  //const coordinates = {loc: [this.state.ghostData.loc.coordinates[0], this.state.ghostData.loc.coordinates[1]]};
 
   getGhostData(id) {
     return axios.get('http://localhost:3001/location/detail/' + id);
@@ -114,25 +113,26 @@ export default class GhostInfo extends React.Component {
               Back{' '}
             </Button>
           </Media>
-        </Media>
-        <Map
-          className="littleMap"
-          center={this.state.mapCenter}
-          style={littleMapStyle}
-          scrollWheelZoom={false}
-          zoom={16}
-          zoomSnap={0}
-          zoomDelta={2}
-          minZoom={15}
-          maxZoom={16}
-          maxBoundsViscosity={1}>
-          <TileLayer
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            id="mapbox.streets"
-            url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
-          />
-          <Marker icon={ghostSingleIcon} position={this.state.mapCenter} />
-        </Map>
+          <Map
+            className="littleMap"
+            center={this.state.mapCenter}
+            style={littleMapStyle}
+            zoomControl={false}
+            scrollWheelZoom={false}
+            zoom={16}
+            zoomSnap={0}
+            zoomDelta={2}
+            minZoom={15}
+            maxZoom={16}
+            maxBoundsViscosity={1}>
+            <TileLayer
+              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              id="mapbox.streets"
+              url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
+              />
+            <Marker icon={ghostSingleIcon} position={this.state.mapCenter} />
+          </Map>
+          </Media>
       </div>
     );
   }
