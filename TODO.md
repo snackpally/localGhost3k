@@ -12,6 +12,6 @@
 
 [] submit data
 
-[] map on info page
+[x] map on info page- merge from littleghostmap branch
 
 [] search? 
