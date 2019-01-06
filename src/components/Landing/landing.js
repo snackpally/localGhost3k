@@ -45,8 +45,8 @@ class Landing extends React.Component {
             <div className="homePageInner">
 
               <h1 className="h1Styling">Local Ghost 3000</h1>
-              <p>Your haunted location finder</p>
-              <p className="clickToExplore">Click to explore!</p>
+              <p className="pStyling">Your haunted location finder</p>
+              <p className="pStyling">Click to explore!</p>
             </div>
           </div>
         <Leaflet handleMarkerClick={this.handleMarkerClick} className="leafZIndex"/>

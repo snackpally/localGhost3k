@@ -27,7 +27,7 @@
   float: left;
 }
 .collapsePlaceName {
-  position: center;
+  text-align: center;
   margin-top: 10px;
   font-family: Times New Roman;
   font-size: 23px;
