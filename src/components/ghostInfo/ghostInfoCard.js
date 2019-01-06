@@ -3,6 +3,28 @@ import { Media, Button } from 'reactstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './ghostInfo.css';
+import Leaflet from 'leaflet';
+import { Map, TileLayer, Marker, GeoJSON} from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import ghostIcon from '../../assets/image/ghost.png';
+
+const littleMapStyle = {
+  height: '50px',
+  width: '50px',
+  position: 'relative',
+  outline: 'none',
+  marginLeft: '2em',
+  marginRight: '2em',
+  marginBottom: '2em',
+  border: 'solid',
+  borderRadius: '.5em',
+};
+
+const ghostSingleIcon = new Leaflet.Icon({
+  iconUrl: ghostIcon,
+  iconSize: [30, 30]
+});
+
 
 export default class GhostInfo extends React.Component {
   constructor(props) {
@@ -12,6 +34,7 @@ export default class GhostInfo extends React.Component {
       ghostData: ''
     };
   }
+  //const coordinates = {loc: [this.state.ghostData.loc.coordinates[0], this.state.ghostData.loc.coordinates[1]]};
 
   getGhostData(id) {
     return axios.get('http://localhost:3001/location/detail/' + id);
@@ -28,6 +51,50 @@ export default class GhostInfo extends React.Component {
       });
     });
   }
+
+  // const latitude = {this.state.ghostData.loc.coordinates[0]},
+  // const longitude = {this.state.ghostData.loc.coordinates[1]}
+//   latitude() {
+//     if(this.state.ghostData) {
+//     let coordinates = this.state.ghostData.loc.coordinates;
+//      return {
+//        coordinates.coordinates[0];
+//      }
+//   }
+// }
+//   longitude() {
+//     if(this.state.ghostData) {
+//     let coordinates = this.state.ghostData.loc.coordinates;
+//      return {
+//        coordinates.coordinates[1];
+//      }
+// //   }
+// // }
+// //
+latitude() {
+  if(this.state.ghostData) {
+  //   console.log('GHOST INFO LOC', this.state.ghostData.loc.coordinates;
+  // );
+    let latitude = this.state.ghostData.loc.coordinates;
+    if (latitude.coordinates) {
+      return {
+        latitude[0];
+      }
+    }
+  }
+}
+
+longitude() {
+  if(this.state.ghostData) {
+    let longitude = this.state.ghostData.loc.coordinates;
+    if (longitude.coordinates) {
+      return {
+        longitude[1];
+      }
+    }
+  }
+}
+
   ghostStreet() {
     if (this.state.ghostData) {
       let address = this.state.ghostData.address;
@@ -57,6 +124,28 @@ export default class GhostInfo extends React.Component {
       }
     }
   }
+  generateMarkerCenter() {
+    for (let i = 0; i < this.state.ghostData.length; i++) {
+      this.markers.push(
+        <Marker
+          className="markerCenter"
+          key={i}
+          riseOnHover={true}
+          position={this.state.data[i].loc.coordinates}
+          maxBounds={this.state.bounds}
+          icon={ghostSingleIcon}
+          bubblingMouseEvents={true}
+          onClick={() => this.props.handleMarkerClick(this.state.data[i])}
+        />
+      );
+      console.log('this here', this.state.data[i]);
+    }
+    this.setState({
+      markers: this.markers
+    });
+  }
+
+
 
   render() {
     console.log('PROPS', this.props);
@@ -86,8 +175,26 @@ export default class GhostInfo extends React.Component {
               {' < '}
               Back{' '}
             </Button>
+
           </Media>
         </Media>
+        <Map
+          className="littleMap"
+          center={ [this.state.ghostData.loc.coordinates[0], this.state.ghostdata.loc.coordinates[1]] }
+          style={littleMapStyle}
+          scrollWheelZoom={false}
+          zoom={6.75}
+          zoomSnap={0}
+          zoomDelta={2}
+          minZoom={15}
+          maxZoom={16}
+          maxBoundsViscosity={1}>
+          <TileLayer
+            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            id="mapbox.streets"
+            url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
+            />
+        </Map>
       </div>
     );
   }
