@@ -30,7 +30,7 @@ const mapStyle = {
 
 const ghostSingleIcon = new Leaflet.Icon({
   iconUrl: ghostIcon,
-  iconSize: [40, 40]
+  iconSize: [33.3, 33.3]
 });
 
 const ghostClusterIcon = new Leaflet.Icon({
@@ -51,8 +51,6 @@ export default class LeafletMap extends React.Component {
 
   componentDidMount() {
     axios.get('http://localhost:3001/location/allGhost').then(res => {
-      console.log(res);
-      console.log(res.data);
       this.setState(
         {
           data: res.data,

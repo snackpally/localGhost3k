@@ -1,12 +1,12 @@
 import React from 'react';
-import { Card, CardTitle, CardText, CardImg, CardImgOverlay } from 'reactstrap';
+import { Card, CardText, CardImg, CardImgOverlay } from 'reactstrap';
 import './cardStyle.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class GhostCard extends React.Component {
   render() {
     return (
-      <div className=" row row-eq-height">
+      <div>
         <Card className="card" tag={Link} to={'/ghostInfo/' + this.props.data._id} inverse>
           <CardImg row row-eq-height className="card-background-image" width="auto" height="100%" src={this.props.data.loc_img_link} alt="Card image cap" />
           <CardImgOverlay row row-eq-height className="cardSizing">

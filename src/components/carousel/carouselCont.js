@@ -3,8 +3,9 @@ import axios from 'axios';
 import GhostCard from './cardNew';
 import ItemsCarousel from 'react-items-carousel';
 import range from 'lodash/range';
-import './carouselStyle.css'
+import './carouselStyle.css';
 
+//TODO: limit carousel count by random or location...
 export default class Carousel extends React.Component {
   constructor() {
     super();
@@ -16,7 +17,7 @@ export default class Carousel extends React.Component {
     this.cards = [];
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     axios.get('http://localhost:3001/location/allGhost').then(res => {
       console.log(res);
       console.log(res.data);
@@ -26,13 +27,13 @@ export default class Carousel extends React.Component {
       });
       this.generateCards();
     });
-  }
-  generateCards() {
+  };
+  generateCards = () => {
     for (let i = 0; i < this.state.data.length; i++) {
       this.cards.push(<GhostCard key={i} data={this.state.data[i]} />);
       // console.log('card', this.state.data[i]);
     }
-  }
+  };
 
   createChildren = n =>
     range(n).map(i => (
@@ -67,6 +68,7 @@ export default class Carousel extends React.Component {
           outsideChevron={false}
           springConfig={{ stiffness: 120, damping: 14 }}>
           {this.cards}
+          {/* {children} */}
         </ItemsCarousel>
       </div>
     );

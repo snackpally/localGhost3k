@@ -13,7 +13,7 @@ export default class Collapseable extends Component {
     };
   }
 
-  toggle = e => {
+  toggle = () => {
     this.setState({ collapse: !this.state.collapse });
   };
 
@@ -34,7 +34,7 @@ export default class Collapseable extends Component {
           <Button
             className="collapseClose"
             toggle={this.button}
-            onClick={e => {
+            onClick={() => {
               this.toggle(this.props.data);
             }}
             close
@@ -45,7 +45,7 @@ export default class Collapseable extends Component {
             </Media>
             <Media body className="blurred-box">
               <Media heading className="collapsePlaceName">
-                <h2>{this.props.data.place_name}</h2>
+                {this.props.data.place_name}
               </Media>
               <Media>
                 <h5 className="collapseCity">{this.props.data.address.city}</h5>
