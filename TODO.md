@@ -2,7 +2,7 @@
 
 [] cookies saving
 
-[] visual cue that carosuel scrolls
+[x] visual cue that carosuel scrolls
 
 [] styling fixes
 

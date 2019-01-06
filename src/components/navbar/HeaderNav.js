@@ -1,6 +1,5 @@
 import React from 'react';
-import { Navbar, NavbarBrand, Collapse, NavbarToggler, Nav, NavItem, NavLink, Button } from 'reactstrap';
-import Routes from '../../Routes/route';
+import { Navbar, NavbarBrand, Collapse, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import './headerNav.css';

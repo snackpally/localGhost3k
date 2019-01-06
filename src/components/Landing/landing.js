@@ -2,20 +2,17 @@ import React from 'react';
 import './landing.css';
 import Leaflet from '../LeafletMap';
 import Carousel from '../carousel/carouselCont';
-import GhostCard from '../carousel/cardNew';
 import Collapseable from '../Collapseable';
 
 class Landing extends React.Component {
   constructor() {
     super();
-
     this.state = {
       currentLocation: null
     };
-    this.handleMarkerClick = this.handleMarkerClick.bind(this);
   }
 
-  handleMarkerClick(e) {
+  handleMarkerClick = e => {
     console.log('clicked marker! info now available in Landing', e);
     let collapse = <Collapseable collapse="true" data={e} />;
     // for some reason, data, passed above, is showing up 'undefined' in collapseable.
@@ -26,7 +23,7 @@ class Landing extends React.Component {
     let newView = document.getElementById('ghostCollapse');
     newView.scrollIntoView();
     //todo scroll transition
-  }
+  };
 
   handleModalClick = event => {
     let modal = document.getElementById('modal');
