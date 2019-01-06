@@ -24,25 +24,11 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="dark" dark>
+        <Navbar color="dark" dark className="navBar">
           <NavbarToggler onClick={this.toggle} />
-          <NavbarBrand tag={Link} to="/">
+          <NavbarBrand tag={Link} to="/" className="localGhostLogo">
             LocalGhost3K
           </NavbarBrand>
-          <Nav>
-            {/* this neeeds to be its own component authentication button that will run "auth code and return either log in or sign out" */}
-            <NavItem className="btnRight">
-              <Button color="secondary" tag={Link} to="/Login">
-                Log in
-              </Button>
-            </NavItem>
-            {/* this can stay the same */}
-            <NavItem>
-              <Button color="secondary" tag={Link} to="/Register">
-                Sign Up
-              </Button>
-            </NavItem>
-          </Nav>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -51,24 +37,18 @@ class Header extends React.Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/Login">
-                  Profile
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} to="/">
+                <NavLink tag={Link} to="/addHaunting">
                   Hauntings
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/">
+                <NavLink tag={Link} to="/contact">
                   Contact Us
                 </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
-        {/* <Routes /> */}
       </div>
     );
   }

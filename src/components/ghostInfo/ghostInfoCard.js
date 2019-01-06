@@ -1,16 +1,37 @@
 import React from 'react';
-import { Media } from 'reactstrap';
+import { Media, Button } from 'reactstrap';
 import axios from 'axios';
-// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './ghostInfo.css';
-//import Header from './components/navbar/HeaderNav';
+import Leaflet from 'leaflet';
+import { Map, TileLayer, Marker } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import ghostIcon from '../../assets/image/Spookyghost.png';
+
+const littleMapStyle = {
+  height: '250px',
+  width: '250px',
+  position: 'relative',
+  outline: 'none',
+  marginLeft: '1em',
+  marginRight: '2em',
+  marginTop: '4em',
+  border: 'solid',
+  borderRadius: '.5em'
+};
+
+const ghostSingleIcon = new Leaflet.Icon({
+  iconUrl: ghostIcon,
+  iconSize: [30, 30]
+});
 
 export default class GhostInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: true,
-      ghostData: ''
+      ghostData: '',
+      mapCenter: ''
     };
   }
 
@@ -24,11 +45,14 @@ export default class GhostInfo extends React.Component {
     console.log('ID', id);
     this.getGhostData(id).then(res => {
       console.log('THE JSON', res.data);
+      console.log('coord', res.data.loc.coordinates);
       this.setState({
-        ghostData: res.data
+        ghostData: res.data,
+        mapCenter: res.data.loc.coordinates
       });
     });
   }
+
   ghostStreet() {
     if (this.state.ghostData) {
       let address = this.state.ghostData.address;
@@ -37,7 +61,7 @@ export default class GhostInfo extends React.Component {
       if (address.street) {
         return address.street;
       } else {
-        return 'NOWHERE LAND';
+        return '';
       }
     }
   }
@@ -51,23 +75,22 @@ export default class GhostInfo extends React.Component {
   ghostCity() {
     if (this.state.ghostData) {
       let address = this.state.ghostData.address;
-      console.log(this.state.ghostData);
-      console.log('FAIL', address.city);
       if (address.city) {
         return address.city;
       } else {
-        return 'NOWHERE LAND';
+        return '';
       }
     }
   }
 
   render() {
+    console.log(this.state);
     console.log('PROPS', this.props);
     return (
       <div className="GhostInfo">
         <Media>
           <Media left href="#">
-            <Media object className="ghostDataImg" src={this.state.ghostData.loc_img_link} alt="Place Image" width="450px" height="450px" />
+            <Media object className="ghostDataImg" src={this.state.ghostData.loc_img_link} alt="Place Image" width="550px" height="550px" />
           </Media>
           <Media body className="ghostDataInfo">
             <Media className="ghostDataPlaceName">
@@ -76,17 +99,39 @@ export default class GhostInfo extends React.Component {
             <Media className="ghostDataAddress">
               <h3>{this.ghostStreet()}</h3>
             </Media>
-            <Media>
+            <Media className="ghostDataCity">
               <h3>{this.ghostCity()}</h3>
             </Media>
-
             <Media className="ghostDataLocDesc">
               <p>{this.state.ghostData.loc_desc}</p>
             </Media>
             <Media>
               <h5>Source: {this.ghostSource()}</h5>
             </Media>
+            <Button color="secondary" tag={Link} to="/">
+              {' < '}
+              Back{' '}
+            </Button>
           </Media>
+          <Map
+            className="littleMap"
+            center={this.state.mapCenter}
+            style={littleMapStyle}
+            zoomControl={false}
+            scrollWheelZoom={false}
+            zoom={16}
+            zoomSnap={0}
+            zoomDelta={2}
+            minZoom={15}
+            maxZoom={16}
+            maxBoundsViscosity={1}>
+            <TileLayer
+              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              id="mapbox.streets"
+              url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
+            />
+            <Marker icon={ghostSingleIcon} position={this.state.mapCenter} />
+          </Map>
         </Media>
       </div>
     );

@@ -23,16 +23,32 @@ class Landing extends React.Component {
     this.setState({
       currentLocation: collapse
     });
+    let newView = document.getElementById('ghostCollapse');
+    newView.scrollIntoView();
+    //todo scroll transition
   }
+
+  handleModalClick = event => {
+    let modal = document.getElementById('modal');
+    if (modal.style.display === 'none') {
+      modal.style.display = 'block';
+    } else {
+      modal.style.display = 'none';
+    }
+  };
 
   render() {
     return (
       <div className="Home">
         <div className="Landing">
-          <h1>Local Ghost 3000</h1>
-          <p>Your haunted location finder</p>
-          <ghostInfoCard />
-          <Leaflet handleMarkerClick={this.handleMarkerClick} />
+          <div className="homePageModal" id="modal" onClick={this.handleModalClick}>
+            <div className="homePageInner">
+              <h1 className="h1Styling">Local Ghost 3000</h1>
+              <p className="pStyling">Your haunted location finder</p>
+              <p className="pStyling">Click to explore!</p>
+            </div>
+          </div>
+          <Leaflet handleMarkerClick={this.handleMarkerClick} className="leafZIndex" />
           {this.state.currentLocation}
           <Carousel />
         </div>

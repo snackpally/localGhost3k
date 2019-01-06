@@ -1,15 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Leaflet from 'leaflet';
-import { Map, TileLayer, Marker, GeoJSON} from 'react-leaflet';
+import { Map, TileLayer, Marker, GeoJSON } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import './component.css';
 import 'leaflet/dist/leaflet.css';
 import northamerica from '../assets/maps/northamerica.js';
 //import ghostIconImage from '../assets/image/ghost-icon.png';
-import ghostIcon from '../assets/image/ghost.png';
+import ghostIcon from '../assets/image/Spookyghost.png';
 
 const centerCoord = [46.8797, -110.3626];
 
@@ -22,18 +21,21 @@ const mapStyle = {
   width: 'auto',
   position: 'relative',
   outline: 'none',
+  marginLeft: '2em',
+  marginRight: '2em',
   marginBottom: '2em',
-  border: 'solid'
+  border: 'solid',
+  borderRadius: '.5em'
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
   iconUrl: ghostIcon,
-  iconSize: [30, 30]
+  iconSize: [40, 40]
 });
 
 const ghostClusterIcon = new Leaflet.Icon({
   iconUrl: ghostIcon,
-  iconSize: [50, 50]
+  iconSize: [55, 55]
 });
 
 export default class LeafletMap extends React.Component {
@@ -90,9 +92,9 @@ export default class LeafletMap extends React.Component {
 
   borderStyle(feature) {
     if (feature.properties.STATE_NAME === 'Montana') {
-      return { fillOpacity: 0, color: '#ffcc66' };
+      return { fillOpacity: 0, color: '#2B3038' };
     } else {
-      return { fillOpacity: 0.6, color: '#ffcc66', fillColor: '#2e2e44' };
+      return { fillOpacity: 0.6, color: '#2B3038', fillColor: '#2B3038' };
     }
   }
 

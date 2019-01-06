@@ -1,17 +1,17 @@
-#TO DO STILL
+#TODO
 
-[] GET route to pull all comments by ghost location name? or \_id?
+[] cookies saving
 
-[] Test User routes build login feature
+[] visual cue that carosuel scrolls
 
-[] GET route for tours
+[] styling fixes
 
-[] POST route for tours
+[] upload photo *dreamy
 
-[] GET all location route
+[] save ghosts to cookie
 
-[] POST route for Locations
+[] submit data
 
-[] POST route to save Location to user tour array
+[x] map on info page- merge from littleghostmap branch
 
-[] do comments own locations or do locations own comments...
+[] search? 

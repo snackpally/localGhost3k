@@ -1,6 +1,6 @@
 const Location = require('../models/Location');
 
-exports.test = function(req, res) {
+exports.test = function(req, res, next) {
   Location.find({}, function(err, location) {
     if (err) return next(err);
     res.send(location);
