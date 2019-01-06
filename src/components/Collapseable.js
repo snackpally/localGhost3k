@@ -26,6 +26,20 @@ export default class Collapseable extends Component {
     this.setState({ collapse: true });
   }
 
+  limitString = (str, len, ending) => {
+    if (len == null) {
+      len = 500;
+    }
+    if (ending == null) {
+      ending = '...';
+    }
+    if (str.length > len) {
+      return str.substring(0, len - ending.length) + ending;
+    } else {
+      return str;
+    }
+  };
+
   render() {
     console.log('PROPS', this.props.data);
     return (
@@ -50,7 +64,7 @@ export default class Collapseable extends Component {
               <Media>
                 <h5 className="collapseCity">{this.props.data.address.city}</h5>
               </Media>
-              <Media className="collapseLocDesc">{this.props.data.loc_desc}</Media>
+              <Media className="collapseLocDesc">{this.limitString(this.props.data.loc_desc)}</Media>
               <Button outline className="collapseLearnMore" color="info" size="sm" tag={Link} to={'/ghostInfo/' + this.props.data._id}>
                 Learn More...
               </Button>

@@ -15,11 +15,8 @@ let Featurepoint = new Schema({
 });
 
 let Comment = new Schema({
-  author: {
-    type: Schema.Types.ObjectId,
-    name: String
-  },
-  comment: { type: String },
+  name: String,
+  comment: String,
   date_created: { type: Date, default: Date.now },
   date_deleted: { type: Date, default: Date.now }
 });
