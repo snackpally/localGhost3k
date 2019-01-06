@@ -3,7 +3,6 @@ import { Media, Button } from 'reactstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './ghostInfo.css';
-//import Header from './components/navbar/HeaderNav';
 
 export default class GhostInfo extends React.Component {
   constructor(props) {
