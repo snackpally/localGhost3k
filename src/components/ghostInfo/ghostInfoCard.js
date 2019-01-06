@@ -120,7 +120,7 @@ export default class GhostInfo extends React.Component {
           center={this.state.mapCenter}
           style={littleMapStyle}
           scrollWheelZoom={false}
-          zoom={6.75}
+          zoom={16}
           zoomSnap={0}
           zoomDelta={2}
           minZoom={15}
