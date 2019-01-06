@@ -28,15 +28,30 @@ class Landing extends React.Component {
     //todo scroll transition
   }
 
+  handleModalClick = event => {
+    let modal=document.getElementById('modal');
+    if (modal.style.display==="none"){
+      modal.style.display="block";
+    }else{
+      modal.style.display="none";
+    }
+  }
+
   render() {
     return (
       <div className="Home">
         <div className="Landing">
-          <h1>Local Ghost 3000</h1>
-          <p>Your haunted location finder</p>
-          <Leaflet handleMarkerClick={this.handleMarkerClick} />
-          {this.state.currentLocation}
-          <Carousel />
+          <div className="homePageModal" id="modal" onClick={this.handleModalClick}>
+            <div className="homePageInner">
+
+              <h1>Local Ghost 3000</h1>
+              <p>Your haunted location finder</p>
+              <p>Click to explore!</p>
+            </div>
+          </div>
+        <Leaflet handleMarkerClick={this.handleMarkerClick} className="leafZIndex"/>
+        {this.state.currentLocation}
+        <Carousel />
         </div>
       </div>
     );
