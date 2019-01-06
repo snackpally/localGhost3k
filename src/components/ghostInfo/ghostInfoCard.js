@@ -4,20 +4,20 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './ghostInfo.css';
 import Leaflet from 'leaflet';
-import { Map, TileLayer, Marker, GeoJSON} from 'react-leaflet';
+import { Map, TileLayer, Marker, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import ghostIcon from '../../assets/image/ghost.png';
 
 const littleMapStyle = {
-  height: '50px',
-  width: '50px',
+  height: '250px',
+  width: '250px',
   position: 'relative',
   outline: 'none',
   marginLeft: '2em',
   marginRight: '2em',
   marginBottom: '2em',
   border: 'solid',
-  borderRadius: '.5em',
+  borderRadius: '.5em'
 };
 
 const ghostSingleIcon = new Leaflet.Icon({
@@ -25,13 +25,13 @@ const ghostSingleIcon = new Leaflet.Icon({
   iconSize: [30, 30]
 });
 
-
 export default class GhostInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: true,
-      ghostData: ''
+      ghostData: '',
+      mapCenter: ''
     };
   }
   //const coordinates = {loc: [this.state.ghostData.loc.coordinates[0], this.state.ghostData.loc.coordinates[1]]};
@@ -46,54 +46,13 @@ export default class GhostInfo extends React.Component {
     console.log('ID', id);
     this.getGhostData(id).then(res => {
       console.log('THE JSON', res.data);
+      console.log('coord', res.data.loc.coordinates);
       this.setState({
-        ghostData: res.data
+        ghostData: res.data,
+        mapCenter: res.data.loc.coordinates
       });
     });
   }
-
-  // const latitude = {this.state.ghostData.loc.coordinates[0]},
-  // const longitude = {this.state.ghostData.loc.coordinates[1]}
-//   latitude() {
-//     if(this.state.ghostData) {
-//     let coordinates = this.state.ghostData.loc.coordinates;
-//      return {
-//        coordinates.coordinates[0];
-//      }
-//   }
-// }
-//   longitude() {
-//     if(this.state.ghostData) {
-//     let coordinates = this.state.ghostData.loc.coordinates;
-//      return {
-//        coordinates.coordinates[1];
-//      }
-// //   }
-// // }
-// //
-latitude() {
-  if(this.state.ghostData) {
-  //   console.log('GHOST INFO LOC', this.state.ghostData.loc.coordinates;
-  // );
-    let latitude = this.state.ghostData.loc.coordinates;
-    if (latitude.coordinates) {
-      return {
-        latitude[0];
-      }
-    }
-  }
-}
-
-longitude() {
-  if(this.state.ghostData) {
-    let longitude = this.state.ghostData.loc.coordinates;
-    if (longitude.coordinates) {
-      return {
-        longitude[1];
-      }
-    }
-  }
-}
 
   ghostStreet() {
     if (this.state.ghostData) {
@@ -124,30 +83,9 @@ longitude() {
       }
     }
   }
-  generateMarkerCenter() {
-    for (let i = 0; i < this.state.ghostData.length; i++) {
-      this.markers.push(
-        <Marker
-          className="markerCenter"
-          key={i}
-          riseOnHover={true}
-          position={this.state.data[i].loc.coordinates}
-          maxBounds={this.state.bounds}
-          icon={ghostSingleIcon}
-          bubblingMouseEvents={true}
-          onClick={() => this.props.handleMarkerClick(this.state.data[i])}
-        />
-      );
-      console.log('this here', this.state.data[i]);
-    }
-    this.setState({
-      markers: this.markers
-    });
-  }
-
-
 
   render() {
+    console.log(this.state);
     console.log('PROPS', this.props);
     return (
       <div className="GhostInfo">
@@ -175,12 +113,11 @@ longitude() {
               {' < '}
               Back{' '}
             </Button>
-
           </Media>
         </Media>
         <Map
           className="littleMap"
-          center={ [this.state.ghostData.loc.coordinates[0], this.state.ghostdata.loc.coordinates[1]] }
+          center={this.state.mapCenter}
           style={littleMapStyle}
           scrollWheelZoom={false}
           zoom={6.75}
@@ -193,7 +130,8 @@ longitude() {
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             id="mapbox.streets"
             url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hhcm9uZnVsbGVyIiwiYSI6ImNqcGJlZjk3ODA5ZnYzdnBodmh1c3ExZGcifQ.4ZhymN2kEj9qywb3P5f-1Q"
-            />
+          />
+          <Marker icon={ghostSingleIcon} position={this.state.mapCenter} />
         </Map>
       </div>
     );
