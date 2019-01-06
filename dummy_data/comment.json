@@ -1,9 +1,0 @@
-// comment object
-// I'm not sure I understand how to embed a user and location. Read more.
-{
-  "user_id": Object_Id("54759eb3c090d83494e2d804"),
-  "location_id": locid("657545663"),
-  "comment": "",
-  "date_created": DateTime,
-  "date_deleted": DateTime
-}

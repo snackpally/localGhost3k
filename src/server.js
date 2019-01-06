@@ -3,12 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const passport = require('passport');
 //do we need cors?
 const cors = require('cors');
 
 //import routes for project
-const user = require('../Server_routes/user.route');
+
 const location = require('../Server_routes/location.route');
 const contact = require('../Server_routes/contact.route');
 //set up express server
@@ -43,14 +42,9 @@ app.use(
   })
 );
 
-//Passport init
-app.use(passport.initialize());
-app.use(passport.session());
-
 //Routes
 app.use('/location', location);
 app.use('/contact', contact);
-app.use('/user', user);
 
 app.listen(3001, function() {
   console.log('Server is running on 3001');
