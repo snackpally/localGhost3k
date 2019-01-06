@@ -74,3 +74,8 @@
   z-index: -1;
   position: fixed;
 }
+
+.disclaimer {
+  text-align: center;
+  font-size: 15px;
+}
