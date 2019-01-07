@@ -48,3 +48,13 @@ h5 {
 .ghostSource {
   /* color: white; */
 }
+
+@media all and (min-width:480px){
+  .commentWrapper {
+    padding: 60px 0;
+  }
+  .commentWrapper form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}

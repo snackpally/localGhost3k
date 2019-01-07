@@ -1,5 +1,5 @@
 import React from 'react';
-import { Media, Button } from 'reactstrap';
+import { Media, Button, Form, FormGroup, Label, Input, Card, CardText, CardBody, CardSubtitle } from 'reactstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './ghostInfo.css';
@@ -31,13 +31,37 @@ export default class GhostInfo extends React.Component {
     this.state = {
       isLoading: true,
       ghostData: '',
-      mapCenter: ''
+      mapCenter: '',
+      name: '',
+      comment: '',
+      comments: ''
     };
   }
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   getGhostData(id) {
     return axios.get('http://localhost:3001/location/detail/' + id);
   }
+
+  addComment(id, mes) {
+    return axios.post('http://localhost:3001/location/addComment/' + id, mes);
+  }
+
+  sendComment = e => {
+    e.preventDefault();
+    const id = this.props.match.params.id;
+    let message = { name: this.state.name, comment: this.state.comment };
+    console.log('Message', message);
+    console.log('ID', id);
+    this.addComment(id, message).then(res => {
+      console.log('JSON', res.data);
+      console.log('comment', res.data.comment);
+      window.location.reload();
+    });
+  };
 
   componentDidMount() {
     console.log(this.props.match.params.id);
@@ -48,7 +72,8 @@ export default class GhostInfo extends React.Component {
       console.log('coord', res.data.loc.coordinates);
       this.setState({
         ghostData: res.data,
-        mapCenter: res.data.loc.coordinates
+        mapCenter: res.data.loc.coordinates,
+        comments: res.data.comment
       });
     });
   }
@@ -83,7 +108,23 @@ export default class GhostInfo extends React.Component {
     }
   }
 
+  renderComments() {
+    if (this.state.comments) {
+      return this.state.comments.map((comment, i) => (
+        <div key={i} className="cardWrapper">
+          <Card>
+            <CardBody>
+              <CardSubtitle>{comment.name}</CardSubtitle>
+              <CardText>{comment.comment}</CardText>
+            </CardBody>
+          </Card>
+        </div>
+      ));
+    }
+  }
+
   render() {
+    console.log('Comments', this.state.comments);
     console.log(this.state);
     console.log('PROPS', this.props);
     return (
@@ -133,6 +174,18 @@ export default class GhostInfo extends React.Component {
             <Marker icon={ghostSingleIcon} position={this.state.mapCenter} />
           </Map>
         </Media>
+        <Form onSubmit={this.sendComment} className="commentWrapper">
+          <FormGroup>
+            <Label for="name">Name</Label>
+            <Input type="text" name="name" placeholder="Your Name" onChange={this.handleChange} />
+          </FormGroup>
+          <FormGroup>
+            <Label for="comment">Your Story</Label>
+            <Input type="textarea" name="comment" placeholder="Share your story" onChange={this.handleChange} />
+            <Button color="primary">Share</Button>
+          </FormGroup>
+        </Form>
+        <div className="commentsPlease">{this.renderComments()}</div>
       </div>
     );
   }

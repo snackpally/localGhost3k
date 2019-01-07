@@ -7,6 +7,8 @@ router.get('/allGhost', location_controller.test);
 
 router.post('/create', location_controller.location_create);
 
+router.post('/addComment/:id', location_controller.newComment);
+
 router.get('/detail/:id', location_controller.location_details);
 
 module.exports = router;

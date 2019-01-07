@@ -27,3 +27,13 @@ exports.location_details = function(req, res, next) {
     res.send(location);
   });
 };
+
+exports.newComment = function(req, res, next) {
+  let message = { name: req.body.name, comment: req.body.comment };
+  console.log(message);
+  Location.findOneAndUpdate({ _id: req.params.id }, { $push: { comment: message } }, function(err, success) {
+    err ? res.status(500).send(err) : res.status(200).send(success);
+    console.log('Test', success);
+    res.status(200);
+  });
+};

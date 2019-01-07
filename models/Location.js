@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// const User = require("./User");
 let Schema = mongoose.Schema;
 
 let Featurepoint = new Schema({
