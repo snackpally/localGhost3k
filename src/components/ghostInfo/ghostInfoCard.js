@@ -133,6 +133,9 @@ export default class GhostInfo extends React.Component {
             <Marker icon={ghostSingleIcon} position={this.state.mapCenter} />
           </Map>
         </Media>
+        <p className="disclaimerInfo">Ghost Hunters BEWARE: Please be mindful when visiting haunted locations. Make sure to obtain
+        permission when visiting private property and respect local regulations and business
+        operating hours.</p>
       </div>
     );
   }
