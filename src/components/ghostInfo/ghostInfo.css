@@ -49,6 +49,7 @@ h5 {
   /* color: white; */
 }
 
+
 .disclaimerInfo {
   text-align: center;
   font-size: 15px;
@@ -56,4 +57,14 @@ h5 {
   margin-top: 10px;
   margin-left: 56px;
   margin-right: 25px;
+}
+@media all and (min-width:480px){
+  .commentWrapper {
+    padding: 60px 0;
+  }
+  .commentWrapper form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+
 }
