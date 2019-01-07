@@ -10,7 +10,7 @@
 
 .collapseClose {
   margin-top: 10px;
-  margin-right: 20px;
+	margin-right: 20px;
 }
 
 .collapseImg {
@@ -29,8 +29,9 @@
 .collapsePlaceName {
   text-align: center;
   margin-top: 10px;
-  font-family: Times New Roman;
-  font-size: 23px;
+	font-family: "Amatic SC", cursive;
+	font-size: 3em;
+	font-weight: bolder;
   /* color: #d9d9e0; */
   color: #BFC81E !important;
 
@@ -46,7 +47,8 @@
   position: center;
   margin-left: auto;
   margin-right: auto;
-  color: #d9d9e0;
+	color: #d9d9e0;
+	font-size: 1.2em;
 
 }
 .collapseLocDesc{

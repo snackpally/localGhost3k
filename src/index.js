@@ -1,24 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/navbar/HeaderNav';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppContainer from './Routes/route';
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isAuthenticated: false
-    };
-  }
-  userHasAuthenticated = authenticated => {
-    this.setState({ isAuthenticated: authenticated });
-  };
 
+class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <Header /> */}
         <AppContainer />
       </div>
     );

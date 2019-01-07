@@ -1,15 +1,20 @@
 #TODO
 
-[] visual cue that carosuel scrolls
 
-[] styling fixes
+[x] visual cue that carosuel scrolls
 
-[] upload photo *dreamy
+[NO] cookies saving
 
-[] save ghosts to cookie
+[x] visual cue that carosuel scrolls
 
-[] submit data
+[x] styling fixes
+
+[NO] upload photo *dreamy
+
+[HELL NO] save ghosts to cookie
+
+[x] submit data
 
 [x] map on info page- merge from littleghostmap branch
 
-[] search? 
+[Nah] search? 
