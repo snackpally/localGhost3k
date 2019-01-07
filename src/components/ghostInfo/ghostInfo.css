@@ -48,3 +48,12 @@ h5 {
 .ghostSource {
   /* color: white; */
 }
+
+.disclaimerInfo {
+  text-align: center;
+  font-size: 15px;
+  color: gray;
+  margin-top: 10px;
+  margin-left: 56px;
+  margin-right: 25px;
+}

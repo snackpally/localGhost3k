@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Leaflet from 'leaflet';
-import { Map, TileLayer, Marker, GeoJSON } from 'react-leaflet';
+import { Map, TileLayer, Marker, GeoJSON, Popup } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import './component.css';
@@ -28,9 +28,12 @@ const mapStyle = {
   borderRadius: '.5em'
 };
 
+const stylePopup = {};
+
 const ghostSingleIcon = new Leaflet.Icon({
   iconUrl: ghostIcon,
-  iconSize: [33.3, 33.3]
+  iconSize: [33.3, 33.3],
+  popupAnchor: [0, -17]
 });
 
 const ghostClusterIcon = new Leaflet.Icon({
@@ -78,8 +81,15 @@ export default class LeafletMap extends React.Component {
           maxBounds={this.state.bounds}
           icon={ghostSingleIcon}
           bubblingMouseEvents={true}
-          onClick={() => this.props.handleMarkerClick(this.state.data[i])}
-        />
+          onMouseOver={e => {
+            e.target.openPopup();
+          }}
+          onMouseOut={e => {
+            e.target.closePopup();
+          }}
+          onClick={() => this.props.handleMarkerClick(this.state.data[i])}>
+          <Popup> {this.state.data[i].place_name}</Popup>
+        </Marker>
       );
       console.log('this here', this.state.data[i]);
     }

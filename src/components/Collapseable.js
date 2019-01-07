@@ -71,10 +71,7 @@ export default class Collapseable extends Component {
               {''}
             </Media>
           </Media>
-          <Button className="saveButton" size="sm">
-            Save
-          </Button>
-          {}
+        
         </Collapse>
       </div>
     );

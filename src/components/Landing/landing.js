@@ -48,6 +48,9 @@ class Landing extends React.Component {
           <Leaflet handleMarkerClick={this.handleMarkerClick} className="leafZIndex" />
           {this.state.currentLocation}
           <Carousel />
+          <p className="disclaimer">Ghost Hunters BEWARE: Please be mindful when visiting haunted locations. Make sure to obtain
+          permission when visiting private property and respect local regulations and business
+          operating hours.</p>
         </div>
       </div>
     );
