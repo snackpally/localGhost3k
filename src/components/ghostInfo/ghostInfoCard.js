@@ -178,17 +178,19 @@ export default class GhostInfo extends React.Component {
           Ghost Hunters BEWARE: Please be mindful when visiting haunted locations. Make sure to obtain permission when visiting private property and respect local regulations
           and business operating hours.
         </p>
+        <p className="sharedExperience">This place is Haunted!  Share your Experience</p>
         <Form onSubmit={this.sendComment} className="commentWrapper">
           <FormGroup>
-            <Label for="name">Name</Label>
-            <Input type="text" name="name" placeholder="Your Name" onChange={this.handleChange} />
+            <Label for="comment">Share A Haunted Experience</Label>
+            <Input type="textarea" name="comment" placeholder="Add your story" onChange={this.handleChange} />
           </FormGroup>
           <FormGroup>
-            <Label for="comment">Your Story</Label>
-            <Input type="textarea" name="comment" placeholder="Share your story" onChange={this.handleChange} />
-            <Button color="primary">Share</Button>
+            <Label for="name">Submitted By:</Label>
+            <Input type="text" name="name" placeholder="Enter Your Name" onChange={this.handleChange} />
           </FormGroup>
+          <Button color="primary">Share</Button>
         </Form>
+        <p className="stories">What others have experienced</p>
         <div className="commentsPlease">{this.renderComments()}</div>
       </div>
     );

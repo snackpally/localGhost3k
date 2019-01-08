@@ -71,7 +71,6 @@ export default class Collapseable extends Component {
               {''}
             </Media>
           </Media>
-        
         </Collapse>
       </div>
     );
