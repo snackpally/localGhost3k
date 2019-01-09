@@ -130,7 +130,7 @@ export default class GhostInfo extends React.Component {
     return (
       <div className="GhostInfo">
         <Media>
-          <Media left href="#">
+          <Media left>
             <Media object className="ghostDataImg" src={this.state.ghostData.loc_img_link} alt="Place Image" width="550px" height="550px" />
           </Media>
           <Media body className="ghostDataInfo">

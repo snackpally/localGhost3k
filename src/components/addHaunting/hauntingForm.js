@@ -67,6 +67,7 @@ export default class HauntingForm extends React.Component {
         window.location = '/';
       })
       .catch(err => {
+        alert('Please enter all fields');
         console.log(err);
       });
     // this.props.onFormSubmitted(this.state);

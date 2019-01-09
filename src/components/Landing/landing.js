@@ -12,6 +12,19 @@ class Landing extends React.Component {
     };
   }
 
+  componentDidMount() {
+    sessionStorage.setItem('firstVisit', '1');
+    console.log('Session', sessionStorage);
+  }
+  // try to hide modal if session storage === 1
+  modalView = () => {
+    let modal = document.getElementById('modal');
+    if (!sessionStorage.getItem('firstVisit') === '1') {
+      console.log(sessionStorage);
+      modal.style.display = 'block';
+    } else {
+    }
+  };
   handleMarkerClick = e => {
     console.log('clicked marker! info now available in Landing', e);
     let collapse = <Collapseable collapse="true" data={e} />;
@@ -37,6 +50,7 @@ class Landing extends React.Component {
   render() {
     return (
       <div className="Home">
+        {/* {this.modalView()} */}
         <div className="Landing">
           <div className="homePageModal" id="modal" onClick={this.handleModalClick}>
             <div className="homePageInner">
@@ -48,9 +62,10 @@ class Landing extends React.Component {
           <Leaflet handleMarkerClick={this.handleMarkerClick} className="leafZIndex" />
           {this.state.currentLocation}
           <Carousel />
-          <p className="disclaimer">Ghost Hunters BEWARE: Please be mindful when visiting haunted locations. Make sure to obtain
-          permission when visiting private property and respect local regulations and business
-          operating hours.</p>
+          <p className="disclaimer">
+            Ghost Hunters BEWARE: Please be mindful when visiting haunted locations. Make sure to obtain permission when visiting private property and respect local
+            regulations and business operating hours.
+          </p>
         </div>
       </div>
     );
