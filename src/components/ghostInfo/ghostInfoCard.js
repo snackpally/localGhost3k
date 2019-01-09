@@ -92,9 +92,9 @@ export default class GhostInfo extends React.Component {
   }
   ghostSource() {
     if (this.state.ghostData.info_source) {
-      return this.state.ghostData.info_source;
+      return "Source: "  + this.state.ghostData.info_source;
     } else {
-      return 'Unknown';
+      return '';
     }
   }
   ghostCity() {
@@ -147,7 +147,7 @@ export default class GhostInfo extends React.Component {
               <p>{this.state.ghostData.loc_desc}</p>
             </Media>
             <Media>
-              <h5>Source: {this.ghostSource()}</h5>
+              <h5>{this.ghostSource()}</h5>
             </Media>
             <Button color="secondary" tag={Link} to="/">
               {' < '}

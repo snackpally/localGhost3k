@@ -32,13 +32,13 @@ const stylePopup = {};
 
 const ghostSingleIcon = new Leaflet.Icon({
   iconUrl: ghostIcon,
-  iconSize: [33.3, 33.3],
+  iconSize: [32, 32],
   popupAnchor: [0, -17]
 });
 
 const ghostClusterIcon = new Leaflet.Icon({
   iconUrl: ghostIcon,
-  iconSize: [55, 55]
+  iconSize: [50, 50]
 });
 
 export default class LeafletMap extends React.Component {
