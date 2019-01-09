@@ -11,7 +11,6 @@ exports.test = function(req, res, next) {
 
 exports.cards = function(req, res, next) {
   Location.find({})
-
     .limit(20)
     .exec(function(err, location) {
       console.log('location', location);
