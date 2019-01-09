@@ -9,6 +9,17 @@ exports.test = function(req, res, next) {
   });
 };
 
+exports.cards = function(req, res, next) {
+  Location.find({})
+
+    .limit(20)
+    .exec(function(err, location) {
+      console.log('location', location);
+      if (err) return next(err);
+      res.send(location);
+    });
+};
+
 exports.location_create = function(req, res, next) {
   let location = new Location(req.body);
   location.save(function(err) {

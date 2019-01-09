@@ -18,7 +18,7 @@ export default class Carousel extends React.Component {
   }
 
   componentWillMount = () => {
-    axios.get('http://localhost:3001/location/allGhost').then(res => {
+    axios.get('http://localhost:3001/location/cards').then(res => {
       console.log(res);
       console.log('carousel', res.data);
       this.setState({
@@ -28,6 +28,12 @@ export default class Carousel extends React.Component {
       this.generateCards();
     });
   };
+
+  // componentWillUpdate(prevState) {
+  //   if (this.state.data !== prevState.data) {
+  //     this.generateCards();
+  //   }
+  // }
   generateCards = () => {
     for (let i = 0; i < this.state.data.length; i++) {
       this.cards.push(<GhostCard key={i} data={this.state.data[i]} />);

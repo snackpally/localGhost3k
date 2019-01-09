@@ -5,6 +5,8 @@ const location_controller = require('../controllers/location.controller');
 
 router.get('/allGhost', location_controller.test);
 
+router.get('/cards', location_controller.cards);
+
 router.post('/create', location_controller.location_create);
 
 router.post('/addComment/:id', location_controller.newComment);
