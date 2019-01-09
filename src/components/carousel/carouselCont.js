@@ -17,10 +17,10 @@ export default class Carousel extends React.Component {
     this.cards = [];
   }
 
-  componentDidMount = () => {
+  componentWillMount = () => {
     axios.get('http://localhost:3001/location/allGhost').then(res => {
       console.log(res);
-      console.log(res.data);
+      console.log('carousel', res.data);
       this.setState({
         data: res.data,
         ready: true
@@ -47,6 +47,7 @@ export default class Carousel extends React.Component {
   render() {
     const { activeItemIndex, children } = this.state;
 
+    console.log('carosel');
     return (
       <div className="chevron">
         {/*<p className="carouselDirections">Scroll for more ghosts!</p>*/}

@@ -52,7 +52,7 @@ export default class LeafletMap extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get('http://localhost:3001/location/allGhost').then(res => {
       this.setState(
         {
@@ -91,7 +91,7 @@ export default class LeafletMap extends React.Component {
           <Popup> {this.state.data[i].place_name}</Popup>
         </Marker>
       );
-      console.log('this here', this.state.data[i]);
+      // console.log('this here', this.state.data[i]);
     }
     this.setState({
       markers: this.markers

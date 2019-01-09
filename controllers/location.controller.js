@@ -4,7 +4,8 @@ exports.test = function(req, res, next) {
   Location.find({}, function(err, location) {
     if (err) return next(err);
     res.send(location);
-    console.log(location);
+    // console.log(location);
+    console.log('Received');
   });
 };
 
