@@ -182,11 +182,11 @@ export default class GhostInfo extends React.Component {
         <Form onSubmit={this.sendComment} className="commentWrapper">
           <FormGroup>
             <Label for="comment">Share A Haunted Experience</Label>
-            <Input type="textarea" name="comment" placeholder="Add your story" onChange={this.handleChange} />
+            <Input type="textarea" name="comment" placeholder="Add your story" onChange={this.handleChange} required />
           </FormGroup>
           <FormGroup>
             <Label for="name">Submitted By:</Label>
-            <Input type="text" name="name" placeholder="Enter Your Name" onChange={this.handleChange} />
+            <Input type="text" name="name" placeholder="Enter Your Name" onChange={this.handleChange} required />
           </FormGroup>
           <Button color="secondary">Share</Button>
         </Form>
