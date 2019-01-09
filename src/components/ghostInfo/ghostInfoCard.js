@@ -92,7 +92,7 @@ export default class GhostInfo extends React.Component {
   }
   ghostSource() {
     if (this.state.ghostData.info_source) {
-      return "Source: "  + this.state.ghostData.info_source;
+      return 'Source: ' + this.state.ghostData.info_source;
     } else {
       return '';
     }
