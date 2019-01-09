@@ -10,7 +10,7 @@ export default class Carousel extends React.Component {
   constructor() {
     super();
     this.state = {
-      children: [],
+      // children: [],
       activeItemIndex: 0,
       data: ''
     };
@@ -41,12 +41,12 @@ export default class Carousel extends React.Component {
     }
   };
 
-  createChildren = n =>
-    range(n).map(i => (
-      <div key={i} style={{ height: 100, background: '#333' }}>
-        {i}
-      </div>
-    ));
+  // createChildren = n =>
+  //   range(n).map(i => (
+  //     <div key={i} style={{ height: 100, background: '#333' }}>
+  //       {i}
+  //     </div>
+  //   ));
 
   changeActiveItem = activeItemIndex => this.setState({ activeItemIndex });
 
