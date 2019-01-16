@@ -81,8 +81,6 @@ export default class GhostInfo extends React.Component {
   ghostStreet() {
     if (this.state.ghostData) {
       let address = this.state.ghostData.address;
-      // console.log(this.state.ghostData);
-      // console.log('FAIL', address.city);
       if (address.street) {
         return address.street;
       } else {

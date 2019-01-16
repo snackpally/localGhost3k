@@ -10,7 +10,6 @@ export default class Carousel extends React.Component {
   constructor() {
     super();
     this.state = {
-      // children: [],
       activeItemIndex: 0,
       data: ''
     };
@@ -29,24 +28,11 @@ export default class Carousel extends React.Component {
     });
   };
 
-  // componentWillUpdate(prevState) {
-  //   if (this.state.data !== prevState.data) {
-  //     this.generateCards();
-  //   }
-  // }
   generateCards = () => {
     for (let i = 0; i < this.state.data.length; i++) {
       this.cards.push(<GhostCard key={i} data={this.state.data[i]} />);
-      // console.log('card', this.state.data[i]);
     }
   };
-
-  // createChildren = n =>
-  //   range(n).map(i => (
-  //     <div key={i} style={{ height: 100, background: '#333' }}>
-  //       {i}
-  //     </div>
-  //   ));
 
   changeActiveItem = activeItemIndex => this.setState({ activeItemIndex });
 
@@ -56,7 +42,6 @@ export default class Carousel extends React.Component {
     console.log('carosel');
     return (
       <div className="chevron">
-        {/*<p className="carouselDirections">Scroll for more ghosts!</p>*/}
         <ItemsCarousel
           enablePlaceholder
           numberOfPlaceholderItems={5}
@@ -75,7 +60,6 @@ export default class Carousel extends React.Component {
           outsideChevron={false}
           springConfig={{ stiffness: 120, damping: 14 }}>
           {this.cards}
-          {/* {children} */}
         </ItemsCarousel>
       </div>
     );

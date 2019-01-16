@@ -91,7 +91,6 @@ export default class LeafletMap extends React.Component {
           <Popup> {this.state.data[i].place_name}</Popup>
         </Marker>
       );
-      // console.log('this here', this.state.data[i]);
     }
     this.setState({
       markers: this.markers

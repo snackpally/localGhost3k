@@ -40,23 +40,9 @@ export default class HauntingForm extends React.Component {
     }
   };
 
-  // validData = () => {
-  //   const hasLocationName = this.state.place_name.trim() !== '';
-  //   const hasCoordinates = !isNaN(this.state.loc.coordinates);
-  //   const hasDescription = this.state.loc_desc.trim() !== '';
-  //   const hasImage = this.state.loc_img_link.trim() !== '';
-  //   const hasAddress = this.state.address.trim() !== '';
-  //   const hasCity = this.state.city.trim() !== '';
-  //   const hasState = this.state.state.trim() !== '';
-  //   const hasSource = this.state.source.trim() !== '';
-
-  //   return hasLocationName && hasCoordinates && hasDescription && hasImage && hasAddress && hasCity && hasState;
-  // };
-
   formSubmitted = event => {
     event.preventDefault();
     console.log(this.state);
-    // if (this.validData()) {
     let ghosty = this.state;
     console.log('TO SEND', ghosty);
     axios
@@ -70,8 +56,6 @@ export default class HauntingForm extends React.Component {
         alert('Please enter all fields');
         console.log(err);
       });
-    // this.props.onFormSubmitted(this.state);
-    // }
   };
 
   render() {

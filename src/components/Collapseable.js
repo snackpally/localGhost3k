@@ -76,4 +76,3 @@ export default class Collapseable extends Component {
     );
   }
 }
-//<Button tag={Link} to="/somewhere" / or wrap the button in a link '/ghostInfo + this.props.data._id'

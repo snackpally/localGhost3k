@@ -12,30 +12,14 @@ class Landing extends React.Component {
     };
   }
 
-  componentDidMount() {
-    sessionStorage.setItem('firstVisit', '1');
-    console.log('Session', sessionStorage);
-  }
-  // try to hide modal if session storage === 1
-  modalView = () => {
-    let modal = document.getElementById('modal');
-    if (!sessionStorage.getItem('firstVisit') === '1') {
-      console.log(sessionStorage);
-      modal.style.display = 'block';
-    } else {
-    }
-  };
   handleMarkerClick = e => {
     console.log('clicked marker! info now available in Landing', e);
     let collapse = <Collapseable collapse="true" data={e} />;
-    // for some reason, data, passed above, is showing up 'undefined' in collapseable.
-    //
     this.setState({
       currentLocation: collapse
     });
     let newView = document.getElementById('ghostCollapse');
     newView.scrollIntoView();
-    //todo scroll transition
   };
 
   handleModalClick = event => {
@@ -50,7 +34,6 @@ class Landing extends React.Component {
   render() {
     return (
       <div className="Home">
-        {/* {this.modalView()} */}
         <div className="Landing">
           <div className="homePageModal" id="modal" onClick={this.handleModalClick}>
             <div className="homePageInner">
