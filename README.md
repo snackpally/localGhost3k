@@ -11,7 +11,7 @@ You will need node.js to run this application. If you are unfamiliar with [node.
 Once you're done there or if you already have node.js on your machine 
 
 1. **Clone the repository**
-    * In the project folder ```npm install``` to download all neccesary dependencies.
+    * In the project folder ```npm install``` to download all necessary dependencies.
 2. **Serve the app to localhost**
     * Open a terminal window and cd into project folder.
     * On the master branch run ```serve -s build``` this will launch the app at localhost:5000
