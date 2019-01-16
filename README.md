@@ -1,8 +1,8 @@
 # Welcome to Local Ghost 3000
 
-Local Ghost is an interactive database that allows you to find hauntings in your area. 
+Local Ghost is an interactive database that allows you to find hauntings in your area (currently only in Montana). 
 
-Be safe, Be Smart and happy haunting.
+Be safe, be smart and happy haunting.
 
 ## Setting up Local Ghost 3000
 
