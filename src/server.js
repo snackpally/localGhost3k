@@ -45,6 +45,11 @@ app.use(
 app.use('/location', location);
 app.use('/contact', contact);
 
-app.listen(3001, function() {
-  console.log('Server is running on 3001');
+let port = process.env.PORT;
+if (port == null || port == '') {
+  port = 8000;
+}
+
+app.listen(port, function() {
+  console.log('Server is running on: ', port);
 });
